@@ -22,6 +22,7 @@
     <!-- https://materializecss.com/ -->    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
+    <!-- Icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Reset CSS -->
@@ -29,6 +30,7 @@
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
+
 <body>
 
     <header> 
@@ -66,16 +68,19 @@
               <!-- </div> -->
             <!-- </div> -->
             <!-- ------------------------------------- -->
-
-
-            
+           
             <div class="row">
+          
               <div class="col s3">
                 <!-- Grey navigation panel -->
 
                 <!-- ------------------------------------- -->
                 <!-- Example Check boxes -->
                 <!-- https://materializecss.com/checkboxes.html -->
+                <p> Sort by
+                  <i class="material-icons">sort</i>
+                </p>
+                <div class="divider"></div>
                 <p>
                   <label>
                     <input type="checkbox" />
@@ -112,6 +117,9 @@
                     <span>Brown</span>
                   </label>
                 </p>
+                <p>
+                  <i class="material-icons">filter_list</i> Filter Symbol
+                </p>
                  <!-- ------------------------------------- -->
               </div>
         
@@ -140,8 +148,21 @@
                     </div>
                   </div>
                   <!-- ------------------- -->
-
               </div>
+              <!--pagination to show how many pages we'll have-->
+              <section>
+                <div class="center-align">
+                  <ul class="pagination">
+                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                    <li class="active"><a href="#!">1</a></li>
+                    <li class="waves-effect"><a href="#!">2</a></li>
+                    <li class="waves-effect"><a href="#!">3</a></li>
+                    <li class="waves-effect"><a href="#!">4</a></li>
+                    <li class="waves-effect"><a href="#!">5</a></li>
+                    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                  </ul>
+                </div>
+              </section>
             </div>
 
             <!-- Example icons usage -->
@@ -156,16 +177,8 @@
             -->
             <!-- <i class="large material-icons">insert_chart</i> -->
             <!-- ------------------- -->
-            
-            
-          
-            
-
-          
         </div>
     </section>
-
-    
 
     <!-- <footer>
       <p>Copyright @2021 UW Bootcamp Team 6</p>     
@@ -205,7 +218,6 @@
 
     <!-- Materialize CSS - Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
     <!-- JavaScript Import  -->
     <script src='./assets/js/script.js'></script>
     <script src='./assets/js/test.js'></script>

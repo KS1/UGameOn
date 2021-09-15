@@ -6,6 +6,11 @@ body {
     flex-direction: column;
   }
 
-  main {
+main {
     flex: 1 0 auto;
   }
+
+body {
+  background-color: #f8bbd0;
+}
+
