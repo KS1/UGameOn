@@ -1,11 +1,79 @@
+:root {
+  --main-dark-color: #77b0fa;
+  --main-light-color: white;
+  --font-size: 1.2em;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
 
 /* https://materializecss.com/footer.html */
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+
+    background-color: #1b293b;
   }
 
   main {
     flex: 1 0 auto;
   }
+
+  .large.material-icons {
+    margin-left: 5em;
+    color: var(--main-dark-color);
+  }
+  
+  .brand-logo.nav {
+    color: #77b0fa;
+    letter-spacing: 0.12em;
+    font-size: 2em;
+  }
+  
+  .nav {
+    color: #77b0fa;
+    margin-right: 10em;
+    letter-spacing: 0.09em;
+  }
+  .nav:hover {
+    text-shadow: 0 0 10px #aabeff;
+  }
+  
+  a.nav {
+    margin-right: 8em;
+  }
+  i.material-icons.nav {
+    margin-right: 4em;
+  }
+  
+  /* card  */
+  div.row {
+    margin-top: 50px;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  div.card-content {
+    background-color: #ebebeb;
+  }
+  
+  p,
+  span.card-title {
+    color: rgb(47, 47, 47);
+    line-height: 2em;
+  }
+  
+  i.material-icons.add {
+    background-color: #77b0fa;
+  }
+  
+  i.material-icons.add:hover {
+    background-color: #4d9aff;
+    box-shadow: 0 0 10px #aabeff;
+  }
+  
