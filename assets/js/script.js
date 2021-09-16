@@ -7,7 +7,25 @@
 // 404: Object not found: Game or endpoint not found
 // 500: Something wrong on our end (unexpected server errors)
 
-// returns 1 record
+// Get games list - returns 365 records
+// 365 items
+//     [100 items
+//         0:{11 items
+//             "id":1
+//             "title":"Dauntless"
+//             "thumbnail":"https://www.freetogame.com/g/1/thumbnail.jpg"
+//             "short_description":"A free-to-play, co-op action RPG with gameplay similar to Monster Hunter."
+//             "game_url":"https://www.freetogame.com/open/dauntless"
+//             "genre":"MMORPG"
+//             "platform":"PC (Windows)"
+//             "publisher":"Phoenix Labs"
+//             "developer":"Phoenix Labs, Iron Galaxy"
+//             "release_date":"2019-05-21"
+//             "freetogame_profile_url":"https://www.freetogame.com/dauntless"
+//             }
+
+
+// Get details for a specific game - returns 1 record// 
 // {15 items
 //     "id":452
 //     "title":"Call Of Duty: Warzone"
@@ -73,12 +91,123 @@ var getGamesList = function() {
     .then(response => {
         if (response.ok) {
             response.json().then(function(data) {             
-                console.log(data);               
+                console.log(data);          
+                console.log(data[0]);   
+
+                // Card 1
+                var card1TitleEl = document.querySelector('#card1-title');
+                card1TitleEl.textContent = data[0].title;
+                console.log("card1TitleEl.textContent: " + card1TitleEl.textContent); 
+
+                var card1ShortDescriptionEl = document.querySelector('#card1-short-description');
+                card1ShortDescriptionEl.textContent = data[0].short_description;
+                console.log("card1-short-description: " + card1ShortDescriptionEl.textContent); 
+
+                var card1ImageEl = document.querySelector('#card1-img');
+                card1ImageEl.src = data[0].thumbnail;
+                console.log(card1ImageEl.src); 
+
+                // Card 2
+                var card2TitleEl = document.querySelector('#card2-title');
+                card2TitleEl.textContent = data[1].title;
+                console.log("card2TitleEl.textContent: " + card2TitleEl.textContent); 
+
+                var card2ShortDescriptionEl = document.querySelector('#card2-short-description');
+                card2ShortDescriptionEl.textContent = data[1].short_description;
+                console.log("card2-short-description: " + card2ShortDescriptionEl.textContent); 
+
+                var card2ImageEl = document.querySelector('#card2-img');
+                card2ImageEl.src = data[1].thumbnail;
+                console.log(card2ImageEl.src); 
+
+                // Card 3
+                var card3TitleEl = document.querySelector('#card3-title');
+                card3TitleEl.textContent = data[2].title;
+                console.log("card3TitleEl.textContent: " + card3TitleEl.textContent); 
+
+                var card3ShortDescriptionEl = document.querySelector('#card3-short-description');
+                card3ShortDescriptionEl.textContent = data[2].short_description;
+                console.log("card3-short-description: " + card3ShortDescriptionEl.textContent); 
+
+                var card3ImageEl = document.querySelector('#card3-img');
+                card3ImageEl.src = data[2].thumbnail;
+                console.log(card3ImageEl.src); 
+
+                // Card 4
+                var card4TitleEl = document.querySelector('#card4-title');
+                card4TitleEl.textContent = data[3].title;
+                console.log("card4TitleEl.textContent: " + card4TitleEl.textContent); 
+
+                var card4ShortDescriptionEl = document.querySelector('#card4-short-description');
+                card4ShortDescriptionEl.textContent = data[3].short_description;
+                console.log("card4-short-description: " + card4ShortDescriptionEl.textContent); 
+
+                var card4ImageEl = document.querySelector('#card4-img');
+                card4ImageEl.src = data[3].thumbnail;
+                console.log(card4ImageEl.src); 
+
+                // Card 5
+                var card5TitleEl = document.querySelector('#card5-title');
+                card5TitleEl.textContent = data[4].title;
+                console.log("card5TitleEl.textContent: " + card5TitleEl.textContent); 
+
+                var card5ShortDescriptionEl = document.querySelector('#card5-short-description');
+                card5ShortDescriptionEl.textContent = data[4].short_description;
+                console.log("card5-short-description: " + card5ShortDescriptionEl.textContent); 
+
+                var card5ImageEl = document.querySelector('#card5-img');
+                card5ImageEl.src = data[4].thumbnail;
+                console.log(card5ImageEl.src); 
+
+                // Card 6
+                var card6TitleEl = document.querySelector('#card6-title');
+                card5TitleEl.textContent = data[5].title;
+                console.log("card6TitleEl.textContent: " + card6TitleEl.textContent); 
+
+                var card6ShortDescriptionEl = document.querySelector('#card6-short-description');
+                card6ShortDescriptionEl.textContent = data[5].short_description;
+                console.log("card6-short-description: " + card6ShortDescriptionEl.textContent); 
+
+                var card6ImageEl = document.querySelector('#card6-img');
+                card5ImageEl.src = data[5].thumbnail;
+                console.log(card6ImageEl.src); 
+
+
+                // Card 7
+                var card7TitleEl = document.querySelector('#card7-title');
+                card7TitleEl.textContent = data[6].title;
+                console.log("card7TitleEl.textContent: " + card7TitleEl.textContent); 
+
+                var card7ShortDescriptionEl = document.querySelector('#card7-short-description');
+                card7ShortDescriptionEl.textContent = data[6].short_description;
+                console.log("card7-short-description: " + card7ShortDescriptionEl.textContent); 
+
+                var card7ImageEl = document.querySelector('#card7-img');
+                card7ImageEl.src = data[6].thumbnail;
+                console.log(card7ImageEl.src); 
+
+
+
+
+                // for(i = 0; i < data.length; i++)
+                // {
+                //     console.log("Id: " + data[i].id);
+                //     console.log("title: " + data[i].title);
+                //     console.log("thumbnail: " + data[i].thumbnail);                   
+                //     console.log("short_description: " + data[i].short_description);                    
+                //     console.log("game_url: " + data[i].game_url);
+                //     console.log("genre: " + data[i].genre);
+                //     console.log("platform: " + data[i].platform);
+                //     console.log("publisher: " + data[i].publisher);
+                //     console.log("developer: " + data[i].developer);
+                //     console.log("release_date: " + data[i].release_date);
+                //     console.log("freetogame_profile_url: " + data[i].freetogame_profile_url);
+                // }
             });
         } else {
             alert(`Error: ${response.statusText}`)
         }
-        console.log(response);
+        // console.log(response);
     })
     .catch(err => {
         console.error(err);
@@ -250,6 +379,8 @@ var getGamesFilter = function() {
     });
 }
 
-btnGetGamesList.addEventListener('click', getGamesList);
+getGamesList();
+
+// btnGetGamesList.addEventListener('click', getGamesList);
 
 btnGetGamesFilter.addEventListener('click', getGamesFilter);
