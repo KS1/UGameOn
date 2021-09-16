@@ -11,8 +11,6 @@
   box-sizing: border-box;
 }
 
-
-/* https://materializecss.com/footer.html */
 body {
     display: flex;
     min-height: 100vh;
@@ -76,4 +74,3 @@ body {
     background-color: #4d9aff;
     box-shadow: 0 0 10px #aabeff;
   }
-  
