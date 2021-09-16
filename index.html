@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
-
+  <!-- <p> <button id="btnGetGamesList">Get Games</button> </p> -->
     <header> 
       <div class="navbar-fixed">
         <nav>
@@ -74,6 +74,23 @@
                 <!-- Grey navigation panel -->
 
                 <!-- ------------------------------------- -->
+                <!-- Example Dropdown - Sort By Options  -->
+                <!-- https://materializecss.com/select.html -->
+
+                <p> 
+                  <label>Browser Select</label>
+                  <select class="browser-default">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                  </select>
+                </p>
+                <!-- ------------------------------------- -->
+ 
+                <br/>
+         
+                <!-- ------------------------------------- -->
                 <!-- Example Check boxes -->
                 <!-- https://materializecss.com/checkboxes.html -->
                 <p>
@@ -113,8 +130,10 @@
                   </label>
                 </p>
                  <!-- ------------------------------------- -->
+
               </div>
-        
+
+
               <div class="col s9">
                 <!-- Teal page content  -->
 
@@ -123,100 +142,107 @@
 
                     <div class="row">
 
+                      <!-- Card 1 -->
                       <div class="col s12 m6 l3">
                         <div class="card">
                           <div class="card-image">
-                            <img src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                            <img id="card1-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
                   
                             <a class="btn-floating halfway-fab waves-effect"><i class="material-icons add">add</i></a>
                           </div>
                           <div class="card-content">
-                            <span class="card-title">Card Title</span>
-                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                            <span id="card1-title" class="card-title" >Card Title</span>
+                            <p id="card1-short-description">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
                           </div>
                         </div>
                       </div>
 
+                      <!-- Card 2 -->
                       <div class="col s12 m6 l3">
                         <div class="card">
                           <div class="card-image">
-                            <img src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                            <img id="card2-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
                   
                             <a class="btn-floating halfway-fab waves-effect"><i class="material-icons add">add</i></a>
                           </div>
                           <div class="card-content">
-                            <span class="card-title">Card Title</span>
-                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                            <span id="card2-title" class="card-title">Card Title</span>
+                            <p id="card2-short-description">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
                           </div>
                         </div>
                       </div>
 
+                      <!-- Card 3 -->
                       <div class="col s12 m6 l3">
                         <div class="card">
                           <div class="card-image">
-                            <img src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                            <img id="card3-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
                   
                             <a class="btn-floating halfway-fab waves-effect"><i class="material-icons add">add</i></a>
                           </div>
                           <div class="card-content">
-                            <span class="card-title">Card Title</span>
-                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                            <span id="card3-title" class="card-title">Card Title</span>
+                            <p id="card3-short-description">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
                           </div>
                         </div>
                       </div>
 
+                      <!-- Card 4 -->
                       <div class="col s12 m6 l3">
                         <div class="card">
                           <div class="card-image">
-                            <img src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                            <img id="card4-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
                   
                             <a class="btn-floating halfway-fab waves-effect"><i class="material-icons add">add</i></a>
                           </div>
                           <div class="card-content">
-                            <span class="card-title">Card Title</span>
-                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                            <span id="card4-title" class="card-title">Card Title</span>
+                            <p id="card4-short-description">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
                           </div>
                         </div>
                       </div>
                       
+                      <!-- Card 5 -->
                       <div class="col s12 m6 l3">
                         <div class="card">
                           <div class="card-image">
-                            <img src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                            <img id="card5-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
                   
                             <a class="btn-floating halfway-fab waves-effect"><i class="material-icons add">add</i></a>
                           </div>
                           <div class="card-content">
-                            <span class="card-title">Card Title</span>
-                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                            <span id="card5-title" class="card-title">Card Title</span>
+                            <p id="card5-short-description">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
                           </div>
                         </div>
                       </div>
                       
+                      <!-- Card 6 -->
                       <div class="col s12 m6 l3">
                         <div class="card">
                           <div class="card-image">
-                            <img src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                            <img id="card6-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
                   
                             <a class="btn-floating halfway-fab waves-effect"><i class="material-icons add">add</i></a>
                           </div>
                           <div class="card-content">
-                            <span class="card-title">Card Title</span>
-                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                            <span id="card6-title" class="card-title">Card Title</span>
+                            <p id="card6-short-description">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
                           </div>
                         </div>
                       </div>
                       
+                      <!-- Card 7 -->
                       <div class="col s12 m6 l3">
                         <div class="card">
                           <div class="card-image">
-                            <img src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                            <img id="card7-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
                   
                             <a class="btn-floating halfway-fab waves-effect"><i class="material-icons add">add</i></a>
                           </div>
                           <div class="card-content">
-                            <span class="card-title">Card Title</span>
-                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                            <span id="card7-title" class="card-title">Card Title</span>
+                            <p id="card7-short-description">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
                           </div>
                         </div>
                       </div>
