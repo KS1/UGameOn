@@ -75,3 +75,8 @@ body {
     background-color: #4d9aff;
     box-shadow: 0 0 10px #aabeff;
   }
+
+  .page-footer {
+    background-color: rgb(47, 47, 47);
+  }
+
