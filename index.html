@@ -4,111 +4,329 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Focus</title>
-    <link rel = "icon" href = 
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfeMIDIjU0ryw9HBuwsc3weeqqsYR1EZPCyg&usqp=CAUg" 
-            type = "image/x-icon">
-  
 
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
-<!-- google font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assets/css/style.css" />
-  <!--materialize-->
+    <!-- Favicon -->
+    <link rel="icon" href="./assets/images/gaming-icon-7.jpg" sizes="16x16" type="image/png">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Title -->
+    <title>U Game On</title>
 
+    <!-- Bulma stylesheet  -->
+    <!-- https://bulma.io/documentation/overview/start/  -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"> -->
 
-<link rel="stylesheet" href="./assets/css/reset.css" />
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+    <!-- Materialize CSS - Compiled and minified CSS -->
+    <!-- https://materializecss.com/ -->    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
-
 <body>
-  <div class="navbar-fixed">
-    <nav>
-    <div class="nav-wrapper grey darken-4">
-      <a class="brand-logo nav"><i class="large material-icons">center_focus_weak</i>Focus</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html" class="nav">Home</a></li>
-        <li><a href="badges.html" class="nav">My Favorite</a></li>
-        <li><a href="collapsible.html " class="nav">About</a></li>
-        <li><a href="sass.html"><i id="search-icon"class="material-icons nav">search</i></a></li>
-      </ul>
-    </div>
-    </nav>
-  </div>  
+  <!-- <p> <button id="btnGetGamesList">Get Games</button> </p> -->
+    <header> 
+      <div class="navbar-fixed">
+        <nav>
+        <div class="nav-wrapper grey darken-4">
+          <a class="brand-logo nav"><i class="large material-icons">center_focus_weak</i>Focus</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="sass.html" class="nav">Home</a></li>
+            <li><a href="badges.html" class="nav">My Favorite</a></li>
+            <li><a href="collapsible.html " class="nav">About</a></li>
+            <li><a href="sass.html"><i class="material-icons nav">search</i></a></li>
+          </ul>
+        </div>
+        </nav>
+      </div>  
+    </header>
 
     <div class="row">
-      <div class="col s3 m3">
-        <div class="card">
+      <div class="col s12">
+        <div class="card card0">
           <div class="card-image">
-            <img src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1">
-            <a class="btn-floating halfway-fab waves-effect"><i class="material-icons add">get_app</i></a>
-          </div>
-          <div class="card-content">
-            <span class="card-title">Card Title</span>
-            <p>I am a very simple card. I am good at containing small bits of information.</p>
-            <p><a href="#">This is a link</a></p>
+            <img id="card0-img" src="https://media1.giphy.com/media/fSvqyvXn1M3btN8sDh/giphy.gif "alt="Card Image">
+            <a class="btn-floating halfway-fab waves-effect"><i class="material-icons add heart-icon-1">favorite</i></a>
+            </div>
+            <div class="card-content">
+              <span id="card0-title" class="card-title" >Pokémon Go Pokedex</span>
+              <p id="card0-short-description">Pokémon Go Pokedex has all the unique types that you’ve been searching for. </p>
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="col s3 m3">
-        <div class="card">
-          <div class="card-image">
-            <img src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1">
-            <a class="btn-floating halfway-fab waves-effect"><i class="material-icons add">get_app</i></a>
-          </div>
-          <div class="card-content">
-            <span class="card-title">Card Title</span>
-            <p>I am a very simple card. I am good at containing small bits of information.</p>
-            <p><a href="#">This is a link</a></p>
-          </div>
+        <!-- https://materializecss.com/grid.html --> 
+        <!-- 0918 changed col# add class name -->
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m9 l3">
+          <div class="sorting-container1">  
+          <!-- Grey navigation panel -->
+          <!-- Example Dropdown - Sort By Options  -->
+          <!-- https://materializecss.com/select.html --> 
+           
+          <p> 
+          <label>Browser Select</label>
+          <select class="browser-default">
+          <option value="" disabled selected>Choose your option</option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+          </select>
+          </p>
+
+          <!-- Example Check boxes -->
+          <!-- https://materializecss.com/checkboxes.html -->
+          <p>
+          <label>
+            <input type="checkbox" />
+            <span class="sorting-items">Red</span>
+          </label>
+          </p>
+          <p>
+          <label>
+            <input type="checkbox" checked="checked" />
+            <span class="sorting-items">Yellow</span>
+          </label>
+          </p>
+          <p>
+          <label>
+            <input type="checkbox" class="filled-in" checked="checked" />
+            <span class="sorting-items">Filled in</span>
+          </label>
+          </p>
+          <p>
+          <label>
+            <input id="indeterminate-checkbox" type="checkbox" />
+            <span class="sorting-items">Indeterminate Style</span>
+          </label>
+          </p>
+          <p>
+                  <label>
+                    <input type="checkbox" checked="checked" disabled="disabled" />
+                    <span class="sorting-items">Green</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" disabled="disabled" />
+                    <span class="sorting-items">Brown</span>
+                  </label>
+                </p>
+                 <!-- ------------------------------------- -->
+                </div>
+              </div>
+
+              <!-- changed col# -->
+              <div class="col s12 m9 l9 card-container"> 
+                <!-- Teal page content  -->
+                 <div class="row">
+                   <!-- Card 1 --> <!--0918 changed col# for all cards-->
+                    <div class="col s12 m6 l6 xl4">
+                      <div class="card">
+                        <div class="card-image">
+                          <img id="card1-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                          <a class="btn-floating halfway-fab waves-effect"><i class="material-icons add heart-icon-1">favorite</i></a>
+                          </div>
+                          <div class="card-content">
+                            <span id="card1-title" class="card-title" >Card Title</span>
+                            <p id="card1-short-description">I am a very simple card. I am good at containing small bits of information..</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Card 2 -->
+                      <div class="col s12 m6 l6 xl4">
+                        <div class="card">
+                          <div class="card-image">
+                            <img id="card2-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                  
+                            <a class="btn-floating halfway-fab waves-effect"><i class="material-icons add">favorite</i></a>
+                          </div>
+                          <div class="card-content">
+                            <span id="card2-title" class="card-title">Card Title</span>
+                            <p id="card2-short-description">I am a very simple card. I am good at containing small bits of information..</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Card 3 -->
+                      <div class="col s12 m6 l6 xl4">
+                        <div class="card">
+                          <div class="card-image">
+                            <img id="card3-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                  
+                            <a class="btn-floating halfway-fab waves-effect"><i class="material-icons add">favorite</i></a>
+                          </div>
+                          <div class="card-content">
+                            <span id="card3-title" class="card-title">Card Title</span>
+                            <p id="card3-short-description">I am a very simple card. I am good at containing small bits of information..</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Card 4 -->
+                      <div class="col s12 m6 l6 xl4">
+                        <div class="card">
+                          <div class="card-image">
+                            <img id="card4-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                  
+                            <a class="btn-floating halfway-fab waves-effect"><i class="material-icons add">favorite</i></a>
+                          </div>
+                          <div class="card-content">
+                            <span id="card4-title" class="card-title">Card Title</span>
+                            <p id="card4-short-description">I am a very simple card. I am good at containing small bits of information..</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!-- Card 5 -->
+                      <div class="col s12 m6 l6 xl4">
+                        <div class="card">
+                          <div class="card-image">
+                            <img id="card5-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                  
+                            <a class="btn-floating halfway-fab waves-effect"><i class="material-icons add">favorite</i></a>
+                          </div>
+                          <div class="card-content">
+                            <span id="card5-title" class="card-title">Card Title</span>
+                            <p id="card5-short-description">I am a very simple card. I am good at containing small bits of information..</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!-- Card 6 -->
+                      <div class="col s12 m6 l6 xl4">
+                        <div class="card">
+                          <div class="card-image">
+                            <img id="card6-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                  
+                            <a class="btn-floating halfway-fab waves-effect"><i class="material-icons add">favorite</i></a>
+                          </div>
+                          <div class="card-content">
+                            <span id="card6-title" class="card-title">Card Title</span>
+                            <p id="card6-short-description">I am a very simple card. I am good at containing small bits of information..</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!-- Card 7 -->
+                      <div class="col s12 m6 l6 xl4">
+                        <div class="card">
+                          <div class="card-image">
+                            <img id="card7-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                  
+                            <a class="btn-floating halfway-fab waves-effect"><i class="material-icons add">favorite</i></a>
+                          </div>
+                          <div class="card-content">
+                            <span id="card7-title" class="card-title">Card Title</span>
+                            <p id="card7-short-description">I am a very simple card. I am good at containing small bits of information..</p>
+                          </div>
+                        </div>
+                      </div>
+
+                       <!-- Card 8 -->
+                       <div class="col s12 m6 l6 xl4">
+                        <div class="card">
+                          <div class="card-image">
+                            <img id="card8-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                  
+                            <a class="btn-floating halfway-fab waves-effect"><i class="material-icons add">favorite</i></a>
+                          </div>
+                          <div class="card-content">
+                            <span id="card8-title" class="card-title">Card Title</span>
+                            <p id="card8-short-description">I am a very simple card. I am good at containing small bits of information..</p>
+                          </div>
+                        </div>
+                      </div>
+
+
+                       <!-- Card 9 -->
+                       <div class="col s12 m6 l6 xl4">
+                        <div class="card">
+                          <div class="card-image">
+                            <img id="card9-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                  
+                            <a class="btn-floating halfway-fab waves-effect"><i class="material-icons add">favorite</i></a>
+                          </div>
+                          <div class="card-content">
+                            <span id="card9-title" class="card-title">Card Title</span>
+                            <p id="card9-short-description">I am a very simple card. I am good at containing small bits of information..</p>
+                          </div>
+                        </div>
+                      </div>
+
+              </div>
+            </div>
+
+            <!-- Example icons usage -->
+            <!-- https://materializecss.com/icons.html -->
+            <!-- <i class="material-icons">add</i> -->
+            <!--
+            Sizes:
+            tiny: 1rem
+            small: 2rem
+            medium: 4rem
+            large: 6rem
+            -->
+            <!-- <i class="large material-icons">insert_chart</i> -->
+            <!-- ------------------- -->
+          
         </div>
-      </div>
+
 
     
 
-   
+    <!-- <footer>
+      <p>Copyright @2021 UW Bootcamp Team 6</p>     
+    </footer> -->
 
-      <div class="col s3 m3">
-        <div class="card">
-          <div class="card-image">
-            <img src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1">
-            <a class="btn-floating halfway-fab waves-effect"><i class="material-icons add">get_app</i></a>
+    <!-- Example footer usage -->
+    <!-- https://materializecss.com/footer.html --> 
+    <!-- 0918 changed the bg color -->
+    <footer class="page-footer  grey darken-4"> 
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m6 l6">
+            <h5 class="white-text">Footer Content</h5>
+            <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
           </div>
-          <div class="card-content">
-            <span class="card-title">Card Title</span>
-            <p>I am a very simple card. I am good at containing small bits of information.</p>
-            <p><a href="#">This is a link</a></p>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="#!">My Favorite</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
+
+            </ul>
           </div>
         </div>
       </div>
-     
-   
-<!--       
-    <section class="section">
-        <div class="container"> -->
-          <!-- <h1 class="title">
-            Hello World
-          </h1>
-          <p class="subtitle">
-            My first website with <strong>Bulma</strong>!
-          </p> -->
-          <!-- <p> 
-            <button id="btnGetGamesList">Get Games</button>
-          </p>
-          <p> 
-            <button id="btnGetGamesFilter">Get Games with Filter</button>
-          </p>          
+      <div class="footer-copyright">
+        <div class="container">
+        © 2021 Focus Games, all rights reserved. All trademarks are property of their respective owners.
+  
         </div>
-    </section> -->
+      </div>
+    </footer>
 
-  <!-- JavaScript Import  -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src='./assets/js/script.js'></script>
-  <script src='./assets/js/test.js'></script>
+    <!-- Used for API calls testing. Please do not delete these buttons. -->
+    <p> <button id="btnGetGamesList">Get Games</button> </p>
+    <p> <button id="btnGetGamesFilter">Get Games with Filter</button> </p>
+
+    <!-- Materialize CSS - Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- JavaScript Import  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src='./assets/js/script.js'></script>
+    <script src='./assets/js/test.js'></script>
 </body>
 </html>
