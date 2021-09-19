@@ -69,6 +69,51 @@
 //     "freetogame_profile_url":"https://www.freetogame.com/jade-goddess"
 //     }
 
+// var button = document.querySelector("#add-btn");
+// button.addEventListener("click", function () {
+//   const curColour = document.getElementsById("add-btn").style.color;
+
+//   if (curColour === "white") {
+//     document.getElementsById("add-btn").style.color = "rgb(255, 72, 0)";
+//     document.getElementsById("add-btn").style.backgroundColor = "white";
+//   } else {
+//     document.getElementsById("add-btn").style.color = "white";
+//     document.getElementsById("add-btn").style.backgroundColor = "#77b0fa";
+//   }
+// });
+
+// $("#add-btn").click(function () {
+//
+//   if ($("#add-btn").data("clicked")) {
+//     $(".add").addClass("red");
+//   } else {
+//     $(".add").addClass("blue");
+//   }
+// });
+
+$(".add").each(function () {
+  $(this).click(function () {
+    console.log($(this).css("background-color"));
+    if ($(this).css("background-color") === "rgb(119, 176, 250)") {
+      console.log("if");
+      $(this).css("background-color", "rgb(255, 72, 0)");
+      // } else if ($(this).css("background-color", "rgb(255, 72, 0)")) {
+    } else {
+      console.log("else");
+      $(this).css("background-color", "rgb(119, 176, 250)");
+    }
+  });
+});
+
+// function setStatusClass(element, addToFavorite) {
+//   if (addToFavorite) {
+//     element.classList.add("red");
+//   } else {
+//     element.classList.add("wrong");
+//     timeLeft--;
+//   }
+// }
+
 var getGamesList = function () {
   // var currentWeatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
 
@@ -429,3 +474,7 @@ getGamesList();
 // btnGetGamesList.addEventListener('click', getGamesList);
 
 btnGetGamesFilter.addEventListener("click", getGamesFilter);
+
+// heart icon changed color after adding to MyFavorite
+// var addToMyFavorite = document.getElementById("add-btn");
+// addToMyFavorite.addEventListener("click", saveMyFavotite);
