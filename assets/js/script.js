@@ -1,4 +1,3 @@
-
 // https://www.freetogame.com/api-doc
 // https://rapidapi.com/digiwalls/api/free-to-play-games-database
 // Rate Limits: Please avoid doing more than 4 requests per second.
@@ -24,8 +23,8 @@
 //             "freetogame_profile_url":"https://www.freetogame.com/dauntless"
 //             }
 
-
 // Get details for a specific game - returns 1 record// 
+
 // {15 items
 //     "id":452
 //     "title":"Call Of Duty: Warzone"
@@ -55,7 +54,6 @@
 //     ]
 //     }
 
-
 // Games by platform & category & sorted
 // [39 items
 //     0:{11 items
@@ -72,6 +70,19 @@
 //     "freetogame_profile_url":"https://www.freetogame.com/jade-goddess"
 //     }
 
+$(".add").each(function () {
+  $(this).click(function () {
+    console.log($(this).css("background-color"));
+    if ($(this).css("background-color") === "rgb(119, 176, 250)") {
+      console.log("if");
+      $(this).css("background-color", "rgb(255, 72, 0)");
+      // } else if ($(this).css("background-color", "rgb(255, 72, 0)")) {
+    } else {
+      console.log("else");
+      $(this).css("background-color", "rgb(119, 176, 250)");
+    }
+  });
+});
 var favoriteArr = [];
 
 var getGamesList = function() {
