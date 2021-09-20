@@ -83,6 +83,7 @@ $(".add").each(function () {
     }
   });
 });
+
 var favoriteArr = [];
 
 var getGamesList = function() {
@@ -122,100 +123,6 @@ var getGamesList = function() {
                     // console.log(cardImageEl); 
 
                 }
-                // // Card 1
-                // var card1TitleEl = document.querySelector('#card1-title');
-                // card1TitleEl.textContent = data[0].title;
-                // // console.log("card1TitleEl.textContent: " + card1TitleEl.textContent); 
-
-                // var card1ShortDescriptionEl = document.querySelector('#card1-short-description');
-                // card1ShortDescriptionEl.textContent = data[0].short_description;
-                // // console.log("card1-short-description: " + card1ShortDescriptionEl.textContent); 
-
-                // var card1ImageEl = document.querySelector('#card1-img');
-                // card1ImageEl.src = data[0].thumbnail;
-                // // console.log(card1ImageEl.src); 
-
-                // // Card 2
-                // var card2TitleEl = document.querySelector('#card2-title');
-                // card2TitleEl.textContent = data[1].title;
-                // // console.log("card2TitleEl.textContent: " + card2TitleEl.textContent); 
-
-                // var card2ShortDescriptionEl = document.querySelector('#card2-short-description');
-                // card2ShortDescriptionEl.textContent = data[1].short_description;
-                // // console.log("card2-short-description: " + card2ShortDescriptionEl.textContent); 
-
-                // var card2ImageEl = document.querySelector('#card2-img');
-                // card2ImageEl.src = data[1].thumbnail;
-                // // console.log(card2ImageEl.src); 
-
-                // // Card 3
-                // var card3TitleEl = document.querySelector('#card3-title');
-                // card3TitleEl.textContent = data[2].title;
-                // // console.log("card3TitleEl.textContent: " + card3TitleEl.textContent); 
-
-                // var card3ShortDescriptionEl = document.querySelector('#card3-short-description');
-                // card3ShortDescriptionEl.textContent = data[2].short_description;
-                // // console.log("card3-short-description: " + card3ShortDescriptionEl.textContent); 
-
-                // var card3ImageEl = document.querySelector('#card3-img');
-                // card3ImageEl.src = data[2].thumbnail;
-                // // console.log(card3ImageEl.src); 
-
-                // // Card 4
-                // var card4TitleEl = document.querySelector('#card4-title');
-                // card4TitleEl.textContent = data[3].title;
-                // // console.log("card4TitleEl.textContent: " + card4TitleEl.textContent); 
-
-                // var card4ShortDescriptionEl = document.querySelector('#card4-short-description');
-                // card4ShortDescriptionEl.textContent = data[3].short_description;
-                // // console.log("card4-short-description: " + card4ShortDescriptionEl.textContent); 
-
-                // var card4ImageEl = document.querySelector('#card4-img');
-                // card4ImageEl.src = data[3].thumbnail;
-                // // console.log(card4ImageEl.src); 
-
-                // // Card 5
-                // var card5TitleEl = document.querySelector('#card5-title');
-                // card5TitleEl.textContent = data[4].title;
-                // // console.log("card5TitleEl.textContent: " + card5TitleEl.textContent); 
-
-                // var card5ShortDescriptionEl = document.querySelector('#card5-short-description');
-                // card5ShortDescriptionEl.textContent = data[4].short_description;
-                // // console.log("card5-short-description: " + card5ShortDescriptionEl.textContent); 
-
-                // var card5ImageEl = document.querySelector('#card5-img');
-                // card5ImageEl.src = data[4].thumbnail;
-                // // console.log(card5ImageEl.src); 
-
-                // // Card 6
-                // var card6TitleEl = document.querySelector('#card6-title');
-                // card6TitleEl.textContent = data[5].title;
-                // // console.log("card6TitleEl.textContent: " + card6TitleEl.textContent); 
-
-                // var card6ShortDescriptionEl = document.querySelector('#card6-short-description');
-                // card6ShortDescriptionEl.textContent = data[5].short_description;
-                // // console.log("card6-short-description: " + card6ShortDescriptionEl.textContent); 
-
-                // var card6ImageEl = document.querySelector('#card6-img');
-                // card5ImageEl.src = data[5].thumbnail;
-                // // console.log(card6ImageEl.src); 
-
-
-                // // Card 7
-                // var card7TitleEl = document.querySelector('#card7-title');
-                // card7TitleEl.textContent = data[6].title;
-                // // console.log("card7TitleEl.textContent: " + card7TitleEl.textContent); 
-
-                // var card7ShortDescriptionEl = document.querySelector('#card7-short-description');
-                // card7ShortDescriptionEl.textContent = data[6].short_description;
-                // // console.log("card7-short-description: " + card7ShortDescriptionEl.textContent); 
-
-                // var card7ImageEl = document.querySelector('#card7-img');
-                // card7ImageEl.src = data[6].thumbnail;
-                // // console.log(card7ImageEl.src); 
-
-
-
 
                 // for(i = 0; i < data.length; i++)
                 // {
@@ -420,21 +327,6 @@ var saveFavoriteCard = function(cardId) {
     localStorage.setItem('myFavoriteGames', JSON.stringify(favoriteArr));
 }
 
-// save favorite into local storage
-// var saveFavoriteCard2 = function() {
-//     var c1 = document.querySelector('#card2-title');
-//     var favorite = c1.textContent;
-//     loadFavorites();
-//     // prevent duplicate favorite from being saved and move it to end of array
-//     for (var i = 0; i < favoriteArr.length; i++) {
-//         if (favorite === favoriteArr[i]) {
-//             favoriteArr.splice(i, 1);
-//         }
-//     }
-//     favoriteArr.push(favorite);
-//     localStorage.setItem('favorites', JSON.stringify(favoriteArr));
-// }
-
 // load favorites from local storage
 var loadFavorites = function() {
     favoriteArr = JSON.parse(localStorage.getItem('myFavoriteGames'));
@@ -445,150 +337,27 @@ var loadFavorites = function() {
         favoriteArr = [];
         return false;
     } 
-    // else if (favoriteArr.length > 5) {
-    //     // save only the five most recent favorites
-    //     favoriteArr.shift();
-    // }
+    else if (favoriteArr.length > 10) {
+        // save only the ten most recent favorites
+        favoriteArr.shift();
+    }
     
     for (var i = 0; i < favoriteArr.length; i++) {
         var g1 = document.querySelector(`#game${i+1}`);
         g1.textContent = favoriteArr[i]; 
         g1.href = "pokemon.html"; //TODO: add url of the game        
     }
-
-      // set recent cities
-    // var recentCities = document.querySelector('#fDiv');
-    // var cityListUl = document.createElement('ul');
-    // cityListUl.className = 'list-group list-group-flush city-list';
-    // recentCities.appendChild(cityListUl);
-
-    // for (var i = 0; i < favoriteArr.length; i++) {
-    //     var cityListItem = document.createElement('button');
-    //     cityListItem.setAttribute('type', 'button');
-    //     cityListItem.className = 'list-group-item';
-    //     cityListItem.setAttribute('value', favoriteArr[i]);
-    //     cityListItem.textContent = favoriteArr[i];
-    //     cityListUl.prepend(cityListItem);
-    // }
-
-    // var cityList = document.querySelector('.city-list');
-    // cityList.addEventListener('click', selectRecent)
-
-
-    // https://www.geeksforgeeks.org/how-to-create-a-link-in-javascript/
-    // var myFavorites = document.querySelector('#favoriteList');
-    // // var a = document.querySelector('#game1');
-    // var a = document.createElement('a'); 
-    // a.className = "collection-item";
-    // var link = document.createTextNode("This is link");
-    // a.appendChild(link);
-    // a.title = "This is link";
-    // a.href = "https://www.geeksforgeeks.org";
-    // myFavorites.appendChild(a);
-
-    // var myFavorites = document.querySelector('#favoriteList');
-    // var favoriteListA = document.createElement('a');
-    // var link = document.createTextNode("This is link");
-    // a.appendChild(link); 
-    // a.title = "This is Link";
-    // a.href = "https://www.geeksforgeeks.org"; 
-
-    // // favoriteListA.className = 'collection-item';
-    // // favoriteListA.setAttribute('value', "test");
-    // myFavorites.appendChild(favoriteListA);
-
-    // for (var i = 0; i < favoriteArr.length; i++) {
-    //     var cityListItem = document.createElement('button');
-    //     cityListItem.setAttribute('type', 'button');
-    //     cityListItem.className = 'list-group-item';
-    //     cityListItem.setAttribute('value', cityArr[i]);
-    //     cityListItem.textContent = cityArr[i];
-    //     cityListUl.prepend(cityListItem);
-    // }
-
-    // set recent cities
-    // var recentCities = document.querySelector('#recent-cities');
-    // var cityListUl = document.createElement('ul');
-    // cityListUl.className = 'list-group list-group-flush city-list';
-    // recentCities.appendChild(cityListUl);
-
-    // for (var i = 0; i < cityArr.length; i++) {
-    //     var cityListItem = document.createElement('button');
-    //     cityListItem.setAttribute('type', 'button');
-    //     cityListItem.className = 'list-group-item';
-    //     cityListItem.setAttribute('value', cityArr[i]);
-    //     cityListItem.textContent = cityArr[i];
-    //     cityListUl.prepend(cityListItem);
-    // }
-
-    // var cityList = document.querySelector('.city-list');
-    // cityList.addEventListener('click', selectRecent)
 }
 
 
 getGamesList();
-
-
-// btnGetGamesList.addEventListener('click', getGamesList);
 
 btnGetGamesFilter.addEventListener('click', getGamesFilter);
 
 // initialize modal - https://materializecss.com/modals.html
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.modal');
-    var instances = M.Modal.init(elems);
-
-    // M.AutoInit();
+    var instances = M.Modal.init(elems);   
   });
 
-
   
-
-// card1-add.addEventListener('click', saveFavorite);
-//   document.addEventListener('onclick', function() {
-    // var elem = document.querySelectorAll('.fixed-action-btn');    
-    // var instances = M.FloatingActionButton.init(elems, options);    
-//   });
-
-// function test(data){
-//     console.log(data);
-// }
-
-//   var card1Btn = document.querySelector('#card1-add');
-//   card1Btn.addEventListener('click', () => {
-//       saveFavoriteCard()
-    
-//     });
-
-
-
-//   var card2Btn = document.querySelector('#card2-add');
-//   card2Btn.addEventListener('click', saveFavoriteCard2);
-
-//   var card3Btn = document.querySelector('#card3-add');
-//   card3Btn.addEventListener('click', saveFavoriteCard3);
-
-//   var card4Btn = document.querySelector('#card4-add');
-//   card4Btn.addEventListener('click', saveFavoriteCard4);
-
-//   var card5Btn = document.querySelector('#card5-add');
-//   card5Btn.addEventListener('click', saveFavoriteCard5);
-
-//   var card6Btn = document.querySelector('#card6-add');
-//   card6Btn.addEventListener('click', saveFavoriteCard6);
-
-//   var card7Btn = document.querySelector('#card7-add');
-//   card7Btn.addEventListener('click', saveFavoriteCard7);
-
-
-//   https://materializecss.com/floating-action-button.html
-//   document.addEventListener('DOMContentLoaded', function() {
-//     var elems = document.querySelectorAll('.fixed-action-btn');
-//     var instances = M.FloatingActionButton.init(elems, options);
-//   });
-
-//   var instance = M.FloatingActionButton.getInstance(elem);
-//   instance.open();
-
-//   instance.close();
-//   instance.destroy();

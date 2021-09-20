@@ -31,6 +31,7 @@
 </head>
 <body>
 
+  <!-- header -->
     <header> 
       <div id="top-page" class="navbar-fixed">
         <nav>
@@ -38,8 +39,10 @@
             <a class="brand-logo nav"><i class="large material-icons">center_focus_weak</i>Focus</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
               <li><a href="#top-page" class="nav">Home</a></li>
+
+              <!-- Show modal when user clicks on My Favorite -->
               <li><a href="#myFavoriteModal" class="nav modal-trigger" onclick="loadFavorites();">My Favorite</a></li>              
-              <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
+              
               <li><a href="#top-page" class="nav">About</a></li>
               <li><a href="#top-page"><i class="material-icons nav">search</i></a></li>
             </ul>
@@ -48,103 +51,99 @@
       </div>  
     </header>
   
-    <div class="container">
-    <!-- 0919 add id for all card's heart icon -->
-    <div class="row">
-      <div class="col s12">
-        <div class="card pok-card">
-          <div class="card-image">
-            <img id="card0-img" src="https://i1.wp.com/butwhythopodcast.com/wp-content/uploads/2021/07/Pokemon-Unite-But-Why-Tho.jpg?fit=810%2C450&ssl=1"alt="pokemon image">
-            <!-- https://media1.giphy.com/media/fSvqyvXn1M3btN8sDh/giphy.gif -->
-            <!-- https://www.gannett-cdn.com/presto/2021/08/09/USAT/86042c95-3bd3-49a7-8625-5e6a518644b2-Pokemon_UNITE_-_Team_Up._Take_Down._-_Hero_Image_With_Logo_-_1080p.png?auto=webp&crop=1911,1075,x0,y0&format=pjpg&width=1200 -->
-            <a class="btn-floating halfway-fab waves-effect"><i id="add-btn"class="material-icons add">favorite</i></a>            
-            </div>
-            <div class="card-content">
-              <span id="card0-title" class="card-title" >Pokémon Go Pokedex</span>
-              <p id="card0-short-description">Pokémon Go Pokedex has all the unique types that you’ve been searching for. </p>
-            </div>
-          </div>
-        </div>
-      </div>
-  
+  <div class="container">
 
-        <!-- https://materializecss.com/grid.html --> 
-        <!-- 0918 changed col# add class name -->
-    
-      <div class="row">
+    <!-- Pokémon card -->
+    <div class="row">
+        <div class="col s12">
+
+            <a href="pokemon.html">
+            <div class="card pok-card">
+                <div class="card-image">
+                  <img id="card0-img" src="https://i1.wp.com/butwhythopodcast.com/wp-content/uploads/2021/07/Pokemon-Unite-But-Why-Tho.jpg?fit=810%2C450&ssl=1"alt="pokemon image">
+                  <!-- https://media1.giphy.com/media/fSvqyvXn1M3btN8sDh/giphy.gif -->
+                  <!-- https://www.gannett-cdn.com/presto/2021/08/09/USAT/86042c95-3bd3-49a7-8625-5e6a518644b2-Pokemon_UNITE_-_Team_Up._Take_Down._-_Hero_Image_With_Logo_-_1080p.png?auto=webp&crop=1911,1075,x0,y0&format=pjpg&width=1200 -->
+                  <a class="btn-floating halfway-fab waves-effect"><i id="add-btn"class="material-icons add">favorite</i></a>            
+                </div>
+                <a href="pokemon.html">
+                  <div class="card-content">
+                    <span id="card0-title" class="card-title" >Pokémon Go Pokedex</span>
+                    <p id="card0-short-description">Pokémon Go Pokedex has all the unique types that you’ve been searching for. </p>
+                  </div>
+                </a>
+            </div>
+            </a>
+        </div>
+  </div>
+
+    <div class="row">
+
         <div class="col s12 m9 l3">
+
           <div class="sorting-container1">  
           <!-- Grey navigation panel -->
-          <!-- Example Dropdown - Sort By Options  -->
-          <!-- https://materializecss.com/select.html --> 
-           
-          <p> 
-          <label>Browser Select</label>
-          <select class="browser-default">
-          <option value="" disabled selected>Choose your option</option>
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3</option>
-          </select>
-          </p>
 
-          <!-- Example Check boxes -->
-          <!-- https://materializecss.com/checkboxes.html -->
-          <p>
-          <label>
-            <input type="checkbox" />
-            <span class="sorting-items">Red</span>
-          </label>
-          </p>
-          <p>
-          <label>
-            <input type="checkbox" checked="checked" />
-            <span class="sorting-items">Yellow</span>
-          </label>
-          </p>
-          <p>
-          <label>
-            <input type="checkbox" class="filled-in" checked="checked" />
-            <span class="sorting-items">Filled in</span>
-          </label>
-          </p>
-          <p>
-          <label>
-            <input id="indeterminate-checkbox" type="checkbox" />
-            <span class="sorting-items">Indeterminate Style</span>
-          </label>
-          </p>
-          <p>
-                  <label>
-                    <input type="checkbox" checked="checked" disabled="disabled" />
-                    <span class="sorting-items">Green</span>
-                  </label>
-                </p>
-                <p>
-                  <label>
-                    <input type="checkbox" disabled="disabled" />
-                    <span class="sorting-items">Brown</span>
-                  </label>
-                </p>
+            <!-- Sort By Options  -->
+            <p> 
+              <label>Browser Select</label>
+              <select class="browser-default">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+              </select>
+            </p>
+
+            <!-- Filter By -->
+            <p><label>
+                <input type="checkbox" />
+                <span class="sorting-items">Red</span>
+              </label></p>
+            <p><label>
+                <input type="checkbox" checked="checked" />
+                <span class="sorting-items">Yellow</span>
+              </label></p>
+            <p><label>
+                <input type="checkbox" class="filled-in" checked="checked" />
+                <span class="sorting-items">Filled in</span>
+              </label></p>
+            <p><label>
+                <input id="indeterminate-checkbox" type="checkbox" />
+                <span class="sorting-items">Indeterminate Style</span>
+              </label></p>
+            <p><label>
+                <input type="checkbox" checked="checked" disabled="disabled" />
+                <span class="sorting-items">Green</span>
+              </label></p>
+            <p><label>
+                  <input type="checkbox" disabled="disabled" />
+                  <span class="sorting-items">Brown</span>
+            </label></p>
        
-                </div>
-              </div>
+          </div> <!--sorting-container1 -->
+        </div>
 
-              <!-- changed col# -->
-              <div class="col s12 m9 l9 card-container"> 
-                <!-- Teal page content  -->
-                 <div class="row">
-                   <!-- Card 1 --> <!--0918 changed col# for all cards-->
+         
+        <div class="col s12 m9 l9 card-container"> 
+        <!-- Teal page content  -->
+
+            <div class="row">
+                   
+                  <!-- Card 1 --> 
                     <div class="col s12 m6 l6 xl4">
                       <div class="card">
                         <div class="card-image">
-                          <img id="card1-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
-                              <a id="card1" class="btn-floating halfway-fab waves-effect" onclick="saveFavoriteCard(this.id)"><i id="add-btn"class="material-icons add">favorite</i></a>
-                          </div>
-                          <div class="card-content">
-                            <span id="card1-title" class="card-title" >Card Title</span>
-                            <p id="card1-short-description">I am a very simple card. I am good at containing small bits of information..</p>
-                          </div>
+                          <a href="pokemon.html">
+                            <img id="card1-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                                <a id="card1" class="btn-floating halfway-fab waves-effect" onclick="saveFavoriteCard(this.id)"><i id="add-btn"class="material-icons add">favorite</i></a>
+                            </div>
+                          </a>
+                          <a href="pokemon.html">
+                            <div class="card-content">
+                              <span id="card1-title" class="card-title" >Card Title</span>
+                              <p id="card1-short-description">I am a very simple card. I am good at containing small bits of information..</p>
+                            </div>
+                          </a>
                         </div>
                       </div>
 
@@ -257,17 +256,8 @@
                         </div>
                       </div>          
 
-            <!-- --------------------------- -->
-                <!-- https://materializecss.com/modals.html#! -->
-                <!-- Modals with Button trigger -->
-                <!-- Modal Trigger -->
-                <!-- <button data-target="modal1" class="btn modal-trigger">Modal with Button trigger</button> -->
  
-                <!-- Modals with Fixed Footer -->
-                  <!-- Modal Trigger -->
-                  <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
-
-                  <!-- Modal Structure -->
+                  <!-- Modal form to list favorite games -->
                   <div id="myFavoriteModal" class="modal modal-fixed-footer">
                     <div class="modal-content">
                       <h4>List of favorite Games</h4>
@@ -280,19 +270,16 @@
                           <a id="game5" href="#!" class="collection-item"></a>                          
                           <a id="game6" href="#!" class="collection-item"></a>
                           <a id="game7" href="#!" class="collection-item"></a>
-                          <!-- <a id="game8" href="#!" class="collection-item">Game Title 8</a>
-                          <a id="game9" href="#!" class="collection-item">Game Title 9</a>                          
-                          <a id="game10" href="#!" class="collection-item">Game Title 10</a> -->
+                          <a id="game8" href="#!" class="collection-item"></a>
+                          <a id="game9" href="#!" class="collection-item"></a>    
                         </div>           
                     </div>
                     <div class="modal-footer">
                       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
                     </div>
                   </div>
-                  <!-- --------------------------- -->
              
-              </div>
-            </div>
+            </div> <!--"row" -->
           
         </div>
 
@@ -327,8 +314,8 @@
     </footer>
 
     <!-- Used for API calls testing. Please do not delete these buttons. -->
-    <p> <button id="btnGetGamesList">Get Games</button> </p>
-    <p> <button id="btnGetGamesFilter">Get Games with Filter</button> </p>
+    <p> <button id="btnGetGamesList" style="display: none;">Get Games</button> </p>
+    <p> <button id="btnGetGamesFilter" style="display: none;">Get Games with Filter</button> </p>
 
     <!--  0919 jquery -->
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
