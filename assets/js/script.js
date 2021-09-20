@@ -75,10 +75,12 @@ $(".add").each(function () {
     console.log($(this).css("background-color"));
     if ($(this).css("background-color") === "rgb(119, 176, 250)") {
       console.log("if");
-      $(this).css("background-color", "rgb(255, 72, 0)");
+    //   red
+      $(this).css("background-color", "rgb(255, 72, 0)");   
       // } else if ($(this).css("background-color", "rgb(255, 72, 0)")) {
     } else {
       console.log("else");
+    //   blue
       $(this).css("background-color", "rgb(119, 176, 250)");
     }
   });
@@ -108,7 +110,7 @@ var getGamesList = function() {
                 console.log(data);          
                 // console.log(data[0]);   
 
-                for(i=0; i<7; i++)
+                for(i=0; i<9; i++)
                 {
                     var cardTitleEl = document.querySelector(`#card${i+1}-title`);
                     cardTitleEl.textContent = data[i].title;
@@ -121,6 +123,13 @@ var getGamesList = function() {
                     var cardImageEl = document.querySelector(`#card${i+1}-img`);
                     cardImageEl.src = data[i].thumbnail;
                     // console.log(cardImageEl); 
+
+                    var cardapEl = document.querySelector(`#ap11`);
+                    // console.log("data[i].game_url: " + data[i].game_url); 
+                    cardapEl.href = data[i].game_url;
+                    
+
+                   // data[i].game_url;
 
                 }
 

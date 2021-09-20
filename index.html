@@ -57,7 +57,7 @@
     <div class="row">
         <div class="col s12">
 
-            <a href="pokemon.html">
+            <a id="ap" href="pokemon.html">
             <div class="card pok-card">
                 <div class="card-image">
                   <img id="card0-img" src="https://i1.wp.com/butwhythopodcast.com/wp-content/uploads/2021/07/Pokemon-Unite-But-Why-Tho.jpg?fit=810%2C450&ssl=1"alt="pokemon image">
@@ -133,17 +133,17 @@
                     <div class="col s12 m6 l6 xl4">
                       <div class="card">
                         <div class="card-image">
-                          <a href="pokemon.html">
+                          <a id="ap11">
                             <img id="card1-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
                                 <a id="card1" class="btn-floating halfway-fab waves-effect" onclick="saveFavoriteCard(this.id)"><i id="add-btn"class="material-icons add">favorite</i></a>
                             </div>
                           </a>
-                          <a href="pokemon.html">
+                          <!-- <a id=ap12> -->
                             <div class="card-content">
                               <span id="card1-title" class="card-title" >Card Title</span>
                               <p id="card1-short-description">I am a very simple card. I am good at containing small bits of information..</p>
                             </div>
-                          </a>
+                          <!-- </a> -->
                         </div>
                       </div>
 
@@ -231,14 +231,18 @@
                        <!-- Card 8 -->
                        <div class="col s12 m6 l6 xl4">
                         <div class="card">
-                          <div class="card-image">
-                            <img id="card8-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
-                            <a id="card8" class="btn-floating halfway-fab waves-effect" onclick="saveFavoriteCard(this.id)"><i id="add-btn"class="material-icons add">favorite</i></a>
+                          <a href="pokemon.html">
+                            <div class="card-image" >
+                              <img id="card8-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                              <a id="card8" class="btn-floating halfway-fab waves-effect" onclick="saveFavoriteCard(this.id)"><i id="add-btn"class="material-icons add">favorite</i></a>
+                            </div>   
+                         
+                            <div class="card-content">
+                              <span id="card8-title" class="card-title">Card Title</span>
+                              <p id="card8-short-description">I am a very simple card. I am good at containing small bits of information..</p>
                             </div>
-                          <div class="card-content">
-                            <span id="card8-title" class="card-title">Card Title</span>
-                            <p id="card8-short-description">I am a very simple card. I am good at containing small bits of information..</p>
-                          </div>
+                          
+                        </a>      
                         </div>
                       </div>
 
@@ -283,6 +287,7 @@
           
         </div>
 
+    </div> 
 
     <!-- Example footer usage -->
     <!-- https://materializecss.com/footer.html -->
