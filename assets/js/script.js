@@ -23,13 +23,8 @@
 //             "freetogame_profile_url":"https://www.freetogame.com/dauntless"
 //             }
 
-<<<<<<< HEAD
-
-// Get details for a specific game - returns 1 record// 
-=======
 // Get details for a specific game - returns 1 record// 
 
->>>>>>> f4b747500528e69d6c87e14e83a963753112d9ee
 // {15 items
 //     "id":452
 //     "title":"Call Of Duty: Warzone"
@@ -75,8 +70,6 @@
 //     "freetogame_profile_url":"https://www.freetogame.com/jade-goddess"
 //     }
 
-<<<<<<< HEAD
-=======
 $(".add").each(function () {
   $(this).click(function () {
     console.log($(this).css("background-color"));
@@ -90,7 +83,6 @@ $(".add").each(function () {
     }
   });
 });
->>>>>>> f4b747500528e69d6c87e14e83a963753112d9ee
 var favoriteArr = [];
 
 var getGamesList = function() {
@@ -599,8 +591,4 @@ document.addEventListener('DOMContentLoaded', function() {
 //   instance.open();
 
 //   instance.close();
-<<<<<<< HEAD
 //   instance.destroy();
-=======
-//   instance.destroy();
->>>>>>> f4b747500528e69d6c87e14e83a963753112d9ee
