@@ -70,21 +70,40 @@
 //     "freetogame_profile_url":"https://www.freetogame.com/jade-goddess"
 //     }
 
-$(".add").each(function () {
-  $(this).click(function () {
-    console.log($(this).css("background-color"));
-    if ($(this).css("background-color") === "rgb(119, 176, 250)") {
-      console.log("if");
-    //   red
-      $(this).css("background-color", "rgb(255, 72, 0)");   
-      // } else if ($(this).css("background-color", "rgb(255, 72, 0)")) {
-    } else {
-      console.log("else");
-    //   blue
-      $(this).css("background-color", "rgb(119, 176, 250)");
-    }
+// $(".add").each(function () {
+//   $(this).click(function () {
+//     console.log($(this).css("background-color"));
+//     if ($(this).css("background-color") === "rgb(119, 176, 250)") {
+//       console.log("if");
+//     //   red
+//       $(this).css("background-color", "rgb(255, 72, 0)");   
+//       // } else if ($(this).css("background-color", "rgb(255, 72, 0)")) {
+//     } else {
+//       console.log("else");
+//     //   blue
+//       $(this).css("background-color", "rgb(119, 176, 250)");
+//     }
+//   });
+// });
+
+// current issue - on page refresh all favorite buttons are blue
+// On page refresh, add button should show red for all locally stored favorites 
+// heart button function - change color
+$(".add").click(function (cardId) {
+    $(this).each(function (i) {      
+
+      if (this.style.backgroundColor !== "rgb(255, 72, 0)") {          
+        this.style.backgroundColor = "rgb(255, 72, 0)";       
+        //add title to local storage       
+        saveFavoriteCard(cardId.target.id);       
+      } else {        
+        this.style.backgroundColor = "rgb(119, 176, 250)";
+        //remove title from local storage       
+        removeFavoriteCard(cardId.target.id);        
+      }
+
+    });
   });
-});
 
 var favoriteArr = [];
 
@@ -125,12 +144,8 @@ var getGamesList = function() {
                     // console.log(cardImageEl); 
 
                     var cardapEl = document.querySelector(`#ap11`);
-                    // console.log("data[i].game_url: " + data[i].game_url); 
                     cardapEl.href = data[i].game_url;
-                    
-
-                   // data[i].game_url;
-
+                    // console.log("data[i].game_url: " + data[i].game_url); 
                 }
 
                 // for(i = 0; i < data.length; i++)
@@ -321,10 +336,11 @@ var getGamesFilter = function() {
     });
 }
 
-// save favorite into local storage
+// save favorite game into local storage
 var saveFavoriteCard = function(cardId) {
     var c1 = document.querySelector(`#${cardId}-title`);
     var favorite = c1.textContent;
+    
     loadFavorites();
     // prevent duplicate favorite from being saved and move it to end of array
     for (var i = 0; i < favoriteArr.length; i++) {
@@ -333,6 +349,19 @@ var saveFavoriteCard = function(cardId) {
         }
     }
     favoriteArr.push(favorite);
+    localStorage.setItem('myFavoriteGames', JSON.stringify(favoriteArr));
+}
+
+// remove favorite game from local storage
+var removeFavoriteCard = function(cardId) {
+    var c1 = document.querySelector(`#${cardId}-title`);
+    var favorite = c1.textContent;   
+    // remove item from array
+    for (var i = 0; i < favoriteArr.length; i++) {
+        if (favorite === favoriteArr[i]) {
+            favoriteArr.splice(i, 1);
+        }
+    }
     localStorage.setItem('myFavoriteGames', JSON.stringify(favoriteArr));
 }
 
@@ -354,10 +383,9 @@ var loadFavorites = function() {
     for (var i = 0; i < favoriteArr.length; i++) {
         var g1 = document.querySelector(`#game${i+1}`);
         g1.textContent = favoriteArr[i]; 
-        g1.href = "pokemon.html"; //TODO: add url of the game        
+        // g1.href = "pokemon.html"; //TODO: add url of the game        
     }
 }
-
 
 getGamesList();
 
