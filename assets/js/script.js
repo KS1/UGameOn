@@ -105,16 +105,19 @@ $(".add").click(function (cardId) {
   });
 
 var favoriteArr = [];
+var dataArr = [];
 
 var getGamesList = function() {
     // var currentWeatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
 
-    var gamesListApi = `https://www.freetogame.com/api/games`;
+    // var gamesListApi = `https://www.freetogame.com/api/games`;
+
+    var gamesListApi = `https://free-to-play-games-database.p.rapidapi.com/api/games`;
 
     console.log(gamesListApi);
 
     // fetch("https://free-to-play-games-database.p.rapidapi.com/api/filter?tag=3d.mmorpg.fantasy.pvp&platform=pc", {
-    fetch("https://free-to-play-games-database.p.rapidapi.com/api/games", {
+    fetch(gamesListApi, {
 	
     "method": "GET",
 	"headers": {
@@ -129,6 +132,7 @@ var getGamesList = function() {
 
                 favoriteArr = JSON.parse(localStorage.getItem('myFavoriteGames'));
                 // console.log(favoriteArr);
+                dataArr = data;
 
                 for(i=0; i<9; i++)
                 {
@@ -152,11 +156,11 @@ var getGamesList = function() {
                     // console.log("Calling isMyFavorite function...");
                     // console.log(data[i].title);
                     var myFav = isMyFavorite(data[i].title);
-                    console.log(myFav);
+                    // console.log(myFav);
                     if (myFav === true)
                     {
                         var t1 = document.querySelector(`#card${i+1}`);
-                        console.log(t1);
+                        // console.log(t1);
                         t1.style.backgroundColor = "rgb(255, 72, 0)";                         
                     }
                     
@@ -561,9 +565,26 @@ var loadFavorites = function() {
     
     for (var i = 0; i < favoriteArr.length; i++) {
         var g1 = document.querySelector(`#game${i+1}`);
-        g1.textContent = favoriteArr[i]; 
-        // g1.href = "pokemon.html"; //TODO: add url of the game  
+        g1.textContent = favoriteArr[i];         
+        var favurl = getFavUrl(favoriteArr[i]);
+        g1.href = favurl;
     }
+}
+
+function getFavUrl(favTitle){ 
+    var fUrl = "";
+    if (!dataArr) { return; }
+    for (var i = 0; i < 9; i++) {
+        // console.log(dataArr[i].game_url);
+        if(favTitle === dataArr[i].title) {
+            // console.log("Inside if: " + favTitle + "  " + dataArr[i].game_url);
+            fUrl = dataArr[i].game_url;
+        }
+        else{
+            // console.log("Inside else");
+        }
+    }
+    return fUrl;
 }
 
 function isMyFavorite(gameTitle) {
@@ -574,6 +595,7 @@ function isMyFavorite(gameTitle) {
     // console.log(favoriteArr);
     // console.log(gameTitle);
     
+    if(!favoriteArr) {return isFav; }
     for (var i = 0; i < favoriteArr.length; i++) {
         // console.log(favoriteArr[i]);
         if(gameTitle !== favoriteArr[i])
@@ -594,37 +616,23 @@ function isMyFavorite(gameTitle) {
     return isFav;
 }
 
+// fuction for filtering
 function checkPlatform (checkobject) {
     console.log(checkobject);
     checkId = checkobject.id;
     console.log(checkobject.checked);
     console.log("Inside checkPlatform function: " + checkId);  
     
-    // if(checkId === 'pc' || checkId === 'browser' ) {
-    //     var allcheck = document.querySelector(`#all`);
-    //     allcheck.checked = false;
-    // }
-    // else if(checkId === 'all') {
-    //     var pccheck = document.querySelector(`#pc`);
-    //     pccheck.checked = true;
-    //     var brcheck = document.querySelector(`#browser`);
-    //     brcheck.checked = true;
-    // }
-
-    // const checkId = 'Papayas';
-    // switch (expr) {
-    // case 'Oranges':
-    //     console.log('Oranges are $0.59 a pound.');
-    //     break;
-    // case 'Mangoes':
-    // case 'Papayas':
-    //     console.log('Mangoes and papayas are $2.79 a pound.');
-    //     // expected output: "Mangoes and papayas are $2.79 a pound."
-    //     break;
-    // default:
-    //     console.log(`Sorry, we are out of ${expr}.`);
-// }
-
+    if(checkId === 'pc' || checkId === 'browser' ) {
+        var allcheck = document.querySelector(`#all`);
+        allcheck.checked = false;
+    }
+    else if(checkId === 'all') {
+        var pccheck = document.querySelector(`#pc`);
+        pccheck.checked = true;
+        var brcheck = document.querySelector(`#browser`);
+        brcheck.checked = true;
+    }
 
     if(checkobject.checked === true){
         getGamesByPlatform(checkId);
@@ -632,6 +640,56 @@ function checkPlatform (checkobject) {
     
 }
 
+function populatePageData(pnum){
+    console.log('Inside populatePageData function');
+
+    switch (pnum) {
+    case '1':
+        console.log('Case 1');
+        pageGetData(0);
+        break;
+    case '2':
+        console.log('Case 2');
+        pageGetData(9);
+        break;    
+    default:
+        console.log(`default`);
+    }
+
+}
+
+function pageGetData(pnum){
+
+    console.log("Inside pageGetData function")
+    console.log(dataArr);
+    
+    // var cardTitleEl = document.querySelector(`#card${1}-title`);
+    // console.log(cardTitleEl);
+    // console.log(cardTitleEl.textContent);
+
+    var j=0;
+    for(i=pnum; i<pnum+9; i++)
+    {
+        var cardTitleEl = document.querySelector(`#card${j+1}-title`);
+        console.log("dataArr[i].title: " + dataArr[i].title);
+        // console.log(cardTitleEl);
+        // console.log(cardTitleEl.textContent);
+    
+        cardTitleEl.textContent = dataArr[i].title;
+        console.log("cardTitleEl.textContent: " + cardTitleEl.textContent); 
+        
+        var cardShortDescriptionEl = document.querySelector(`#card${j+1}-short-description`);
+        cardShortDescriptionEl.textContent = dataArr[i].short_description;
+        // console.log("card1-short-description: " + cardShortDescriptionEl.textContent); 
+
+        var cardImageEl = document.querySelector(`#card${j+1}-img`);
+        cardImageEl.src = dataArr[i].thumbnail;
+        // console.log(cardImageEl); 
+
+        j++;
+        
+    }
+}
 
 getGamesList();
 
