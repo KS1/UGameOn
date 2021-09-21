@@ -1,13 +1,21 @@
 * {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Poppins", sans-serif;
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {
   display: flex;
   font-family: sans-serif;
   justify-content: center;
+  background-color: #1e2e44;
+}
+
+/* back button */
+a {
+  margin-top: 2em;
+  color: white;
 }
 
 .pokedex {
@@ -16,6 +24,7 @@ body {
   height: 500px;
   margin: 50px;
   width: 800px;
+  margin-top: 10%;
 }
 
 .left-container,
@@ -29,7 +38,7 @@ body {
 }
 
 .left-container {
-  background: #E71D23;
+  background: #e71d23;
   height: 100%;
   width: calc(50% + 50px);
 }
@@ -42,10 +51,15 @@ body {
 }
 
 .top-section__blue {
-  background: radial-gradient(farthest-corner at 10px 10px, white, #369CD4, #369CD4);
+  background: radial-gradient(
+    farthest-corner at 10px 10px,
+    white,
+    #369cd4,
+    #369cd4
+  );
   border-radius: 50%;
   border: 2px solid white;
-  box-shadow: 0 0 2px 2px rgba(0,0,0,.5);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
   height: 30px;
   width: 30px;
 }
@@ -77,9 +91,9 @@ body {
 }
 
 .main-section__white {
-  background: #DEDEDE;
+  background: #dedede;
   border: 3px solid black;
-  box-shadow: inset 0 0 3px 3px rgba(0,0,0,.3);
+  box-shadow: inset 0 0 3px 3px rgba(0, 0, 0, 0.3);
   height: 325px;
 }
 
@@ -110,7 +124,7 @@ body {
 }
 
 .poke-id {
-  color: rgba(0,0,0,.5);
+  color: rgba(0, 0, 0, 0.5);
   font-size: 20px;
 }
 
@@ -132,7 +146,7 @@ body {
 }
 
 .screen__stats {
-  background: rgba(0,0,0,.3);
+  background: rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   color: white;
   display: flex;
@@ -149,7 +163,7 @@ body {
 
 .poke-type-one,
 .poke-type-two {
-  background: rgba(255,255,255,.3);
+  background: rgba(255, 255, 255, 0.3);
   border-radius: 25px;
   display: block;
   margin-bottom: 10px;
@@ -172,7 +186,7 @@ body {
 
 .d-pad__cell {
   background: black;
-  box-shadow: 0 0 2px 2px rgba(0,0,0, .3);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.3);
   height: 25px;
   width: 25px;
 }
@@ -229,8 +243,8 @@ body {
   background: black;
   border-radius: 50%;
   border: 1px solid dimgrey;
-  box-shadow: 0 0 2px 2px rgba(0,0,0, .3);
-  color: rgba(255,255,255,.75);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.75);
   display: flex;
   height: 35px;
   justify-content: center;
@@ -245,7 +259,6 @@ body {
   margin-top: -5px;
 }
 
-
 .left-container__right {
   border-left: 3px solid black;
   display: flex;
@@ -256,7 +269,7 @@ body {
 }
 
 .left-container__hinge {
-  background: linear-gradient(to right, #7F100F, #E71D23, #E71D23, #7F100F);
+  background: linear-gradient(to right, #7f100f, #e71d23, #e71d23, #7f100f);
   height: 75px;
   width: 100%;
 }
@@ -270,19 +283,19 @@ body {
 }
 
 .top-section__red {
-  background: #7F100F;
+  background: #7f100f;
 }
 
 .top-section__yellow {
-  background: #EDF18E;
+  background: #edf18e;
 }
 
 .top-section__green {
-  background: #33915A;
+  background: #33915a;
 }
 
 .right-container {
-  background: #E71D23;
+  background: #e71d23;
   height: calc(100% - 50px);
   padding: 25px;
   width: calc(50% - 50px);
@@ -290,13 +303,13 @@ body {
 
 .right-container__black {
   background: black;
-  box-shadow: 0 0 2px 2px rgba(0,0,0,.3);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.3);
   height: 300px;
   padding: 10px;
 }
 
 .right-container__screen {
-  background: #43B0F2;
+  background: #43b0f2;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -336,10 +349,10 @@ body {
 .left-button,
 .right-button {
   align-items: center;
-  background: #DEDEDE;
+  background: #dedede;
   border-radius: 3px;
   border: 2px solid black;
-  box-shadow: 0 0 2px 2px rgba(0,0,0,.3);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   display: flex;
   font-weight: bold;
@@ -356,82 +369,81 @@ body {
 
 .left-button:active,
 .right-button:active {
-  box-shadow: inset 0 0 2px 2px rgba(0,0,0,.3);
+  box-shadow: inset 0 0 2px 2px rgba(0, 0, 0, 0.3);
 }
-
 
 .hide {
   display: none;
 }
 
 .normal {
-  background: #BABAAE;
+  background: #babaae;
 }
 
 .fighting {
-  background: #A75543;
+  background: #a75543;
 }
 
 .flying {
-  background: #78A2FF;
+  background: #78a2ff;
 }
 
 .poison {
-  background: #A95CA0;
+  background: #a95ca0;
 }
 
 .ground {
-  background: #EECC55;
+  background: #eecc55;
 }
 
 .rock {
-  background: #CCBD72;
+  background: #ccbd72;
 }
 
 .bug {
-  background: #C2D21E;
+  background: #c2d21e;
 }
 
 .ghost {
-  background: #7975D7;
+  background: #7975d7;
 }
 
 .steel {
-  background: #C4C2DB;
+  background: #c4c2db;
 }
 
 .fire {
-  background: #FA5643;
+  background: #fa5643;
 }
 
 .water {
-  background: #56ADFF;
+  background: #56adff;
 }
 
 .grass {
-  background: #8CD750;
+  background: #8cd750;
 }
 
 .electric {
-  background: #FDE139;
+  background: #fde139;
 }
 
 .psychic {
-  background: #FA65B4;
+  background: #fa65b4;
 }
 
 .ice {
-  background: #96F1FF;
+  background: #96f1ff;
 }
 
 .dragon {
-  background: #8673FF;
+  background: #8673ff;
 }
 
 .dark {
-  background: #8D6855;
+  background: #8d6855;
 }
 
 .fairy {
-  background: #F9AEFF;
+  background: #f9aeff;
 }
