@@ -94,31 +94,24 @@
               </select>
             </p>
 
+            <br/>
+            <br/>
+
             <!-- Filter By -->
             <p><label>
-                <input type="checkbox" />
-                <span class="sorting-items">Red</span>
+                <input id="all" type="checkbox" checked="checked" onclick="checkPlatform(this)"/>
+                <span class="sorting-items">All</span>
               </label></p>
-            <p><label>
-                <input type="checkbox" checked="checked" />
-                <span class="sorting-items">Yellow</span>
+              <br/>
+            <p><label>             
+                <input id="pc" type="checkbox" checked="checked" onclick="checkPlatform(this)"/>
+                <span class="sorting-items">PC</span>
               </label></p>
+            <br/>
             <p><label>
-                <input type="checkbox" class="filled-in" checked="checked" />
-                <span class="sorting-items">Filled in</span>
-              </label></p>
-            <p><label>
-                <input id="indeterminate-checkbox" type="checkbox" />
-                <span class="sorting-items">Indeterminate Style</span>
-              </label></p>
-            <p><label>
-                <input type="checkbox" checked="checked" disabled="disabled" />
-                <span class="sorting-items">Green</span>
-              </label></p>
-            <p><label>
-                  <input type="checkbox" disabled="disabled" />
-                  <span class="sorting-items">Brown</span>
-            </label></p>
+                <input id="browser" type="checkbox" checked="checked" onclick="checkPlatform(this)"/>
+                <span class="sorting-items">Browser</span>
+              </label></p>            
        
           </div> <!--sorting-container1 -->
         </div>

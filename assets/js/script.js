@@ -90,7 +90,7 @@
 // On page refresh, add button should show red for all locally stored favorites 
 // heart button function - change color
 $(".add").click(function (cardId) {
-    $(this).each(function (i) {      
+    $(this).each(function (i) {              
 
       if (this.style.backgroundColor !== "rgb(255, 72, 0)") {          
         this.style.backgroundColor = "rgb(255, 72, 0)";       
@@ -101,7 +101,6 @@ $(".add").click(function (cardId) {
         //remove title from local storage       
         removeFavoriteCard(cardId.target.id);        
       }
-
     });
   });
 
@@ -126,8 +125,10 @@ var getGamesList = function() {
     .then(response => {
         if (response.ok) {
             response.json().then(function(data) {             
-                console.log(data);          
-                // console.log(data[0]);   
+                console.log(data);           
+
+                favoriteArr = JSON.parse(localStorage.getItem('myFavoriteGames'));
+                // console.log(favoriteArr);
 
                 for(i=0; i<9; i++)
                 {
@@ -146,6 +147,19 @@ var getGamesList = function() {
                     var cardapEl = document.querySelector(`#ap11`);
                     cardapEl.href = data[i].game_url;
                     // console.log("data[i].game_url: " + data[i].game_url); 
+
+                    // check if the game is favorite
+                    // console.log("Calling isMyFavorite function...");
+                    // console.log(data[i].title);
+                    var myFav = isMyFavorite(data[i].title);
+                    console.log(myFav);
+                    if (myFav === true)
+                    {
+                        var t1 = document.querySelector(`#card${i+1}`);
+                        console.log(t1);
+                        t1.style.backgroundColor = "rgb(255, 72, 0)";                         
+                    }
+                    
                 }
 
                 // for(i = 0; i < data.length; i++)
@@ -283,7 +297,6 @@ var getGamesFilter = function() {
                     // console.log(data[i].screenshots[3].id);
                     // console.log(data[i].screenshots[3].image);
                 }
-                
 
                 // query returns 1 record 
                 // console.log(data.id);
@@ -336,6 +349,170 @@ var getGamesFilter = function() {
     });
 }
 
+var getGamesByPlatform = function(platform) {
+    // Games by platform: Insert platform, eg: pc, browser or all
+    // works -- pc 297 records, browser 77 records, all 365 records
+    // var gamesFilterApi = `https://free-to-play-games-database.p.rapidapi.com/api/games?platform=all`;
+
+    // var gamesFilterApi = `https://free-to-play-games-database.p.rapidapi.com/api/games?platform=pc`;
+
+    // var gamesFilterApi = `https://free-to-play-games-database.p.rapidapi.com/api/games?platform=browser`;
+
+    var gamesFilterApi = `https://free-to-play-games-database.p.rapidapi.com/api/games?platform=${platform}`;
+
+    fetch(gamesFilterApi, {	
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
+            "x-rapidapi-key": "0f14760277msh4633a73019285dap13a775jsnde37e09289b4"
+        }
+        })
+        .then(response => {
+            if (response.ok) {
+                response.json().then(function(data) {                
+                    
+                    console.log("Response is OK");
+                    console.log(data);
+                    // console.log(typeof(data));
+    
+                    // query returns 2 or more records  
+                    console.log(data.length);
+                    favoriteArr = JSON.parse(localStorage.getItem('myFavoriteGames'));
+                    // console.log(favoriteArr);
+    
+                    for(i=0; i<9; i++)
+                    {
+                        var cardTitleEl = document.querySelector(`#card${i+1}-title`);
+                        cardTitleEl.textContent = data[i].title;
+                        // console.log("cardTitleEl.textContent: " + cardTitleEl.textContent); 
+    
+                        var cardShortDescriptionEl = document.querySelector(`#card${i+1}-short-description`);
+                        cardShortDescriptionEl.textContent = data[i].short_description;
+                        // console.log("card1-short-description: " + cardShortDescriptionEl.textContent); 
+    
+                        var cardImageEl = document.querySelector(`#card${i+1}-img`);
+                        cardImageEl.src = data[i].thumbnail;
+                        // console.log(cardImageEl); 
+    
+                        var cardapEl = document.querySelector(`#ap11`);
+                        cardapEl.href = data[i].game_url;
+                        // console.log("data[i].game_url: " + data[i].game_url); 
+    
+                        // check if the game is favorite
+                        // console.log("Calling isMyFavorite function...");
+                        // console.log(data[i].title);
+                        var myFav = isMyFavorite(data[i].title);
+                        // console.log(myFav);
+
+                        var myFav = isMyFavorite(data[i].title);
+                        console.log(myFav);
+                        var t1 = document.querySelector(`#card${i+1}`);
+                        console.log(t1);
+                        if (myFav === true) {                            
+                            t1.style.backgroundColor = "rgb(255, 72, 0)";
+                        } else {
+                            t1.style.backgroundColor = "rgb(119, 176, 250)";
+                        }
+
+                        
+        
+                        
+                    }
+
+                    // Games by platform & category & sorted
+                    // for(i = 0; i < data.length; i++)
+                    // {
+                        // console.log("Id: " + data[i].id);
+                        // console.log("title: " + data[i].title);
+                        // console.log(data[i].thumbnail);                   
+                        // console.log(data[i].short_description);                    
+                        // console.log(data[i].game_url);
+                        // console.log(data[i].genre);
+                        // console.log(data[i].platform);
+                        // console.log(data[i].publisher);
+                        // console.log(data[i].developer);
+                        // console.log(data[i].release_date);
+                        // console.log(data[i].freetogame_profile_url);
+    
+                        // console.log(data[i].minimum_system_requirements);
+                        // console.log(data[i].minimum_system_requirements.os);
+                        // console.log(data[i].minimum_system_requirements.processor);
+                        // console.log(data[i].minimum_system_requirements.memory);
+                        // console.log(data[i].minimum_system_requirements.graphics);
+                        // console.log(data[i].minimum_system_requirements.storage);
+    
+                        // console.log(data[i].screenshots);
+    
+                        // console.log(data[i].screenshots[0]);
+                        // console.log(data[i].screenshots[0].id);
+                        // console.log(data[i].screenshots[0].image);
+    
+                        // console.log(data[i].screenshots[1]);
+                        // console.log(data[i].screenshots[1].id);
+                        // console.log(data[i].screenshots[1].image);
+    
+                        // console.log(data[i].screenshots[2]);
+                        // console.log(data[i].screenshots[2].id);
+                        // console.log(data[i].screenshots[2].image);
+    
+                        // console.log(data[i].screenshots[3]);
+                        // console.log(data[i].screenshots[3].id);
+                        // console.log(data[i].screenshots[3].image);
+                    // }
+    
+                    // query returns 1 record 
+                    // console.log(data.id);
+                    // console.log(data.title);
+                    // console.log(data.thumbnail);
+                    // console.log(data.short_description);
+                    // console.log(data.description);
+                    // console.log(data.game_url);
+                    // console.log(data.genre);
+                    // console.log(data.platform);
+                    // console.log(data.publisher);
+                    // console.log(data.developer);
+                    // console.log(data.release_date);
+                    // console.log(data.freetogame_profile_url);
+    
+                    // console.log(data.minimum_system_requirements);
+                    // console.log(data.minimum_system_requirements.os);
+                    // console.log(data.minimum_system_requirements.processor);
+                    // console.log(data.minimum_system_requirements.memory);
+                    // console.log(data.minimum_system_requirements.graphics);
+                    // console.log(data.minimum_system_requirements.storage);
+    
+                    // console.log(data.screenshots);
+    
+                    // console.log(data.screenshots[0]);
+                    // console.log(data.screenshots[0].id);
+                    // console.log(data.screenshots[0].image);
+    
+                    // console.log(data.screenshots[1]);
+                    // console.log(data.screenshots[1].id);
+                    // console.log(data.screenshots[1].image);
+    
+                    // console.log(data.screenshots[2]);
+                    // console.log(data.screenshots[2].id);
+                    // console.log(data.screenshots[2].image);
+    
+                    // console.log(data.screenshots[3]);
+                    // console.log(data.screenshots[3].id);
+                    // console.log(data.screenshots[3].image);
+                   
+                });
+            } else {
+                alert(`Error: ${response.statusText}`)
+            }
+            console.log(response);
+            
+        })
+        .catch(err => {
+            console.error(err);
+        });
+
+
+}
+
 // save favorite game into local storage
 var saveFavoriteCard = function(cardId) {
     var c1 = document.querySelector(`#${cardId}-title`);
@@ -367,6 +544,8 @@ var removeFavoriteCard = function(cardId) {
 
 // load favorites from local storage
 var loadFavorites = function() {
+
+    console.log("Inside loadFavorites function...");
     favoriteArr = JSON.parse(localStorage.getItem('myFavoriteGames'));
 
     console.log(favoriteArr);
@@ -383,9 +562,76 @@ var loadFavorites = function() {
     for (var i = 0; i < favoriteArr.length; i++) {
         var g1 = document.querySelector(`#game${i+1}`);
         g1.textContent = favoriteArr[i]; 
-        // g1.href = "pokemon.html"; //TODO: add url of the game        
+        // g1.href = "pokemon.html"; //TODO: add url of the game  
     }
 }
+
+function isMyFavorite(gameTitle) {
+   
+    var isFav = false;
+    // favoriteArr = JSON.parse(localStorage.getItem('myFavoriteGames'));
+
+    // console.log(favoriteArr);
+    // console.log(gameTitle);
+    
+    for (var i = 0; i < favoriteArr.length; i++) {
+        // console.log(favoriteArr[i]);
+        if(gameTitle !== favoriteArr[i])
+        { // Do nothing 
+        } else { 
+            isFav = true;
+            // console.log(isFav);
+        }
+
+        // g1.href = "pokemon.html"; //TODO: add url of the game          
+        // var f1 = document.querySelector(`#card${i+1}`);
+        // console.log(g1);
+        // console.log(f1);
+        // console.log(f1.parentElement);
+        // console.log(f1.style.backgroundColor);
+    }
+
+    return isFav;
+}
+
+function checkPlatform (checkobject) {
+    console.log(checkobject);
+    checkId = checkobject.id;
+    console.log(checkobject.checked);
+    console.log("Inside checkPlatform function: " + checkId);  
+    
+    // if(checkId === 'pc' || checkId === 'browser' ) {
+    //     var allcheck = document.querySelector(`#all`);
+    //     allcheck.checked = false;
+    // }
+    // else if(checkId === 'all') {
+    //     var pccheck = document.querySelector(`#pc`);
+    //     pccheck.checked = true;
+    //     var brcheck = document.querySelector(`#browser`);
+    //     brcheck.checked = true;
+    // }
+
+    // const checkId = 'Papayas';
+    // switch (expr) {
+    // case 'Oranges':
+    //     console.log('Oranges are $0.59 a pound.');
+    //     break;
+    // case 'Mangoes':
+    // case 'Papayas':
+    //     console.log('Mangoes and papayas are $2.79 a pound.');
+    //     // expected output: "Mangoes and papayas are $2.79 a pound."
+    //     break;
+    // default:
+    //     console.log(`Sorry, we are out of ${expr}.`);
+// }
+
+
+    if(checkobject.checked === true){
+        getGamesByPlatform(checkId);
+    }
+    
+}
+
 
 getGamesList();
 
