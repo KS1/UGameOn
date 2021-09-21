@@ -104,6 +104,7 @@ $(".add-icon").click(function (cardId) {
 });
 
 var favoriteArr = [];
+var dataArr = [];
 
 var getGamesList = function () {
   // var currentWeatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
@@ -124,7 +125,7 @@ var getGamesList = function () {
       if (response.ok) {
         response.json().then(function (data) {
           console.log(data);
-
+          dataArr = data;
           favoriteArr = JSON.parse(localStorage.getItem("myFavoriteGames"));
           // console.log(favoriteArr);
 
@@ -143,8 +144,11 @@ var getGamesList = function () {
             cardImageEl.src = data[i].thumbnail;
             // console.log(cardImageEl);
 
-            var cardapEl = document.querySelector(`#ap11`);
-            cardapEl.href = data[i].game_url;
+            var gameLinkEl = document.querySelector(`#cgame${i + 1}`);
+            console.log("data[i].game_url: " + data[i].game_url);
+            console.log("#cgame1");
+            gameLinkEl.href = data[i].game_url;
+
             // console.log("data[i].game_url: " + data[i].game_url);
 
             // check if the game is favorite
@@ -385,8 +389,11 @@ var getGamesByPlatform = function (platform) {
             cardImageEl.src = data[i].thumbnail;
             // console.log(cardImageEl);
 
-            var cardapEl = document.querySelector(`#ap11`);
-            cardapEl.href = data[i].game_url;
+            var gameLinkEl = document.querySelector(`#cgame${i + 1}`);
+            console.log("data[i].game_url: " + data[i].game_url);
+            console.log("#cgame1");
+            gameLinkEl.href = data[i].game_url;
+
             // console.log("data[i].game_url: " + data[i].game_url);
 
             // check if the game is favorite
@@ -543,9 +550,27 @@ var loadFavorites = function () {
   for (var i = 0; i < favoriteArr.length; i++) {
     var g1 = document.querySelector(`#game${i + 1}`);
     g1.textContent = favoriteArr[i];
-    // g1.href = "pokemon.html"; //TODO: add url of the game
+    var favurl = getFavUrl(favoriteArr[i]);
+    g1.href = favurl;
   }
 };
+
+function getFavUrl(favTitle) {
+  var fUrl = "";
+  if (!dataArr) {
+    return;
+  }
+  for (var i = 0; i < 9; i++) {
+    console.log(dataArr[i].game_url);
+    if (favTitle === dataArr[i].title) {
+      console.log("Inside if: " + favTitle + "  " + dataArr[i].game_url);
+      fUrl = dataArr[i].game_url;
+    } else {
+      console.log("Inside else");
+    }
+  }
+  return fUrl;
+}
 
 function isMyFavorite(gameTitle) {
   var isFav = false;
@@ -553,7 +578,9 @@ function isMyFavorite(gameTitle) {
 
   // console.log(favoriteArr);
   // console.log(gameTitle);
-
+  if (!favoriteArr) {
+    return isFav;
+  }
   for (var i = 0; i < favoriteArr.length; i++) {
     // console.log(favoriteArr[i]);
     if (gameTitle !== favoriteArr[i]) {
