@@ -89,9 +89,8 @@
 // current issue - on page refresh all favorite buttons are blue
 // On page refresh, add button should show red for all locally stored favorites 
 // heart button function - change color
-$(".add").click(function (cardId) {
-    $(this).each(function (i) {              
-
+$(".add-icon").click(function (cardId) {
+    $(this).each(function (i) {    
       if (this.style.backgroundColor !== "rgb(255, 72, 0)") {          
         this.style.backgroundColor = "rgb(255, 72, 0)";       
         //add title to local storage       
@@ -145,11 +144,14 @@ var getGamesList = function() {
                     // console.log("card1-short-description: " + cardShortDescriptionEl.textContent); 
 
                     var cardImageEl = document.querySelector(`#card${i+1}-img`);
-                    cardImageEl.src = data[i].thumbnail;
-                    // console.log(cardImageEl); 
+                    cardImageEl.src = data[i].thumbnail;                  
 
-                    var cardapEl = document.querySelector(`#ap11`);
-                    cardapEl.href = data[i].game_url;
+                    var gameLinkEl = document.querySelector(`#cgame${i + 1}`);                    
+                    gameLinkEl.href = data[i].game_url;
+                    
+
+                    // var cardapEl = document.querySelector(`#ap11`);
+                    // cardapEl.href = data[i].game_url;
                     // console.log("data[i].game_url: " + data[i].game_url); 
 
                     // check if the game is favorite
@@ -397,9 +399,14 @@ var getGamesByPlatform = function(platform) {
                         var cardImageEl = document.querySelector(`#card${i+1}-img`);
                         cardImageEl.src = data[i].thumbnail;
                         // console.log(cardImageEl); 
-    
-                        var cardapEl = document.querySelector(`#ap11`);
-                        cardapEl.href = data[i].game_url;
+
+                        var gameLinkEl = document.querySelector(`#cgame${i + 1}`);
+                        console.log("data[i].game_url: " + data[i].game_url);
+                        console.log("#cgame1");
+                        gameLinkEl.href = data[i].game_url;
+                
+                        // var cardapEl = document.querySelector(`#ap11`);
+                        // cardapEl.href = data[i].game_url;
                         // console.log("data[i].game_url: " + data[i].game_url); 
     
                         // check if the game is favorite
@@ -544,6 +551,20 @@ var removeFavoriteCard = function(cardId) {
         }
     }
     localStorage.setItem('myFavoriteGames', JSON.stringify(favoriteArr));
+
+    for (var i = 0; i < favoriteArr.length; i++) {
+        var g1 = document.querySelector(`#game${i+1}`);
+        g1.textContent = favoriteArr[i];         
+        var favurl = getFavUrl(favoriteArr[i]);             
+    }
+
+    if(favoriteArr.length<9){
+        for(j=favoriteArr.length; j<9; j++)
+        {
+            var g2 = document.querySelector(`#game${j}`);
+            g2.textContent = "";
+        }
+    }   
 }
 
 // load favorites from local storage
