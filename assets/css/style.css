@@ -25,7 +25,58 @@ main {
   flex: 1 0 auto;
 }
 
-*/ .large.material-icons {
+/* pokemon card */
+.pokelogo {
+  width: 100px;
+  align-items: center;
+}
+.collapsible-header {
+  text-align: center;
+  background-color: var(--iron-grey);
+  box-shadow: 0 0 10px #aabeff;
+  border-radius: 5px 5px 0 0;
+  border: 0px;
+}
+
+.collapsible-header:hover {
+  box-shadow: 0 0 10px #aabeff;
+}
+
+.collapsible-body {
+  background-color: var(--iron-grey);
+  border: 0px;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 0 10px #aabeff;
+  padding: 0 0 10px 0px;
+}
+
+/* .collapsible-body:hover {
+  box-shadow: 0 0 10px #aabeff;
+} */
+
+/* pokemon card */
+.card0 {
+  margin-top: 0px;
+  width: 100%;
+}
+div .card-content.pokecard {
+  line-height: 2em;
+  margin-top: 20px;
+}
+
+#card0-title.card-title {
+  font-size: 1.4em;
+  margin-top: 10px;
+}
+
+.poketext {
+  line-height: 2em;
+  font-size: 1.1em;
+}
+
+/* nav bar */
+
+.large.material-icons {
   margin-left: 5em;
   color: var(--blue);
 }
@@ -51,12 +102,6 @@ a.nav {
 }
 i.material-icons.nav {
   margin-right: 5em;
-}
-
-/* pokemon card */
-.card.card0 {
-  margin-top: 0px;
-  width: 100%;
 }
 
 /* sorting + cards*/
@@ -92,6 +137,11 @@ select.browser-default {
   color: var(--white);
 }
 
+[type="checkbox"]:checked + span:not(.lever):before {
+  border-right: 2px solid var(--blue);
+  border-bottom: 2px solid var(--blue);
+}
+
 /* card  */
 #card0-img {
   width: 100%;
@@ -107,7 +157,6 @@ select.browser-default {
 div.card {
   width: 100%;
   cursor: pointer;
-  /* border-radius: 10px; */
 }
 .card:hover {
   box-shadow: 0 0 10px #aabeff;

@@ -33,7 +33,7 @@
 
   <!-- header -->
     <header> 
-      <div id="top-page" class="navbar-fixed s12 l6">
+      <div id="top-page" class="navbar-fixed">
         <nav>
           <div class="nav-wrapper grey darken-4">
             <a class="brand-logo nav"><i class="large material-icons">center_focus_weak</i>Focus</a>
@@ -51,30 +51,41 @@
       </div>  
     </header>
   
+   
+
   <div class="container">
 
-    <!-- Pokémon card -->
-    <div class="row">
-        <div class="col s12">
-            <a id="ap"  target="_blank" href="pokemon.html">
-            <div class="card pok-card">
-                <div class="card-image">
-                  <img id="card0-img" src="https://www.gannett-cdn.com/presto/2021/08/09/USAT/86042c95-3bd3-49a7-8625-5e6a518644b2-Pokemon_UNITE_-_Team_Up._Take_Down._-_Hero_Image_With_Logo_-_1080p.png?auto=webp&crop=1911,1075,x0,y0&format=pjpg&width=1200"alt="pokemon image">
-                  <!-- https://i1.wp.com/butwhythopodcast.com/wp-content/uploads/2021/07/Pokemon-Unite-But-Why-Tho.jpg?fit=810%2C450&ssl=1 -->
-                  <!-- https://media1.giphy.com/media/fSvqyvXn1M3btN8sDh/giphy.gif -->
-                  <!-- https://www.gannett-cdn.com/presto/2021/08/09/USAT/86042c95-3bd3-49a7-8625-5e6a518644b2-Pokemon_UNITE_-_Team_Up._Take_Down._-_Hero_Image_With_Logo_-_1080p.png?auto=webp&crop=1911,1075,x0,y0&format=pjpg&width=1200 -->
-                  <a class="btn-floating halfway-fab waves-effect"><i id="card0"class="material-icons add-icon">favorite</i></a>            
-                </div>
-                <a href="pokemon.html">
-                  <div class="card-content">
-                    <span id="card0-title" class="card-title" >Pokémon Go Pokedex</span>
-                    <p id="card0-short-description">Pokémon Go Pokedex has all the unique types that you’ve been searching for. </p>
-                  </div>
-                </a>
-            </div>
-            </a>
-        </div>
-  </div>
+    <!-- https://materializecss.com/collapsible.html -->
+    <ul class="collapsible popout center-align">
+      <li>
+        <div class="collapsible-header"><img class="pokelogo" src="https://www.logosurfer.com/wp-content/uploads/2018/03/pokemon-logo_0.png"alt="Pokemon Logo" /></a></div>
+        <div class="collapsible-body">
+                <!-- Pokémon card start -->
+                <div class="row">
+                    <div class="col s12">
+                        <a id="ap" href="pokemon.html">
+                        <div class=" pok-card">
+                            <div class="card-image">
+                              <img id="card0-img" src="https://www.gannett-cdn.com/presto/2021/08/09/USAT/86042c95-3bd3-49a7-8625-5e6a518644b2-Pokemon_UNITE_-_Team_Up._Take_Down._-_Hero_Image_With_Logo_-_1080p.png?auto=webp&crop=1911,1075,x0,y0&format=pjpg&width=1200"alt="pokemon image">
+                              <!-- https://i1.wp.com/butwhythopodcast.com/wp-content/uploads/2021/07/Pokemon-Unite-But-Why-Tho.jpg?fit=810%2C450&ssl=1 -->
+                              <!-- https://media1.giphy.com/media/fSvqyvXn1M3btN8sDh/giphy.gif -->
+                              <!-- https://www.gannett-cdn.com/presto/2021/08/09/USAT/86042c95-3bd3-49a7-8625-5e6a518644b2-Pokemon_UNITE_-_Team_Up._Take_Down._-_Hero_Image_With_Logo_-_1080p.png?auto=webp&crop=1911,1075,x0,y0&format=pjpg&width=1200 -->
+                              <!-- <a class="btn-floating halfway-fab waves-effect"><i id="add-btn"class="material-icons add-icon">favorite</i></a>             -->
+                            </div>
+                            <a href="pokemon.html">
+                              <div class="card-content pokecard">
+                                <span id="card0-title" class="card-title" >Pokémon Go Pokedex</span>
+                                <p id="card0-short-description" class="poketext">Pokémon Go Pokedex has all the unique types that you’ve been searching for. </p>
+                              </div>
+                            </a>
+                        </div>
+                        </a>
+                    </div>
+              </div>
+            <!-- Pokémon card end -->
+          </div>
+        </li>      
+      </ul>
 
     <div class="row">
 
@@ -82,43 +93,37 @@
 
           <div class="sorting-container1">  
           <!-- Grey navigation panel -->
+                                
+            <!-- Filter By -->           
+            <h3 style="color: white;" color="White"> Filter By Platform </h3>     
+            <br/>
+            <!-- <p><label >
+                <input id="all" type="checkbox" checked="checked" onclick="checkPlatform(this)"/>
+                <span class="sorting-items">All</span>
+              </label></p>
+              <br/> -->
+            <p><label>             
+                <input id="pc" type="checkbox" checked="checked" onclick="checkPlatform(this)"/>
+                <span class="sorting-items">PC</span>
+              </label></p>
+            <br/>
+            <p><label>
+                <input id="browser" type="checkbox" checked="checked" onclick="checkPlatform(this)"/>
+                <span class="sorting-items">Browser</span>
+              </label></p>        
+
+            <br/>
+            <br/>
 
             <!-- Sort By Options  -->
             <p> 
-              <label>Browser Select</label>
+              <h5 style="color: white;" color="White"> Sort By </h5>             
               <select class="browser-default">
-                <option value="" disabled selected>Choose your option</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+                <option value="" selected> select.. </option>
+                <option value="1">Release Date</option>
+                <option value="2">Alphabetical</option>                
               </select>
             </p>
-
-            <!-- Filter By -->
-            <p><label>
-                <input type="checkbox" />
-                <span class="sorting-items">Red</span>
-              </label></p>
-            <p><label>
-                <input type="checkbox" checked="checked" />
-                <span class="sorting-items">Yellow</span>
-              </label></p>
-            <p><label>
-                <input type="checkbox" class="filled-in" checked="checked" />
-                <span class="sorting-items">Filled in</span>
-              </label></p>
-            <p><label>
-                <input id="indeterminate-checkbox" type="checkbox" />
-                <span class="sorting-items">Indeterminate Style</span>
-              </label></p>
-            <p><label>
-                <input type="checkbox" checked="checked" disabled="disabled" />
-                <span class="sorting-items">Green</span>
-              </label></p>
-            <p><label>
-                  <input type="checkbox" disabled="disabled" />
-                  <span class="sorting-items">Brown</span>
-            </label></p>
        
           </div> <!--sorting-container1 -->
         </div>
@@ -133,20 +138,17 @@
                     <div class="col s12 m6 l6 xl4">
                       <div class="card">
                         <div class="card-image">
-                          <a id="cgame1"  target="_blank">
+                          <a id="cgame1" target="_blank">
                             <img id="card1-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
                             <a class="btn-floating halfway-fab waves-effect" ><i id="card1" class="material-icons add-icon" >favorite</i></a>
-                          </a>
+                          </a>    
                           </div>
-                         
-                    
-                            <div class="card-content">
-            
+                          <div class="card-content">
+                            <!-- <a id="cgame12"  target="_blank"></a> -->
                               <span id="card1-title" class="card-title" >Card Title</span>
                               <p id="card1-short-description">I am a very simple card. I am good at containing small bits of information..</p>
-                    
-                            </div>
-                         
+                            <!-- </a> -->
+                          </div>
                         </div>
                       </div>
 
@@ -154,9 +156,9 @@
                       <div class="col s12 m6 l6 xl4">
                         <div class="card">
                           <div class="card-image">
-                            <a id="cgame2" target="_blank" >
-                            <img id="card2-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
-                            <a class="btn-floating halfway-fab waves-effect" ><i id="card2" class="material-icons add-icon">favorite</i></a>                          
+                            <a id="cgame2" target="_blank">
+                              <img id="card2-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                              <a class="btn-floating halfway-fab waves-effect" ><i id="card2" class="material-icons add-icon">favorite</i></a>                          
                             </a>
                           </div>
                           <div class="card-content">
@@ -170,9 +172,9 @@
                       <div class="col s12 m6 l6 xl4">
                         <div class="card">
                           <div class="card-image">
-                            <a id="cgame3" target="_blank" >
-                            <img id="card3-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
-                            <a class="btn-floating halfway-fab waves-effect" ><i id="card3" class="material-icons add-icon">favorite</i></a>                         
+                            <a id="cgame3"  target="_blank">
+                              <img id="card3-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                              <a class="btn-floating halfway-fab waves-effect" ><i id="card3" class="material-icons add-icon">favorite</i></a>                         
                             </a>
                           </div>
                           <div class="card-content">
@@ -186,10 +188,10 @@
                       <div class="col s12 m6 l6 xl4">
                         <div class="card">
                           <div class="card-image">
-                            <a id="cgame4" target="_blank" >
-                            <img id="card4-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
-                            <a class="btn-floating halfway-fab waves-effect" ><i id="card4" class="material-icons add-icon">favorite</i></a> 
-                           </a>
+                            <a id="cgame4"  target="_blank">
+                              <img id="card4-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                              <a class="btn-floating halfway-fab waves-effect" ><i id="card4" class="material-icons add-icon">favorite</i></a> 
+                            </a>
                           </div>
                           <div class="card-content">
                             <span id="card4-title" class="card-title">Card Title</span>
@@ -202,10 +204,10 @@
                       <div class="col s12 m6 l6 xl4">
                         <div class="card">
                           <div class="card-image">
-                            <a id="cgame5" target="_blank" >
-                            <img id="card5-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
-                            <a class="btn-floating halfway-fab waves-effect" ><i id="card5" class="material-icons add-icon">favorite</i></a>
-                          </a>
+                            <a id="cgame5"  target="_blank">
+                              <img id="card5-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                              <a class="btn-floating halfway-fab waves-effect" ><i id="card5" class="material-icons add-icon">favorite</i></a>
+                            </a>
                           </div>
                           <div class="card-content">
                             <span id="card5-title" class="card-title">Card Title</span>
@@ -218,9 +220,9 @@
                       <div class="col s12 m6 l6 xl4">
                         <div class="card">
                           <div class="card-image">
-                            <a id="cgame6" target="_blank" >
-                            <img id="card6-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
-                            <a class="btn-floating halfway-fab waves-effect" ><i id="card6" class="material-icons add-icon">favorite</i></a>
+                            <a id="cgame6"  target="_blank">
+                              <img id="card6-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                              <a class="btn-floating halfway-fab waves-effect" ><i id="card6" class="material-icons add-icon">favorite</i></a>
                             </a>
                           </div>
                           <div class="card-content">
@@ -234,11 +236,11 @@
                       <div class="col s12 m6 l6 xl4">
                         <div class="card">
                           <div class="card-image">
-                            <a id="cgame7" target="_blank" >
-                            <img id="card7-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
-                            <a class="btn-floating halfway-fab waves-effect" ><i id="card7" class="material-icons add-icon">favorite</i></a>
-                          </a>
-                          </div>
+                            <a id="cgame7" target="_blank">
+                              <img id="card7-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                              <a class="btn-floating halfway-fab waves-effect" ><i id="card7" class="material-icons add-icon">favorite</i></a>
+                            </a>
+                            </div>
                           <div class="card-content">
                             <span id="card7-title" class="card-title">Card Title</span>
                             <p id="card7-short-description">I am a very simple card. I am good at containing small bits of information..</p>
@@ -249,12 +251,12 @@
                        <!-- Card 8 -->
                        <div class="col s12 m6 l6 xl4">
                         <div class="card">
-                            <div class="card-image" >
-                              <a id="cgame8" target="_blank" >
-                              <img id="card8-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
-                              <a class="btn-floating halfway-fab waves-effect" ><i id="card8" class="material-icons add-icon">favorite</i></a>
+                            <div class="card-image">
+                              <a id="cgame8"  target="_blank">
+                                <img id="card8-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                                <a class="btn-floating halfway-fab waves-effect" ><i id="card8" class="material-icons add-icon">favorite</i></a>
                               </a>
-                            </div>  
+                              </div>  
                             <div class="card-content">
                               <span id="card8-title" class="card-title">Card Title</span>
                               <p id="card8-short-description">I am a very simple card. I am good at containing small bits of information..</p>
@@ -266,11 +268,11 @@
                        <div class="col s12 m6 l6 xl4">
                         <div class="card">
                           <div class="card-image">
-                            <a id="cgame9" target="_blank" >
-                            <img id="card9-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
-                            <a class="btn-floating halfway-fab waves-effect" ><i id="card9" class="material-icons add-icon">favorite</i></a>
-                          </a>
-                          </div>
+                            <a id="cgame9" target="_blank">
+                              <img id="card9-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                              <a class="btn-floating halfway-fab waves-effect" ><i id="card9" class="material-icons add-icon">favorite</i></a>
+                            </a>
+                            </div>
                           <div class="card-content">
                             <span id="card9-title" class="card-title">Card Title</span>
                             <p id="card9-short-description">I am a very simple card. I am good at containing small bits of information..</p>
@@ -292,7 +294,7 @@
                           <a id="game6" target="_blank" href="#!" class="collection-item"></a>
                           <a id="game7" target="_blank" href="#!" class="collection-item"></a>
                           <a id="game8" target="_blank" href="#!" class="collection-item"></a>
-                          <a id="game9" target="_blank" href="#!" class="collection-item"></a>    
+                          <a id="game9" target="_blank" href="#!" class="collection-item"></a>     
                         </div>           
                     </div>
                     <div class="modal-footer">
@@ -303,6 +305,23 @@
             </div> <!--"row" -->
           
         </div>
+
+        <!--Pagination-->
+        <div>
+          <div class="center-align">
+            <ul class="pagination">
+              <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+              <li class="active"><a id="page1" href="#!" onclick="populatePageData('1')">1</a></li>
+              <li class="waves-effect"><a id="page2" href="#!" onclick="populatePageData('2')">2</a></li>
+              <li class="waves-effect"><a href="#!">3</a></li>
+              <li class="waves-effect"><a href="#!">4</a></li>
+              <li class="waves-effect"><a href="#!">5</a></li>
+              <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+            </ul>
+          </div>
+        </div>
+        <!--Pagination-->
+
 
     </div> 
 
