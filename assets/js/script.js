@@ -105,6 +105,8 @@ $(".add-icon").click(function (cardId) {
 
 var favoriteArr = [];
 var dataArr = [];
+var sortedArr = [];
+var sortedRDateArr = [];
 
 var getGamesList = function() {
     // var currentWeatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
@@ -132,6 +134,11 @@ var getGamesList = function() {
                 favoriteArr = JSON.parse(localStorage.getItem('myFavoriteGames'));
                 // console.log(favoriteArr);               
                 dataArr = data;
+                console.log(dataArr);
+                sortedArr = dataArr.slice();
+                sortedRDateArr = dataArr.slice();
+                sortData(sortedArr);
+                console.log(sortedArr);
 
                 for(i=0; i<9; i++)
                 {
@@ -380,6 +387,7 @@ var getGamesByPlatform = function(platform) {
                     console.log("Response is OK");
                     console.log(data);
                     // console.log(typeof(data));
+                    // dataArr = data.slice();
     
                     // query returns 2 or more records  
                     console.log(data.length);
@@ -517,7 +525,6 @@ var getGamesByPlatform = function(platform) {
         .catch(err => {
             console.error(err);
         });
-
 
 }
 
@@ -810,9 +817,107 @@ function pageGetData(pnum){
 
         j++;        
     }
+    
+}
+
+
+function sortData(){
+
+    console.log("Inside sortByAlphabetical function");
+    console.log(sortedArr);
+
+    var x = document.getElementById("sortselect").value;
+    console.log("You selected: " + x);
+
+    // https://www.javascripttutorial.net/array/javascript-sort-an-array-of-objects/
+    // sortedArr.sort((a, b) => {
+    //     let ta = a.title.toLowerCase(),
+    //         tb = b.title.toLowerCase(),
+    
+    //     if (ta < tb) {
+    //         return -1;
+    //     }
+    //     if (ta > tb) {
+    //         return 1;
+    //     }
+    //     return 0;
+    // });
+
+    // https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/
+    // list.sort((a, b) => (a.color > b.color) ? 1 : -1)
+    sortedArr.sort((a, b) => (a.title > b.title) ? 1 : -1);
+
+ 
+    // sortedRDateArr.sort((a, b) => (a.title > b.title) ? 1 : -1);
+
+    sortedRDateArr.sort((a, b) => {
+        let da = new Date(a.release_date),
+            db = new Date(b.release_date);
+        return da - db;
+    });
+
+    console.log("sortedRDateArr: ");
+    console.log(sortedRDateArr);
+
+    if(x === 'opt0'){
+        fillUpCardData(dataArr);
+    } else if(x === 'opt1'){
+        fillUpCardData(sortedArr);
+    }
+    else if (x === 'opt2'){
+        fillUpCardData(sortedRDateArr);
+    }
+    // console.log(sortedArr);
+
+    // sortedArr.forEach((e) => {
+    //     console.log(`${e.title}`);
+    // });
 
     
+}
+
+function fillUpCardData(cardDataArr) {
+
+    for(i=0; i<9; i++)
+        {
+            var cardTitleEl = document.querySelector(`#card${i+1}-title`);
+            cardTitleEl.textContent = cardDataArr[i].title;
+            // console.log("cardTitleEl.textContent: " + cardTitleEl.textContent); 
+
+            var cardShortDescriptionEl = document.querySelector(`#card${i+1}-short-description`);
+            cardShortDescriptionEl.textContent = cardDataArr[i].short_description;
+            // console.log("card1-short-description: " + cardShortDescriptionEl.textContent); 
+
+            var cardImageEl = document.querySelector(`#card${i+1}-img`);
+            cardImageEl.src = cardDataArr[i].thumbnail;
+            // console.log(cardImageEl); 
+
+            var gameLinkEl = document.querySelector(`#cgame${i + 1}`);
+            // console.log("data[i].game_url: " + sortedArr[i].game_url);
+            // console.log("#cgame1");
+            gameLinkEl.href = cardDataArr[i].game_url;
     
+            // var cardapEl = document.querySelector(`#ap11`);
+            // cardapEl.href = data[i].game_url;
+            // console.log("data[i].game_url: " + data[i].game_url); 
+
+            // check if the game is favorite
+            // console.log("Calling isMyFavorite function...");
+            // console.log(data[i].title);
+            var myFav = isMyFavorite(cardDataArr[i].title);
+            // console.log(myFav);
+
+            var myFav = isMyFavorite(cardDataArr[i].title);
+            // console.log(myFav);
+            var t1 = document.querySelector(`#card${i+1}`);
+            // console.log(t1);
+            if (myFav === true) {                            
+                t1.style.backgroundColor = "rgb(255, 72, 0)";
+            } else {
+                t1.style.backgroundColor = "rgb(119, 176, 250)";
+            }
+            
+        }
 }
 
 getGamesList();

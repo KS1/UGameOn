@@ -447,3 +447,11 @@ a {
 .fairy {
   background: #f9aeff;
 }
+
+/* back button */
+nav {
+  margin-top: 2em !important;
+}
+a {
+  color: white !important;
+}

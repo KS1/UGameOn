@@ -120,19 +120,24 @@
                 <span class="sorting-items">Browser</span>
               </label></p>        
 
+           
+            <br/>
+            <label id="filterinfo"></label>
+
             <br/>
             <br/>
 
-            <label id="filterinfo"></label>
+            <!-- https://materializecss.com/select.html -->
             <!-- Sort By Options  -->
-            <!-- <p> 
-              <h5 style="color: white;" color="White"> Sort By </h5>             
-              <select class="browser-default">
-                <option value="" selected> select.. </option>
-                <option value="1">Release Date</option>
-                <option value="2">Alphabetical</option>                
+            <p> 
+              <h5 style="color: white;" color="White"> Sort By </h5>        
+              <br/>     
+              <select id="sortselect" class="browser-default" onchange="sortData()">
+                <option value="opt0" selected> select.. </option>
+                <option value="opt1">Alphabetical</option>
+                <option value="opt2">Release Date</option>                
               </select>
-            </p> -->
+            </p>            
        
           </div> <!--sorting-container1 -->
         </div>
