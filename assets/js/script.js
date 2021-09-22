@@ -70,30 +70,54 @@
 //     "freetogame_profile_url":"https://www.freetogame.com/jade-goddess"
 //     }
 
-$(".add").each(function () {
-  $(this).click(function () {
-    console.log($(this).css("background-color"));
-    if ($(this).css("background-color") === "rgb(119, 176, 250)") {
-      console.log("if");
-      $(this).css("background-color", "rgb(255, 72, 0)");
-      // } else if ($(this).css("background-color", "rgb(255, 72, 0)")) {
-    } else {
-      console.log("else");
-      $(this).css("background-color", "rgb(119, 176, 250)");
-    }
+// $(".add").each(function () {
+//   $(this).click(function () {
+//     console.log($(this).css("background-color"));
+//     if ($(this).css("background-color") === "rgb(119, 176, 250)") {
+//       console.log("if");
+//     //   red
+//       $(this).css("background-color", "rgb(255, 72, 0)");   
+//       // } else if ($(this).css("background-color", "rgb(255, 72, 0)")) {
+//     } else {
+//       console.log("else");
+//     //   blue
+//       $(this).css("background-color", "rgb(119, 176, 250)");
+//     }
+//   });
+// });
+
+// current issue - on page refresh all favorite buttons are blue
+// On page refresh, add button should show red for all locally stored favorites 
+// heart button function - change color
+$(".add").click(function (cardId) {
+    $(this).each(function (i) {              
+
+      if (this.style.backgroundColor !== "rgb(255, 72, 0)") {          
+        this.style.backgroundColor = "rgb(255, 72, 0)";       
+        //add title to local storage       
+        saveFavoriteCard(cardId.target.id);       
+      } else {        
+        this.style.backgroundColor = "rgb(119, 176, 250)";
+        //remove title from local storage       
+        removeFavoriteCard(cardId.target.id);        
+      }
+    });
   });
-});
+
 var favoriteArr = [];
+var dataArr = [];
 
 var getGamesList = function() {
     // var currentWeatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
 
-    var gamesListApi = `https://www.freetogame.com/api/games`;
+    // var gamesListApi = `https://www.freetogame.com/api/games`;
+
+    var gamesListApi = `https://free-to-play-games-database.p.rapidapi.com/api/games`;
 
     console.log(gamesListApi);
 
     // fetch("https://free-to-play-games-database.p.rapidapi.com/api/filter?tag=3d.mmorpg.fantasy.pvp&platform=pc", {
-    fetch("https://free-to-play-games-database.p.rapidapi.com/api/games", {
+    fetch(gamesListApi, {
 	
     "method": "GET",
 	"headers": {
@@ -104,10 +128,13 @@ var getGamesList = function() {
     .then(response => {
         if (response.ok) {
             response.json().then(function(data) {             
-                console.log(data);          
-                // console.log(data[0]);   
+                console.log(data);           
 
-                for(i=0; i<7; i++)
+                favoriteArr = JSON.parse(localStorage.getItem('myFavoriteGames'));
+                // console.log(favoriteArr);
+                dataArr = data;
+
+                for(i=0; i<9; i++)
                 {
                     var cardTitleEl = document.querySelector(`#card${i+1}-title`);
                     cardTitleEl.textContent = data[i].title;
@@ -121,101 +148,23 @@ var getGamesList = function() {
                     cardImageEl.src = data[i].thumbnail;
                     // console.log(cardImageEl); 
 
+                    var cardapEl = document.querySelector(`#ap11`);
+                    cardapEl.href = data[i].game_url;
+                    // console.log("data[i].game_url: " + data[i].game_url); 
+
+                    // check if the game is favorite
+                    // console.log("Calling isMyFavorite function...");
+                    // console.log(data[i].title);
+                    var myFav = isMyFavorite(data[i].title);
+                    // console.log(myFav);
+                    if (myFav === true)
+                    {
+                        var t1 = document.querySelector(`#card${i+1}`);
+                        // console.log(t1);
+                        t1.style.backgroundColor = "rgb(255, 72, 0)";                         
+                    }
+                    
                 }
-                // // Card 1
-                // var card1TitleEl = document.querySelector('#card1-title');
-                // card1TitleEl.textContent = data[0].title;
-                // // console.log("card1TitleEl.textContent: " + card1TitleEl.textContent); 
-
-                // var card1ShortDescriptionEl = document.querySelector('#card1-short-description');
-                // card1ShortDescriptionEl.textContent = data[0].short_description;
-                // // console.log("card1-short-description: " + card1ShortDescriptionEl.textContent); 
-
-                // var card1ImageEl = document.querySelector('#card1-img');
-                // card1ImageEl.src = data[0].thumbnail;
-                // // console.log(card1ImageEl.src); 
-
-                // // Card 2
-                // var card2TitleEl = document.querySelector('#card2-title');
-                // card2TitleEl.textContent = data[1].title;
-                // // console.log("card2TitleEl.textContent: " + card2TitleEl.textContent); 
-
-                // var card2ShortDescriptionEl = document.querySelector('#card2-short-description');
-                // card2ShortDescriptionEl.textContent = data[1].short_description;
-                // // console.log("card2-short-description: " + card2ShortDescriptionEl.textContent); 
-
-                // var card2ImageEl = document.querySelector('#card2-img');
-                // card2ImageEl.src = data[1].thumbnail;
-                // // console.log(card2ImageEl.src); 
-
-                // // Card 3
-                // var card3TitleEl = document.querySelector('#card3-title');
-                // card3TitleEl.textContent = data[2].title;
-                // // console.log("card3TitleEl.textContent: " + card3TitleEl.textContent); 
-
-                // var card3ShortDescriptionEl = document.querySelector('#card3-short-description');
-                // card3ShortDescriptionEl.textContent = data[2].short_description;
-                // // console.log("card3-short-description: " + card3ShortDescriptionEl.textContent); 
-
-                // var card3ImageEl = document.querySelector('#card3-img');
-                // card3ImageEl.src = data[2].thumbnail;
-                // // console.log(card3ImageEl.src); 
-
-                // // Card 4
-                // var card4TitleEl = document.querySelector('#card4-title');
-                // card4TitleEl.textContent = data[3].title;
-                // // console.log("card4TitleEl.textContent: " + card4TitleEl.textContent); 
-
-                // var card4ShortDescriptionEl = document.querySelector('#card4-short-description');
-                // card4ShortDescriptionEl.textContent = data[3].short_description;
-                // // console.log("card4-short-description: " + card4ShortDescriptionEl.textContent); 
-
-                // var card4ImageEl = document.querySelector('#card4-img');
-                // card4ImageEl.src = data[3].thumbnail;
-                // // console.log(card4ImageEl.src); 
-
-                // // Card 5
-                // var card5TitleEl = document.querySelector('#card5-title');
-                // card5TitleEl.textContent = data[4].title;
-                // // console.log("card5TitleEl.textContent: " + card5TitleEl.textContent); 
-
-                // var card5ShortDescriptionEl = document.querySelector('#card5-short-description');
-                // card5ShortDescriptionEl.textContent = data[4].short_description;
-                // // console.log("card5-short-description: " + card5ShortDescriptionEl.textContent); 
-
-                // var card5ImageEl = document.querySelector('#card5-img');
-                // card5ImageEl.src = data[4].thumbnail;
-                // // console.log(card5ImageEl.src); 
-
-                // // Card 6
-                // var card6TitleEl = document.querySelector('#card6-title');
-                // card6TitleEl.textContent = data[5].title;
-                // // console.log("card6TitleEl.textContent: " + card6TitleEl.textContent); 
-
-                // var card6ShortDescriptionEl = document.querySelector('#card6-short-description');
-                // card6ShortDescriptionEl.textContent = data[5].short_description;
-                // // console.log("card6-short-description: " + card6ShortDescriptionEl.textContent); 
-
-                // var card6ImageEl = document.querySelector('#card6-img');
-                // card5ImageEl.src = data[5].thumbnail;
-                // // console.log(card6ImageEl.src); 
-
-
-                // // Card 7
-                // var card7TitleEl = document.querySelector('#card7-title');
-                // card7TitleEl.textContent = data[6].title;
-                // // console.log("card7TitleEl.textContent: " + card7TitleEl.textContent); 
-
-                // var card7ShortDescriptionEl = document.querySelector('#card7-short-description');
-                // card7ShortDescriptionEl.textContent = data[6].short_description;
-                // // console.log("card7-short-description: " + card7ShortDescriptionEl.textContent); 
-
-                // var card7ImageEl = document.querySelector('#card7-img');
-                // card7ImageEl.src = data[6].thumbnail;
-                // // console.log(card7ImageEl.src); 
-
-
-
 
                 // for(i = 0; i < data.length; i++)
                 // {
@@ -352,7 +301,6 @@ var getGamesFilter = function() {
                     // console.log(data[i].screenshots[3].id);
                     // console.log(data[i].screenshots[3].image);
                 }
-                
 
                 // query returns 1 record 
                 // console.log(data.id);
@@ -405,10 +353,175 @@ var getGamesFilter = function() {
     });
 }
 
-// save favorite into local storage
+var getGamesByPlatform = function(platform) {
+    // Games by platform: Insert platform, eg: pc, browser or all
+    // works -- pc 297 records, browser 77 records, all 365 records
+    // var gamesFilterApi = `https://free-to-play-games-database.p.rapidapi.com/api/games?platform=all`;
+
+    // var gamesFilterApi = `https://free-to-play-games-database.p.rapidapi.com/api/games?platform=pc`;
+
+    // var gamesFilterApi = `https://free-to-play-games-database.p.rapidapi.com/api/games?platform=browser`;
+
+    var gamesFilterApi = `https://free-to-play-games-database.p.rapidapi.com/api/games?platform=${platform}`;
+
+    fetch(gamesFilterApi, {	
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
+            "x-rapidapi-key": "0f14760277msh4633a73019285dap13a775jsnde37e09289b4"
+        }
+        })
+        .then(response => {
+            if (response.ok) {
+                response.json().then(function(data) {                
+                    
+                    console.log("Response is OK");
+                    console.log(data);
+                    // console.log(typeof(data));
+    
+                    // query returns 2 or more records  
+                    console.log(data.length);
+                    favoriteArr = JSON.parse(localStorage.getItem('myFavoriteGames'));
+                    // console.log(favoriteArr);
+    
+                    for(i=0; i<9; i++)
+                    {
+                        var cardTitleEl = document.querySelector(`#card${i+1}-title`);
+                        cardTitleEl.textContent = data[i].title;
+                        // console.log("cardTitleEl.textContent: " + cardTitleEl.textContent); 
+    
+                        var cardShortDescriptionEl = document.querySelector(`#card${i+1}-short-description`);
+                        cardShortDescriptionEl.textContent = data[i].short_description;
+                        // console.log("card1-short-description: " + cardShortDescriptionEl.textContent); 
+    
+                        var cardImageEl = document.querySelector(`#card${i+1}-img`);
+                        cardImageEl.src = data[i].thumbnail;
+                        // console.log(cardImageEl); 
+    
+                        var cardapEl = document.querySelector(`#ap11`);
+                        cardapEl.href = data[i].game_url;
+                        // console.log("data[i].game_url: " + data[i].game_url); 
+    
+                        // check if the game is favorite
+                        // console.log("Calling isMyFavorite function...");
+                        // console.log(data[i].title);
+                        var myFav = isMyFavorite(data[i].title);
+                        // console.log(myFav);
+
+                        var myFav = isMyFavorite(data[i].title);
+                        console.log(myFav);
+                        var t1 = document.querySelector(`#card${i+1}`);
+                        console.log(t1);
+                        if (myFav === true) {                            
+                            t1.style.backgroundColor = "rgb(255, 72, 0)";
+                        } else {
+                            t1.style.backgroundColor = "rgb(119, 176, 250)";
+                        }
+
+                        
+        
+                        
+                    }
+
+                    // Games by platform & category & sorted
+                    // for(i = 0; i < data.length; i++)
+                    // {
+                        // console.log("Id: " + data[i].id);
+                        // console.log("title: " + data[i].title);
+                        // console.log(data[i].thumbnail);                   
+                        // console.log(data[i].short_description);                    
+                        // console.log(data[i].game_url);
+                        // console.log(data[i].genre);
+                        // console.log(data[i].platform);
+                        // console.log(data[i].publisher);
+                        // console.log(data[i].developer);
+                        // console.log(data[i].release_date);
+                        // console.log(data[i].freetogame_profile_url);
+    
+                        // console.log(data[i].minimum_system_requirements);
+                        // console.log(data[i].minimum_system_requirements.os);
+                        // console.log(data[i].minimum_system_requirements.processor);
+                        // console.log(data[i].minimum_system_requirements.memory);
+                        // console.log(data[i].minimum_system_requirements.graphics);
+                        // console.log(data[i].minimum_system_requirements.storage);
+    
+                        // console.log(data[i].screenshots);
+    
+                        // console.log(data[i].screenshots[0]);
+                        // console.log(data[i].screenshots[0].id);
+                        // console.log(data[i].screenshots[0].image);
+    
+                        // console.log(data[i].screenshots[1]);
+                        // console.log(data[i].screenshots[1].id);
+                        // console.log(data[i].screenshots[1].image);
+    
+                        // console.log(data[i].screenshots[2]);
+                        // console.log(data[i].screenshots[2].id);
+                        // console.log(data[i].screenshots[2].image);
+    
+                        // console.log(data[i].screenshots[3]);
+                        // console.log(data[i].screenshots[3].id);
+                        // console.log(data[i].screenshots[3].image);
+                    // }
+    
+                    // query returns 1 record 
+                    // console.log(data.id);
+                    // console.log(data.title);
+                    // console.log(data.thumbnail);
+                    // console.log(data.short_description);
+                    // console.log(data.description);
+                    // console.log(data.game_url);
+                    // console.log(data.genre);
+                    // console.log(data.platform);
+                    // console.log(data.publisher);
+                    // console.log(data.developer);
+                    // console.log(data.release_date);
+                    // console.log(data.freetogame_profile_url);
+    
+                    // console.log(data.minimum_system_requirements);
+                    // console.log(data.minimum_system_requirements.os);
+                    // console.log(data.minimum_system_requirements.processor);
+                    // console.log(data.minimum_system_requirements.memory);
+                    // console.log(data.minimum_system_requirements.graphics);
+                    // console.log(data.minimum_system_requirements.storage);
+    
+                    // console.log(data.screenshots);
+    
+                    // console.log(data.screenshots[0]);
+                    // console.log(data.screenshots[0].id);
+                    // console.log(data.screenshots[0].image);
+    
+                    // console.log(data.screenshots[1]);
+                    // console.log(data.screenshots[1].id);
+                    // console.log(data.screenshots[1].image);
+    
+                    // console.log(data.screenshots[2]);
+                    // console.log(data.screenshots[2].id);
+                    // console.log(data.screenshots[2].image);
+    
+                    // console.log(data.screenshots[3]);
+                    // console.log(data.screenshots[3].id);
+                    // console.log(data.screenshots[3].image);
+                   
+                });
+            } else {
+                alert(`Error: ${response.statusText}`)
+            }
+            console.log(response);
+            
+        })
+        .catch(err => {
+            console.error(err);
+        });
+
+
+}
+
+// save favorite game into local storage
 var saveFavoriteCard = function(cardId) {
     var c1 = document.querySelector(`#${cardId}-title`);
     var favorite = c1.textContent;
+    
     loadFavorites();
     // prevent duplicate favorite from being saved and move it to end of array
     for (var i = 0; i < favoriteArr.length; i++) {
@@ -420,23 +533,23 @@ var saveFavoriteCard = function(cardId) {
     localStorage.setItem('myFavoriteGames', JSON.stringify(favoriteArr));
 }
 
-// save favorite into local storage
-// var saveFavoriteCard2 = function() {
-//     var c1 = document.querySelector('#card2-title');
-//     var favorite = c1.textContent;
-//     loadFavorites();
-//     // prevent duplicate favorite from being saved and move it to end of array
-//     for (var i = 0; i < favoriteArr.length; i++) {
-//         if (favorite === favoriteArr[i]) {
-//             favoriteArr.splice(i, 1);
-//         }
-//     }
-//     favoriteArr.push(favorite);
-//     localStorage.setItem('favorites', JSON.stringify(favoriteArr));
-// }
+// remove favorite game from local storage
+var removeFavoriteCard = function(cardId) {
+    var c1 = document.querySelector(`#${cardId}-title`);
+    var favorite = c1.textContent;   
+    // remove item from array
+    for (var i = 0; i < favoriteArr.length; i++) {
+        if (favorite === favoriteArr[i]) {
+            favoriteArr.splice(i, 1);
+        }
+    }
+    localStorage.setItem('myFavoriteGames', JSON.stringify(favoriteArr));
+}
 
 // load favorites from local storage
 var loadFavorites = function() {
+
+    console.log("Inside loadFavorites function...");
     favoriteArr = JSON.parse(localStorage.getItem('myFavoriteGames'));
 
     console.log(favoriteArr);
@@ -445,150 +558,147 @@ var loadFavorites = function() {
         favoriteArr = [];
         return false;
     } 
-    // else if (favoriteArr.length > 5) {
-    //     // save only the five most recent favorites
-    //     favoriteArr.shift();
-    // }
+    else if (favoriteArr.length > 10) {
+        // save only the ten most recent favorites
+        favoriteArr.shift();
+    }
     
     for (var i = 0; i < favoriteArr.length; i++) {
         var g1 = document.querySelector(`#game${i+1}`);
-        g1.textContent = favoriteArr[i]; 
-        g1.href = "pokemon.html"; //TODO: add url of the game        
+        g1.textContent = favoriteArr[i];         
+        var favurl = getFavUrl(favoriteArr[i]);
+        g1.href = favurl;
     }
-
-      // set recent cities
-    // var recentCities = document.querySelector('#fDiv');
-    // var cityListUl = document.createElement('ul');
-    // cityListUl.className = 'list-group list-group-flush city-list';
-    // recentCities.appendChild(cityListUl);
-
-    // for (var i = 0; i < favoriteArr.length; i++) {
-    //     var cityListItem = document.createElement('button');
-    //     cityListItem.setAttribute('type', 'button');
-    //     cityListItem.className = 'list-group-item';
-    //     cityListItem.setAttribute('value', favoriteArr[i]);
-    //     cityListItem.textContent = favoriteArr[i];
-    //     cityListUl.prepend(cityListItem);
-    // }
-
-    // var cityList = document.querySelector('.city-list');
-    // cityList.addEventListener('click', selectRecent)
-
-
-    // https://www.geeksforgeeks.org/how-to-create-a-link-in-javascript/
-    // var myFavorites = document.querySelector('#favoriteList');
-    // // var a = document.querySelector('#game1');
-    // var a = document.createElement('a'); 
-    // a.className = "collection-item";
-    // var link = document.createTextNode("This is link");
-    // a.appendChild(link);
-    // a.title = "This is link";
-    // a.href = "https://www.geeksforgeeks.org";
-    // myFavorites.appendChild(a);
-
-    // var myFavorites = document.querySelector('#favoriteList');
-    // var favoriteListA = document.createElement('a');
-    // var link = document.createTextNode("This is link");
-    // a.appendChild(link); 
-    // a.title = "This is Link";
-    // a.href = "https://www.geeksforgeeks.org"; 
-
-    // // favoriteListA.className = 'collection-item';
-    // // favoriteListA.setAttribute('value', "test");
-    // myFavorites.appendChild(favoriteListA);
-
-    // for (var i = 0; i < favoriteArr.length; i++) {
-    //     var cityListItem = document.createElement('button');
-    //     cityListItem.setAttribute('type', 'button');
-    //     cityListItem.className = 'list-group-item';
-    //     cityListItem.setAttribute('value', cityArr[i]);
-    //     cityListItem.textContent = cityArr[i];
-    //     cityListUl.prepend(cityListItem);
-    // }
-
-    // set recent cities
-    // var recentCities = document.querySelector('#recent-cities');
-    // var cityListUl = document.createElement('ul');
-    // cityListUl.className = 'list-group list-group-flush city-list';
-    // recentCities.appendChild(cityListUl);
-
-    // for (var i = 0; i < cityArr.length; i++) {
-    //     var cityListItem = document.createElement('button');
-    //     cityListItem.setAttribute('type', 'button');
-    //     cityListItem.className = 'list-group-item';
-    //     cityListItem.setAttribute('value', cityArr[i]);
-    //     cityListItem.textContent = cityArr[i];
-    //     cityListUl.prepend(cityListItem);
-    // }
-
-    // var cityList = document.querySelector('.city-list');
-    // cityList.addEventListener('click', selectRecent)
 }
 
+function getFavUrl(favTitle){ 
+    var fUrl = "";
+    if (!dataArr) { return; }
+    for (var i = 0; i < 9; i++) {
+        // console.log(dataArr[i].game_url);
+        if(favTitle === dataArr[i].title) {
+            // console.log("Inside if: " + favTitle + "  " + dataArr[i].game_url);
+            fUrl = dataArr[i].game_url;
+        }
+        else{
+            // console.log("Inside else");
+        }
+    }
+    return fUrl;
+}
+
+function isMyFavorite(gameTitle) {
+   
+    var isFav = false;
+    // favoriteArr = JSON.parse(localStorage.getItem('myFavoriteGames'));
+
+    // console.log(favoriteArr);
+    // console.log(gameTitle);
+    
+    if(!favoriteArr) {return isFav; }
+    for (var i = 0; i < favoriteArr.length; i++) {
+        // console.log(favoriteArr[i]);
+        if(gameTitle !== favoriteArr[i])
+        { // Do nothing 
+        } else { 
+            isFav = true;
+            // console.log(isFav);
+        }
+
+        // g1.href = "pokemon.html"; //TODO: add url of the game          
+        // var f1 = document.querySelector(`#card${i+1}`);
+        // console.log(g1);
+        // console.log(f1);
+        // console.log(f1.parentElement);
+        // console.log(f1.style.backgroundColor);
+    }
+
+    return isFav;
+}
+
+// fuction for filtering
+function checkPlatform (checkobject) {
+    console.log(checkobject);
+    checkId = checkobject.id;
+    console.log(checkobject.checked);
+    console.log("Inside checkPlatform function: " + checkId);  
+    
+    if(checkId === 'pc' || checkId === 'browser' ) {
+        var allcheck = document.querySelector(`#all`);
+        allcheck.checked = false;
+    }
+    else if(checkId === 'all') {
+        var pccheck = document.querySelector(`#pc`);
+        pccheck.checked = true;
+        var brcheck = document.querySelector(`#browser`);
+        brcheck.checked = true;
+    }
+
+    if(checkobject.checked === true){
+        getGamesByPlatform(checkId);
+    }
+    
+}
+
+function populatePageData(pnum){
+    console.log('Inside populatePageData function');
+
+    switch (pnum) {
+    case '1':
+        console.log('Case 1');
+        pageGetData(0);
+        break;
+    case '2':
+        console.log('Case 2');
+        pageGetData(9);
+        break;    
+    default:
+        console.log(`default`);
+    }
+
+}
+
+function pageGetData(pnum){
+
+    console.log("Inside pageGetData function")
+    console.log(dataArr);
+    
+    // var cardTitleEl = document.querySelector(`#card${1}-title`);
+    // console.log(cardTitleEl);
+    // console.log(cardTitleEl.textContent);
+
+    var j=0;
+    for(i=pnum; i<pnum+9; i++)
+    {
+        var cardTitleEl = document.querySelector(`#card${j+1}-title`);
+        console.log("dataArr[i].title: " + dataArr[i].title);
+        // console.log(cardTitleEl);
+        // console.log(cardTitleEl.textContent);
+    
+        cardTitleEl.textContent = dataArr[i].title;
+        console.log("cardTitleEl.textContent: " + cardTitleEl.textContent); 
+        
+        var cardShortDescriptionEl = document.querySelector(`#card${j+1}-short-description`);
+        cardShortDescriptionEl.textContent = dataArr[i].short_description;
+        // console.log("card1-short-description: " + cardShortDescriptionEl.textContent); 
+
+        var cardImageEl = document.querySelector(`#card${j+1}-img`);
+        cardImageEl.src = dataArr[i].thumbnail;
+        // console.log(cardImageEl); 
+
+        j++;
+        
+    }
+}
 
 getGamesList();
-
-
-// btnGetGamesList.addEventListener('click', getGamesList);
 
 btnGetGamesFilter.addEventListener('click', getGamesFilter);
 
 // initialize modal - https://materializecss.com/modals.html
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.modal');
-    var instances = M.Modal.init(elems);
-
-    // M.AutoInit();
+    var instances = M.Modal.init(elems);   
   });
 
-
   
-
-// card1-add.addEventListener('click', saveFavorite);
-//   document.addEventListener('onclick', function() {
-    // var elem = document.querySelectorAll('.fixed-action-btn');    
-    // var instances = M.FloatingActionButton.init(elems, options);    
-//   });
-
-// function test(data){
-//     console.log(data);
-// }
-
-//   var card1Btn = document.querySelector('#card1-add');
-//   card1Btn.addEventListener('click', () => {
-//       saveFavoriteCard()
-    
-//     });
-
-
-
-//   var card2Btn = document.querySelector('#card2-add');
-//   card2Btn.addEventListener('click', saveFavoriteCard2);
-
-//   var card3Btn = document.querySelector('#card3-add');
-//   card3Btn.addEventListener('click', saveFavoriteCard3);
-
-//   var card4Btn = document.querySelector('#card4-add');
-//   card4Btn.addEventListener('click', saveFavoriteCard4);
-
-//   var card5Btn = document.querySelector('#card5-add');
-//   card5Btn.addEventListener('click', saveFavoriteCard5);
-
-//   var card6Btn = document.querySelector('#card6-add');
-//   card6Btn.addEventListener('click', saveFavoriteCard6);
-
-//   var card7Btn = document.querySelector('#card7-add');
-//   card7Btn.addEventListener('click', saveFavoriteCard7);
-
-
-//   https://materializecss.com/floating-action-button.html
-//   document.addEventListener('DOMContentLoaded', function() {
-//     var elems = document.querySelectorAll('.fixed-action-btn');
-//     var instances = M.FloatingActionButton.init(elems, options);
-//   });
-
-//   var instance = M.FloatingActionButton.getInstance(elem);
-//   instance.open();
-
-//   instance.close();
-//   instance.destroy();

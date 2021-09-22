@@ -84,8 +84,6 @@
           <!-- Grey navigation panel -->
 
             <!-- Sort By Options  -->
-          
-            <br>
             <p> 
               <label>Browser Select</label>
               <select class="browser-default">
@@ -113,33 +111,7 @@
             <p><label>
                 <input id="browser" type="checkbox" checked="checked" onclick="checkPlatform(this)"/>
                 <span class="sorting-items">Browser</span>
-              </label></p>
-            <br/>
-            <br/>
-              <p> 
-                <label>Filter Type:</label>
-                <select class="browser-default">
-                  <option value="" disabled selected>Genre</option>
-                  <option value="1">Relevance</option>
-                  <option value="2">Popularity</option>
-                  <option value="3">Release Date</option>
-                  <option value="3">Alphabetical</option>
-                </select>
-              </p>
-              <p><label>
-                <input id="all" type="checkbox" checked="checked" onclick="checkPlatform(this)"/>
-                <span class="category-items">All</span>
-              </label></p>
-              <br/>
-              <p><label>             
-                <input id="pc" type="checkbox" checked="checked" onclick="checkPlatform(this)"/>
-                <span class="category-items">PC</span>
-              </label></p>
-              <br/>
-              <p><label>
-                <input id="browser" type="checkbox" checked="checked" onclick="checkPlatform(this)"/>
-                <span class="category-items">Browser</span>
-              </label></p> 
+              </label></p>            
        
           </div> <!--sorting-container1 -->
         </div>
@@ -305,6 +277,23 @@
             </div> <!--"row" -->
           
         </div>
+
+        <!--Pagination-->
+        <div>
+          <div class="center-align">
+            <ul class="pagination">
+              <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+              <li class="active"><a id="page1" href="#!" onclick="populatePageData('1')">1</a></li>
+              <li class="waves-effect"><a id="page2" href="#!" onclick="populatePageData('2')">2</a></li>
+              <li class="waves-effect"><a href="#!">3</a></li>
+              <li class="waves-effect"><a href="#!">4</a></li>
+              <li class="waves-effect"><a href="#!">5</a></li>
+              <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+            </ul>
+          </div>
+        </div>
+        <!--Pagination-->
+
 
     </div> 
 
