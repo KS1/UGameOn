@@ -131,6 +131,14 @@ div.row {
 }
 
 /* sorting */
+h3 {
+  font-size: 1.2em;
+  font-weight: 400;
+  margin: 0px;
+  margin-bottom: 10px;
+  color: var(--blue);
+  text-shadow: 0 0 10px #aabeff;
+}
 span {
   font-size: 0.8em;
 }
@@ -156,6 +164,11 @@ select.browser-default {
 
 .sorting-items {
   color: var(--white);
+}
+
+[type="checkbox"]:checked + span:not(.lever):before {
+  border-right: 2px solid var(--blue);
+  border-bottom: 2px solid var(--blue);
 }
 
 /* card  */

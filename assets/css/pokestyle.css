@@ -7,15 +7,17 @@
 
 body {
   display: flex;
-  font-family: sans-serif;
+  font-family: "Poppins", sans-serif;
   justify-content: center;
   background-color: #1e2e44;
 }
 
 /* back button */
+header {
+  margin-top: 5em !important;
+}
 a {
-  margin-top: 2em;
-  color: white;
+  color: white !important;
 }
 
 .pokedex {
