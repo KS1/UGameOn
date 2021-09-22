@@ -652,6 +652,18 @@ function populatePageData(pnum){
         console.log('Case 2');
         pageGetData(9);
         break;    
+    case '3':
+        console.log('Case 3');
+        pageGetData(18);
+        break;
+    case '4':
+        console.log('Case 4');
+        pageGetData(27);
+        break;
+    case '5':
+        console.log('Case 5');
+        pageGetData(36);
+        break;                    
     default:
         console.log(`default`);
     }
