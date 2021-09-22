@@ -51,30 +51,41 @@
       </div>  
     </header>
   
+   
+
   <div class="container">
 
-    <!-- Pokémon card -->
-    <div class="row">
-        <div class="col s12">
-            <a id="ap" href="pokemon.html">
-            <div class="card pok-card">
-                <div class="card-image">
-                  <img id="card0-img" src="https://www.gannett-cdn.com/presto/2021/08/09/USAT/86042c95-3bd3-49a7-8625-5e6a518644b2-Pokemon_UNITE_-_Team_Up._Take_Down._-_Hero_Image_With_Logo_-_1080p.png?auto=webp&crop=1911,1075,x0,y0&format=pjpg&width=1200"alt="pokemon image">
-                  <!-- https://i1.wp.com/butwhythopodcast.com/wp-content/uploads/2021/07/Pokemon-Unite-But-Why-Tho.jpg?fit=810%2C450&ssl=1 -->
-                  <!-- https://media1.giphy.com/media/fSvqyvXn1M3btN8sDh/giphy.gif -->
-                  <!-- https://www.gannett-cdn.com/presto/2021/08/09/USAT/86042c95-3bd3-49a7-8625-5e6a518644b2-Pokemon_UNITE_-_Team_Up._Take_Down._-_Hero_Image_With_Logo_-_1080p.png?auto=webp&crop=1911,1075,x0,y0&format=pjpg&width=1200 -->
-                  <a class="btn-floating halfway-fab waves-effect"><i id="add-btn"class="material-icons add">favorite</i></a>            
-                </div>
-                <a href="pokemon.html">
-                  <div class="card-content">
-                    <span id="card0-title" class="card-title" >Pokémon Go Pokedex</span>
-                    <p id="card0-short-description">Pokémon Go Pokedex has all the unique types that you’ve been searching for. </p>
-                  </div>
-                </a>
-            </div>
-            </a>
-        </div>
-  </div>
+    <!-- https://materializecss.com/collapsible.html -->
+    <ul class="collapsible popout center-align">
+      <li>
+        <div class="collapsible-header center-align"><i class="material-icons center-align">filter_drama</i> Pokémon </div>
+        <div class="collapsible-body">
+                <!-- Pokémon card start -->
+                <div class="row">
+                    <div class="col s12">
+                        <a id="ap" href="pokemon.html">
+                        <div class="card pok-card">
+                            <div class="card-image">
+                              <img id="card0-img" src="https://www.gannett-cdn.com/presto/2021/08/09/USAT/86042c95-3bd3-49a7-8625-5e6a518644b2-Pokemon_UNITE_-_Team_Up._Take_Down._-_Hero_Image_With_Logo_-_1080p.png?auto=webp&crop=1911,1075,x0,y0&format=pjpg&width=1200"alt="pokemon image">
+                              <!-- https://i1.wp.com/butwhythopodcast.com/wp-content/uploads/2021/07/Pokemon-Unite-But-Why-Tho.jpg?fit=810%2C450&ssl=1 -->
+                              <!-- https://media1.giphy.com/media/fSvqyvXn1M3btN8sDh/giphy.gif -->
+                              <!-- https://www.gannett-cdn.com/presto/2021/08/09/USAT/86042c95-3bd3-49a7-8625-5e6a518644b2-Pokemon_UNITE_-_Team_Up._Take_Down._-_Hero_Image_With_Logo_-_1080p.png?auto=webp&crop=1911,1075,x0,y0&format=pjpg&width=1200 -->
+                              <a class="btn-floating halfway-fab waves-effect"><i id="add-btn"class="material-icons add">favorite</i></a>            
+                            </div>
+                            <a href="pokemon.html">
+                              <div class="card-content">
+                                <span id="card0-title" class="card-title" >Pokémon Go Pokedex</span>
+                                <p id="card0-short-description">Pokémon Go Pokedex has all the unique types that you’ve been searching for. </p>
+                              </div>
+                            </a>
+                        </div>
+                        </a>
+                    </div>
+              </div>
+            <!-- Pokémon card end -->
+          </div>
+        </li>      
+      </ul>
 
     <div class="row">
 
@@ -82,27 +93,15 @@
 
           <div class="sorting-container1">  
           <!-- Grey navigation panel -->
-
-            <!-- Sort By Options  -->
-            <p> 
-              <label>Browser Select</label>
-              <select class="browser-default">
-                <option value="" disabled selected>Choose your option</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
-              </select>
-            </p>
-
+                                
+            <!-- Filter By -->           
+            <h3 style="color: white;" color="White"> Filter By Platform </h3>     
             <br/>
-            <br/>
-
-            <!-- Filter By -->
-            <p><label>
+            <!-- <p><label >
                 <input id="all" type="checkbox" checked="checked" onclick="checkPlatform(this)"/>
                 <span class="sorting-items">All</span>
               </label></p>
-              <br/>
+              <br/> -->
             <p><label>             
                 <input id="pc" type="checkbox" checked="checked" onclick="checkPlatform(this)"/>
                 <span class="sorting-items">PC</span>
@@ -111,7 +110,20 @@
             <p><label>
                 <input id="browser" type="checkbox" checked="checked" onclick="checkPlatform(this)"/>
                 <span class="sorting-items">Browser</span>
-              </label></p>            
+              </label></p>        
+
+            <br/>
+            <br/>
+
+            <!-- Sort By Options  -->
+            <p> 
+              <h5 style="color: white;" color="White"> Sort By </h5>             
+              <select class="browser-default">
+                <option value="" selected> select.. </option>
+                <option value="1">Release Date</option>
+                <option value="2">Alphabetical</option>                
+              </select>
+            </p>
        
           </div> <!--sorting-container1 -->
         </div>

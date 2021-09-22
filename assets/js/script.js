@@ -409,9 +409,9 @@ var getGamesByPlatform = function(platform) {
                         // console.log(myFav);
 
                         var myFav = isMyFavorite(data[i].title);
-                        console.log(myFav);
+                        // console.log(myFav);
                         var t1 = document.querySelector(`#card${i+1}`);
-                        console.log(t1);
+                        // console.log(t1);
                         if (myFav === true) {                            
                             t1.style.backgroundColor = "rgb(255, 72, 0)";
                         } else {
@@ -619,24 +619,51 @@ function isMyFavorite(gameTitle) {
 // fuction for filtering
 function checkPlatform (checkobject) {
     console.log(checkobject);
-    checkId = checkobject.id;
-    console.log(checkobject.checked);
-    console.log("Inside checkPlatform function: " + checkId);  
-    
-    if(checkId === 'pc' || checkId === 'browser' ) {
-        var allcheck = document.querySelector(`#all`);
-        allcheck.checked = false;
-    }
-    else if(checkId === 'all') {
-        var pccheck = document.querySelector(`#pc`);
-        pccheck.checked = true;
-        var brcheck = document.querySelector(`#browser`);
-        brcheck.checked = true;
-    }
+    var checkboxId = checkobject.id;
+    var param = "all";
 
-    if(checkobject.checked === true){
-        getGamesByPlatform(checkId);
+    console.log(checkobject.checked);
+    console.log("Inside checkPlatform function: " + checkboxId);  
+    
+    if(checkboxId === "pc") {
+        var brcheck = document.querySelector(`#browser`);
+        if(checkobject.checked === true){            
+            if(brcheck.checked === true){
+                param = "all";
+            }
+            else {
+                param = "pc";
+            }
+        } else {
+            if(brcheck.checked === true){
+                param = "browser";
+            }
+            else {
+                param = "all";
+            }
+        }
     }
+    else if (checkboxId === "browser") {
+        var pccheck = document.querySelector(`#pc`);
+        if(checkobject.checked === true){            
+            if(pccheck.checked === true){
+                param = "all";
+            }
+            else {
+                param = "browser";
+            }
+        } else {
+            if(pccheck.checked === true){
+                param = "pc";
+            }
+            else {
+                param = "all";
+            }
+        }
+
+    }
+    
+    getGamesByPlatform(param);    
     
 }
 
@@ -660,7 +687,7 @@ function populatePageData(pnum){
 
 function pageGetData(pnum){
 
-    console.log("Inside pageGetData function")
+    console.log("Inside pageGetData function");
     console.log(dataArr);
     
     // var cardTitleEl = document.querySelector(`#card${1}-title`);
@@ -699,6 +726,11 @@ btnGetGamesFilter.addEventListener('click', getGamesFilter);
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.modal');
     var instances = M.Modal.init(elems);   
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.collapsible');
+    var instances = M.Collapsible.init(elems);
   });
 
   
