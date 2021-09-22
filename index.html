@@ -52,13 +52,13 @@
     </header>
   
    
-
+<main> 
   <div class="container">
 
     <!-- https://materializecss.com/collapsible.html -->
     <ul class="collapsible popout center-align">
-      <li>
-        <div class="collapsible-header center-align"><i class="material-icons center-align">filter_drama</i> Pokémon </div>
+      <li class="active">
+        <div class="collapsible-header center-align" style="background-color: #1e2e44; border-color: #1e2e44; color: white;"><i class="material-icons center-align">filter_drama</i> Pokémon </div>
         <div class="collapsible-body">
                 <!-- Pokémon card start -->
                 <div class="row">
@@ -115,15 +115,16 @@
             <br/>
             <br/>
 
+            <label id="filterinfo"></label>
             <!-- Sort By Options  -->
-            <p> 
+            <!-- <p> 
               <h5 style="color: white;" color="White"> Sort By </h5>             
               <select class="browser-default">
                 <option value="" selected> select.. </option>
                 <option value="1">Release Date</option>
                 <option value="2">Alphabetical</option>                
               </select>
-            </p>
+            </p> -->
        
           </div> <!--sorting-container1 -->
         </div>
@@ -311,12 +312,25 @@
           <div class="center-align">
             <ul class="pagination">
               <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+              <li id="li1" class="active blue lighten-2"><a id="page1" href="#!" onclick="populatePageData('1')">1</a></li>
+              <li id="li2" class="waves-effect"><a id="page2" href="#!" onclick="populatePageData('2')">2</a></li>
+              <li id="li3" class="waves-effect"><a id="page3" href="#!" onclick="populatePageData('3')">3</a></li>
+              <li id="li4" class="waves-effect"><a id="page4" href="#!" onclick="populatePageData('4')">4</a></li>
+              <li id="li5" class="waves-effect"><a id="page5" href="#!" onclick="populatePageData('5')">5</a></li>
+              <li id="li6" class="waves-effect"><a id="page6" href="#!" onclick="populatePageData('6')">6</a></li>
+              <li id="li7" class="waves-effect"><a id="page7" href="#!" onclick="populatePageData('7')">7</a></li>
+              <li id="li8" class="waves-effect"><a id="page8" href="#!" onclick="populatePageData('8')">8</a></li>
+              <li id="li9" class="waves-effect"><a id="page9" href="#!" onclick="populatePageData('9')">9</a></li>
+              <li id="li10" class="waves-effect"><a id="page10" href="#!" onclick="populatePageData('10')">10</a></li>
+              <li class="waves-effect"><a href="#!" ><i class="material-icons">chevron_right</i></a></li>
+
+              <!-- <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
               <li class="active"><a id="page1" href="#!" onclick="populatePageData('1')">1</a></li>
               <li class="waves-effect"><a id="page2" href="#!" onclick="populatePageData('2')">2</a></li>
               <li class="waves-effect"><a href="#!">3</a></li>
               <li class="waves-effect"><a href="#!">4</a></li>
               <li class="waves-effect"><a href="#!">5</a></li>
-              <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+              <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li> -->
             </ul>
           </div>
         </div>
@@ -324,12 +338,13 @@
 
 
     </div> 
-
+    
+  </main>
     <!-- Example footer usage -->
     <!-- https://materializecss.com/footer.html -->
     <footer class="page-footer grey darken-4">
       
-      <div class="container">
+      <!-- <div class="container">
         <div class="row">
           <div class="col l6 s12">
             <h5 class="white-text">Footer Content</h5>
@@ -342,13 +357,13 @@
               <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
             </ul>
           </div>
-        </div>
-      </div>
+        </div>        
+      </div> -->
       
       <div class="footer-copyright">
         <div class="container">
             © 2021 Focus Games, all rights reserved. All trademarks are property of their respective owners.
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
         </div>
       </div>
       

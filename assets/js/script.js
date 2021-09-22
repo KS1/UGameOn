@@ -424,9 +424,6 @@ var getGamesByPlatform = function(platform) {
                         } else {
                             t1.style.backgroundColor = "rgb(119, 176, 250)";
                         }
-
-                        
-        
                         
                     }
 
@@ -684,32 +681,95 @@ function checkPlatform (checkobject) {
 
     }
     
+    var lbl = document.querySelector(`#filterinfo`);
+    if(param === "all")
+        lbl.textContent = `Showing games for ${param} platforms.`
+    else
+        lbl.textContent = `Showing games for ${param} platform.`
+
     getGamesByPlatform(param);    
     
 }
 
 function populatePageData(pnum){
-    console.log('Inside populatePageData function');
+    // console.log('Inside populatePageData function');
+
+    for(i=1; i<=10; i++){
+        var p = document.querySelector(`#li${i}`);
+        p.className = "waves-effect";
+    }
 
     switch (pnum) {
-    case '1':
-        console.log('Case 1');
-        pageGetData(0);
-        break;
-    case '2':
-        console.log('Case 2');
-        pageGetData(9);
-        break;    
-    default:
-        console.log(`default`);
-    }
+        case '1':
+            // console.log('Case 1');
+            pageGetData(0);            
+            var p = document.querySelector("#li1");            
+            p.className = "active blue lighten-2";            
+            break;
+        case '2':
+            // console.log('Case 2');
+            pageGetData(9);
+            var p = document.querySelector("#li2");            
+            p.className = "active blue lighten-2";  
+            break;    
+        case '3':
+            // console.log('Case 3');
+            pageGetData(18);
+            var p = document.querySelector("#li3");            
+            p.className = "active blue lighten-2";  
+            break;
+        case '4':
+            // console.log('Case 4');
+            pageGetData(27);
+            var p = document.querySelector("#li4");            
+            p.className = "active blue lighten-2";  
+            break;
+        case '5':
+            // console.log('Case 5');
+            pageGetData(36);
+            var p = document.querySelector("#li5");            
+            p.className = "active blue lighten-2";  
+            break;
+        case '6':
+            // console.log('Case 6');
+            pageGetData(45);
+            var p = document.querySelector("#li6");            
+            p.className = "active blue lighten-2";  
+            break;
+        case '7':
+            // console.log('Case 7');
+            pageGetData(54);
+            var p = document.querySelector("#li7");            
+            p.className = "active blue lighten-2";  
+            break;    
+        case '8':
+            // console.log('Case 8');
+            pageGetData(63);
+            var p = document.querySelector("#li8");            
+            p.className = "active blue lighten-2";  
+            break;
+        case '9':
+            // console.log('Case 9');
+            pageGetData(72);
+            var p = document.querySelector("#li9");            
+            p.className = "active blue lighten-2";  
+            break;
+        case '10':
+            // console.log('Case 10');
+            pageGetData(81);
+            var p = document.querySelector("#li10");            
+            p.className = "active blue lighten-2";  
+            break;                    
+        default:
+            // console.log(`default`);
+        }
 
 }
 
 function pageGetData(pnum){
 
-    console.log("Inside pageGetData function");
-    console.log(dataArr);
+    // console.log("Inside pageGetData function");
+    // console.log(dataArr);
     
     // var cardTitleEl = document.querySelector(`#card${1}-title`);
     // console.log(cardTitleEl);
@@ -719,12 +779,12 @@ function pageGetData(pnum){
     for(i=pnum; i<pnum+9; i++)
     {
         var cardTitleEl = document.querySelector(`#card${j+1}-title`);
-        console.log("dataArr[i].title: " + dataArr[i].title);
+        // console.log("dataArr[i].title: " + dataArr[i].title);
         // console.log(cardTitleEl);
         // console.log(cardTitleEl.textContent);
     
         cardTitleEl.textContent = dataArr[i].title;
-        console.log("cardTitleEl.textContent: " + cardTitleEl.textContent); 
+        // console.log("cardTitleEl.textContent: " + cardTitleEl.textContent); 
         
         var cardShortDescriptionEl = document.querySelector(`#card${j+1}-short-description`);
         cardShortDescriptionEl.textContent = dataArr[i].short_description;
@@ -734,9 +794,11 @@ function pageGetData(pnum){
         cardImageEl.src = dataArr[i].thumbnail;
         // console.log(cardImageEl); 
 
-        j++;
-        
+        j++;        
     }
+
+    
+    
 }
 
 getGamesList();
