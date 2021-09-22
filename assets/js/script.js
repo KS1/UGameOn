@@ -663,6 +663,26 @@ function populatePageData(pnum){
     case '5':
         console.log('Case 5');
         pageGetData(36);
+        break;
+    case '6':
+        console.log('Case 6');
+        pageGetData(45);
+        break;
+    case '7':
+        console.log('Case 7');
+        pageGetData(54);
+        break;    
+    case '8':
+        console.log('Case 8');
+        pageGetData(63);
+        break;
+    case '9':
+        console.log('Case 9');
+        pageGetData(72);
+        break;
+    case '10':
+        console.log('Case 10');
+        pageGetData(81);
         break;                    
     default:
         console.log(`default`);
