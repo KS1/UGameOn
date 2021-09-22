@@ -62,7 +62,7 @@
         <div class="collapsible-body">
                 <!-- Pokémon card start -->
                 <div class="row">
-                    <div class="col s12">
+                    <div class="col s12 poke">
                         <a id="ap" href="pokemon.html">
                         <div class=" pok-card">
                             <div class="card-image">
@@ -307,23 +307,20 @@
         </div>
 
         <!--Pagination-->
-        <div>
-          <div class="center-align">
-            <ul class="pagination">
-              <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-              <li class="active"><a id="page1" href="#!" onclick="populatePageData('1')">1</a></li>
-              <li class="waves-effect"><a id="page2" href="#!" onclick="populatePageData('2')">2</a></li>
-              <li class="waves-effect"><a href="#!">3</a></li>
-              <li class="waves-effect"><a href="#!">4</a></li>
-              <li class="waves-effect"><a href="#!">5</a></li>
-              <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-            </ul>
-          </div>
-        </div>
-        <!--Pagination-->
-
-
-    </div> 
+    <div>
+      <div class="center-align">
+        <ul class="pagination">
+          <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+          <li class="active"><a id="page1" href="#!" onclick="populatePageData('1')">1</a></li>
+          <li class="waves-effect"><a id="page2" href="#!" onclick="populatePageData('2')">2</a></li>
+          <li class="waves-effect"><a href="#!">3</a></li>
+          <li class="waves-effect"><a href="#!">4</a></li>
+          <li class="waves-effect"><a href="#!">5</a></li>
+          <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div> 
 
     <!-- Example footer usage -->
     <!-- https://materializecss.com/footer.html -->
@@ -354,24 +351,26 @@
       
     </footer>
 
-    <!-- Used for API calls testing. Please do not delete these buttons. -->
-    <p> <button id="btnGetGamesList" style="display: none;">Get Games</button> </p>
-    <p> <button id="btnGetGamesFilter" style="display: none;">Get Games with Filter</button> </p>
-
-    <!--  0919 jquery -->
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     
-    <!-- JQuery Import -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ 
+  <!-- Used for API calls testing. Please do not delete these buttons. -->
+  <p> <button id="btnGetGamesList" style="display: none;">Get Games</button> </p>
+  <p> <button id="btnGetGamesFilter" style="display: none;">Get Games with Filter</button> </p>
 
-    <!-- JQuery Import -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+  <!--  0919 jquery -->
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  
+  <!-- JQuery Import -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <!-- Materialize CSS JavaScript - Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- JQuery Import -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 
-    <!-- JavaScript Import  -->
-    <script src='./assets/js/script.js'></script>
-    <script src='./assets/js/test.js'></script>
+  <!-- Materialize CSS JavaScript - Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <!-- JavaScript Import  -->
+  <script src='./assets/js/script.js'></script>
+  <script src='./assets/js/test.js'></script>
 </body>
 </html>

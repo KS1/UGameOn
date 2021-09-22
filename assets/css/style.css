@@ -66,7 +66,7 @@ i.material-icons.nav {
   background-color: var(--iron-grey);
   box-shadow: 0 0 10px #aabeff;
   border-radius: 5px 5px 0 0;
-  border: 0px;
+  border: 0px solid transparent;
   margin-top: 20px;
 }
 
@@ -79,7 +79,12 @@ i.material-icons.nav {
   border: 0px;
   border-radius: 0 0 5px 5px;
   box-shadow: 0 0 10px #aabeff;
-  padding: 0 0 10px 0px;
+  padding: 0px 0 10px 0px;
+  margin: 0px;
+}
+
+.row .col.poke {
+  padding: 0px;
 }
 
 /* .collapsible-body:hover {
