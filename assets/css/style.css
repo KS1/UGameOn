@@ -25,8 +25,18 @@ main {
   flex: 1 0 auto;
 }
 
-*/ .large.material-icons {
+/*  .large.material-icons {
   margin-left: 5em;
+  color: var(--blue);
+} */
+
+/* .large.material-icons {
+  margin-left: 1em;
+  color: var(--blue);
+} */
+
+.large.material-icons {
+  margin-left: 1em;
   color: var(--blue);
 }
 
@@ -34,8 +44,17 @@ main {
   color: var(--blue);
   letter-spacing: 0.12em;
   font-size: 2em;
-  margin-left: 6.8em;
+  margin-left: 2em;
 }
+
+/* .brand-logo.nav {
+  color: var(--blue);
+  letter-spacing: 0.12em;
+  font-size: 2em;
+  margin-left: 6.8em;
+  // added margin-right here   
+  margin-right: 0px;  
+} */
 
 .nav {
   color: var(--blue);
@@ -54,9 +73,56 @@ i.material-icons.nav {
 }
 
 /* pokemon card */
-.card.card0 {
+.pokelogo {
+  width: 100px;
+  align-items: center;
+  text-align: center;
+}
+.collapsible-header {
+  text-align: center;
+  background-color: var(--iron-grey);
+  box-shadow: 0 0 10px #aabeff;
+  border-radius: 5px 5px 0 0;
+  border: 0px solid transparent;
+  margin-top: 20px;
+}
+
+.collapsible-header:hover {
+  box-shadow: 0 0 10px #aabeff;
+}
+
+.collapsible-body {
+  background-color: var(--iron-grey);
+  border: 0px;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 0 10px #aabeff;
+  padding: 0px 0 10px 0px;
+  margin: 0px;
+}
+
+.row .col.poke {
+  padding: 0px;
+}
+
+/* pokemon card */
+/* .card.card0 {
   margin-top: 0px;
   width: 100%;
+} */
+
+div .card-content.pokecard {
+  line-height: 2em;
+  margin-top: 10px;
+}
+
+#card0-title.card-title {
+  font-size: 1.4em;
+  margin-top: 10px;
+}
+
+.poketext {
+  line-height: 2em;
+  font-size: 1.1em;
 }
 
 /* sorting + cards*/
@@ -215,3 +281,35 @@ h4 {
   background-color: #4c97f8;
   box-shadow: 0 0 10px #aabeff;
 }
+.btn-flat:focus {
+  background-color: #4c97f8 !important;
+  box-shadow: 0 0 10px #aabeff;
+}
+.btn-flat:active {
+  background-color: #4c97f8 !important;
+  box-shadow: 0 0 10px #aabeff;
+}
+
+
+/* added media query here */
+@media screen and (max-width: 320px) {
+  .brand-logo.nav {margin-left: 0px !important}  
+}
+
+@media screen and (max-width: 320px) {
+  .nav {width: 50% !important}  
+}
+
+@media screen and (max-width: 320px) {
+  .large.material-icons {
+    width: 50% !important;
+    /* margin-left: 1em; */
+  }  
+}
+
+@media only screen and (max-width: 992px){
+.pagination {    
+    max-width: 80% !important;
+  }    
+}
+

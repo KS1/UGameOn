@@ -130,7 +130,7 @@ var getGamesList = function() {
                 console.log(data);           
 
                 favoriteArr = JSON.parse(localStorage.getItem('myFavoriteGames'));
-                // console.log(favoriteArr);
+                // console.log(favoriteArr);               
                 dataArr = data;
 
                 for(i=0; i<9; i++)
@@ -552,14 +552,17 @@ var removeFavoriteCard = function(cardId) {
     for (var i = 0; i < favoriteArr.length; i++) {
         var g1 = document.querySelector(`#game${i+1}`);
         g1.textContent = favoriteArr[i];         
+        // g2.style = "display: initial;";
         var favurl = getFavUrl(favoriteArr[i]);             
     }
 
     if(favoriteArr.length<9){
         for(j=favoriteArr.length; j<9; j++)
         {
-            var g2 = document.querySelector(`#game${j}`);
-            g2.textContent = "";
+            var g2 = document.querySelector(`#game${j+1}`);
+            // g2.textContent = "";            
+            g2.style.display = 'none';
+            console.log(g2);            
         }
     }   
 }
@@ -586,6 +589,17 @@ var loadFavorites = function() {
         g1.textContent = favoriteArr[i];         
         var favurl = getFavUrl(favoriteArr[i]);
         g1.href = favurl;
+
+        if(favoriteArr.length<9){
+            for(j=favoriteArr.length; j<9; j++)
+            {
+                var g2 = document.querySelector(`#game${j+1}`);                       
+                g2.style.display = 'none';
+                console.log(g2);
+                
+            }
+        }   
+
     }
 }
 
