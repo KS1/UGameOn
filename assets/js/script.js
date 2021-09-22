@@ -530,6 +530,8 @@ var getGamesByPlatform = function(platform) {
 
 // save favorite game into local storage
 var saveFavoriteCard = function(cardId) {
+    console.log("inside saveFavoriteCard function");
+
     var c1 = document.querySelector(`#${cardId}-title`);
     var favorite = c1.textContent;
     
@@ -542,10 +544,28 @@ var saveFavoriteCard = function(cardId) {
     }
     favoriteArr.push(favorite);
     localStorage.setItem('myFavoriteGames', JSON.stringify(favoriteArr));
+
+    for (var i = 0; i < favoriteArr.length; i++) {
+        var g1 = document.querySelector(`#game${i+1}`);
+        g1.textContent = favoriteArr[i];         
+        // g2.style = "display: initial;";
+        var favurl = getFavUrl(favoriteArr[i]);             
+    }
+
+    if(favoriteArr.length<9){
+        for(j=favoriteArr.length; j<9; j++)
+        {
+            var g2 = document.querySelector(`#game${j+1}`);
+            // g2.textContent = "";            
+            g2.style.display = 'none';
+            console.log(g2);            
+        }
+    }   
 }
 
 // remove favorite game from local storage
 var removeFavoriteCard = function(cardId) {
+    console.log("inside removeFavoriteCard function");
     var c1 = document.querySelector(`#${cardId}-title`);
     var favorite = c1.textContent;   
     // remove item from array
@@ -569,7 +589,7 @@ var removeFavoriteCard = function(cardId) {
             var g2 = document.querySelector(`#game${j+1}`);
             // g2.textContent = "";            
             g2.style.display = 'none';
-            console.log(g2);            
+            // console.log(g2);            
         }
     }   
 }
@@ -602,7 +622,7 @@ var loadFavorites = function() {
             {
                 var g2 = document.querySelector(`#game${j+1}`);                       
                 g2.style.display = 'none';
-                console.log(g2);
+                // console.log(g2);
                 
             }
         }   
@@ -702,11 +722,11 @@ function checkPlatform (checkobject) {
 
     }
     
-    var lbl = document.querySelector(`#filterinfo`);
-    if(param === "all")
-        lbl.textContent = `Showing games for ${param} platforms.`
-    else
-        lbl.textContent = `Showing games for ${param} platform.`
+    // var lbl = document.querySelector(`#filterinfo`);
+    // if(param === "all")
+    //     lbl.textContent = `Showing games for ${param} platforms.`
+    // else
+    //     lbl.textContent = `Showing games for ${param} platform.`
 
     getGamesByPlatform(param);    
     
