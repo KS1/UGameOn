@@ -53,11 +53,14 @@
   
    
 
+<main> 
+
   <div class="container">
 
     <!-- https://materializecss.com/collapsible.html -->
     <ul class="collapsible popout center-align">
-      <li>
+
+       <li class="active">
         <div class="collapsible-header"><img class="pokelogo" src="https://www.logosurfer.com/wp-content/uploads/2018/03/pokemon-logo_0.png"alt="Pokemon Logo" /></a></div>
         <div class="collapsible-body">
                 <!-- Pokémon card start -->
@@ -65,17 +68,20 @@
                     <div class="col s12 poke">
                         <a id="ap" href="pokemon.html">
                         <div class=" pok-card">
+
                             <div class="card-image">
                               <img id="card0-img" src="https://www.gannett-cdn.com/presto/2021/08/09/USAT/86042c95-3bd3-49a7-8625-5e6a518644b2-Pokemon_UNITE_-_Team_Up._Take_Down._-_Hero_Image_With_Logo_-_1080p.png?auto=webp&crop=1911,1075,x0,y0&format=pjpg&width=1200"alt="pokemon image">
                               <!-- https://i1.wp.com/butwhythopodcast.com/wp-content/uploads/2021/07/Pokemon-Unite-But-Why-Tho.jpg?fit=810%2C450&ssl=1 -->
                               <!-- https://media1.giphy.com/media/fSvqyvXn1M3btN8sDh/giphy.gif -->
                               <!-- https://www.gannett-cdn.com/presto/2021/08/09/USAT/86042c95-3bd3-49a7-8625-5e6a518644b2-Pokemon_UNITE_-_Team_Up._Take_Down._-_Hero_Image_With_Logo_-_1080p.png?auto=webp&crop=1911,1075,x0,y0&format=pjpg&width=1200 -->
+
                               <!-- <a class="btn-floating halfway-fab waves-effect"><i id="add-btn"class="material-icons add-icon">favorite</i></a>             -->
                             </div>
                             <a href="pokemon.html">
                               <div class="card-content pokecard">
                                 <span id="card0-title" class="card-title" >Pokémon Go Pokedex</span>
                                 <p id="card0-short-description" class="poketext">Pokémon Go Pokedex has all the unique types that you’ve been searching for. </p>
+
                               </div>
                             </a>
                         </div>
@@ -115,14 +121,18 @@
             <br/>
             <br/>
 
+
+            <label id="filterinfo"></label>
             <!-- Sort By Options  -->
-            <p> 
+            <!-- <p> 
+
               <h5 style="color: white;" color="White"> Sort By </h5>             
               <select class="browser-default">
                 <option value="" selected> select.. </option>
                 <option value="1">Release Date</option>
                 <option value="2">Alphabetical</option>                
               </select>
+
             </p>
        
           </div> <!--sorting-container1 -->
@@ -131,6 +141,7 @@
          
         <div class="col s12 m9 l9 card-container"> 
         <!-- Teal page content  -->
+
 
             <div class="row">
 
@@ -307,26 +318,44 @@
         </div>
 
         <!--Pagination-->
-    <div>
-      <div class="center-align">
-        <ul class="pagination">
-          <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-          <li class="active"><a id="page1" href="#!" onclick="populatePageData('1')">1</a></li>
-          <li class="waves-effect"><a id="page2" href="#!" onclick="populatePageData('2')">2</a></li>
-          <li class="waves-effect"><a href="#!">3</a></li>
-          <li class="waves-effect"><a href="#!">4</a></li>
-          <li class="waves-effect"><a href="#!">5</a></li>
-          <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-        </ul>
-      </div>
-    </div>
-  </div> 
 
+        <div>
+          <div class="center-align">
+            <ul class="pagination">
+              <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+              <li id="li1" class="active blue lighten-2"><a id="page1" href="#!" onclick="populatePageData('1')">1</a></li>
+              <li id="li2" class="waves-effect"><a id="page2" href="#!" onclick="populatePageData('2')">2</a></li>
+              <li id="li3" class="waves-effect"><a id="page3" href="#!" onclick="populatePageData('3')">3</a></li>
+              <li id="li4" class="waves-effect"><a id="page4" href="#!" onclick="populatePageData('4')">4</a></li>
+              <li id="li5" class="waves-effect"><a id="page5" href="#!" onclick="populatePageData('5')">5</a></li>
+              <li id="li6" class="waves-effect"><a id="page6" href="#!" onclick="populatePageData('6')">6</a></li>
+              <li id="li7" class="waves-effect"><a id="page7" href="#!" onclick="populatePageData('7')">7</a></li>
+              <li id="li8" class="waves-effect"><a id="page8" href="#!" onclick="populatePageData('8')">8</a></li>
+              <li id="li9" class="waves-effect"><a id="page9" href="#!" onclick="populatePageData('9')">9</a></li>
+              <li id="li10" class="waves-effect"><a id="page10" href="#!" onclick="populatePageData('10')">10</a></li>
+              <li class="waves-effect"><a href="#!" ><i class="material-icons">chevron_right</i></a></li>
+
+              <!-- <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+              <li class="active"><a id="page1" href="#!" onclick="populatePageData('1')">1</a></li>
+              <li class="waves-effect"><a id="page2" href="#!" onclick="populatePageData('2')">2</a></li>
+              <li class="waves-effect"><a href="#!">3</a></li>
+              <li class="waves-effect"><a href="#!">4</a></li>
+              <li class="waves-effect"><a href="#!">5</a></li>
+              <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li> -->
+            </ul>
+          </div>
+        </div>
+        <!--Pagination-->
+
+
+    </div> 
+    
+  </main>
     <!-- Example footer usage -->
     <!-- https://materializecss.com/footer.html -->
     <footer class="page-footer grey darken-4">
       
-      <div class="container">
+      <!-- <div class="container">
         <div class="row">
           <div class="col l6 s12">
             <h5 class="white-text">Footer Content</h5>
@@ -339,17 +368,19 @@
               <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
             </ul>
           </div>
-        </div>
-      </div>
+        </div>        
+      </div> -->
       
       <div class="footer-copyright">
         <div class="container">
             © 2021 Focus Games, all rights reserved. All trademarks are property of their respective owners.
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
         </div>
       </div>
       
     </footer>
+
+
 
     
  

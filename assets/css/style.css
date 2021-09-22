@@ -18,7 +18,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-color: var(--dark-blue);
+  background-color: var(--dark-blue); 
 }
 
 main {
@@ -269,4 +269,4 @@ h4 {
 .btn-flat:hover {
   background-color: #4c97f8;
   box-shadow: 0 0 10px #aabeff;
-}
+
