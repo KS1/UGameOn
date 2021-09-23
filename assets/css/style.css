@@ -25,16 +25,6 @@ main {
   flex: 1 0 auto;
 }
 
-/*  .large.material-icons {
-  margin-left: 5em;
-  color: var(--blue);
-} */
-
-/* .large.material-icons {
-  margin-left: 1em;
-  color: var(--blue);
-} */
-
 .large.material-icons {
   margin-left: 1em;
   color: var(--blue);
@@ -46,15 +36,6 @@ main {
   font-size: 2em;
   margin-left: 2em;
 }
-
-/* .brand-logo.nav {
-  color: var(--blue);
-  letter-spacing: 0.12em;
-  font-size: 2em;
-  margin-left: 6.8em;
-  // added margin-right here   
-  margin-right: 0px;  
-} */
 
 .nav {
   color: var(--blue);
@@ -78,13 +59,6 @@ i.material-icons.nav {
   align-items: center;
   text-align: center;
 }
-
-/* poke header */
-/* img.pokelogo {
-  width: 50%;
-  height: auto;
-  margin-top: 3em;
-} */
 
 .collapsible-header {
   text-align: center;
@@ -111,12 +85,6 @@ i.material-icons.nav {
 .row .col.poke {
   padding: 0px;
 }
-
-/* pokemon card */
-/* .card.card0 {
-  margin-top: 0px;
-  width: 100%;
-} */
 
 div .card-content.pokecard {
   line-height: 2em;
@@ -185,16 +153,12 @@ select.browser-default {
   height: auto;
 }
 
-/* .card-container {
-  width: 100%;
-} */
 .card .card-content .card-title {
   font-size: 1.3em;
 }
 div.card {
   width: 100%;
-  cursor: pointer;
-  /* border-radius: 10px; */
+  cursor: pointer;  
 }
 .card:hover {
   box-shadow: 0 0 10px #aabeff;
@@ -214,13 +178,6 @@ div.card-content {
 .card .card-content {
   padding: 15px;
 }
-/* p,
-span.card-title {
-  line-height: 1.5em;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-} */
 
 /* Favorite icon */
 .add-icon {
@@ -232,16 +189,6 @@ span.card-title {
   color: var(--white);
   background-color: rgb(255, 72, 0) !important;
 }
-
-/* #add-btn:active {
-  color: rgb(255, 72, 0);
-  background-color: var(--white);
-} */
-
-/* #add-btn:focus {
-  color: rgb(255, 72, 0);
-  background-color: var(--white);
-} */
 
 .blue {
   color: var(--white);
