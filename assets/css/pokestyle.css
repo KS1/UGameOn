@@ -13,7 +13,7 @@ body {
 }
 
 /* back button */
-header {
+nav {
   margin-top: 5em !important;
 }
 a {
@@ -27,13 +27,21 @@ img.pokelogo {
   margin-top: 3em;
 }
 
+.poke-header {
+  align-items: center;
+  text-align: center;
+}
+
 .pokedex {
   align-items: flex-end;
   display: flex;
   height: 500px;
   margin: 50px;
   width: 800px;
-  margin-top: 10%;
+  margin-top: 5%;
+}
+div.pokedex {
+  margin-left: 6.5em;
 }
 
 .left-container,
@@ -455,12 +463,4 @@ img.pokelogo {
 
 .fairy {
   background: #f9aeff;
-}
-
-/* back button */
-nav {
-  margin-top: 2em !important;
-}
-a {
-  color: white !important;
 }

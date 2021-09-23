@@ -230,7 +230,7 @@ span.card-title {
 
 .add-icon:hover {
   color: var(--white);
-  background-color: rgb(255, 72, 0);
+  background-color: rgb(255, 72, 0) !important;
 }
 
 /* #add-btn:active {
