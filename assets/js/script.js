@@ -33,29 +33,6 @@ var getGamesList = function() {
 
                 // fill up card data
                 fillUpCardData(data);
-
-                // for(i=0; i<9; i++)
-                // {
-                //     var cardTitleEl = document.querySelector(`#card${i+1}-title`);
-                //     cardTitleEl.textContent = data[i].title;
-
-                //     var cardShortDescriptionEl = document.querySelector(`#card${i+1}-short-description`);
-                //     cardShortDescriptionEl.textContent = data[i].short_description;
-
-                //     var cardImageEl = document.querySelector(`#card${i+1}-img`);
-                //     cardImageEl.src = data[i].thumbnail;                  
-
-                //     var gameLinkEl = document.querySelector(`#cgame${i + 1}`);                    
-                //     gameLinkEl.href = data[i].game_url;
-                  
-                //     // check if the game is favorite and set the color of button             
-                //     var myFav = isMyFavorite(data[i].title);
-                //     if (myFav === true)
-                //     {
-                //         var t1 = document.querySelector(`#card${i+1}`);
-                //         t1.style.backgroundColor = "rgb(255, 72, 0)";                         
-                //     }                    
-                // }
               
             });
         } else {
@@ -70,12 +47,8 @@ var getGamesList = function() {
 
 // call api to get filtered data by platform
 var getGamesByPlatform = function(platform) {
-    // Games by platform: Insert platform, eg: pc, browser or all
-    // works -- pc 297 records, browser 77 records, all 365 records
-    // var gamesFilterApi = `https://free-to-play-games-database.p.rapidapi.com/api/games?platform=all`;
-    // var gamesFilterApi = `https://free-to-play-games-database.p.rapidapi.com/api/games?platform=pc`;
-    // var gamesFilterApi = `https://free-to-play-games-database.p.rapidapi.com/api/games?platform=browser`;
 
+    // Games by platform: Insert platform, eg: pc, browser or all 
     var gamesFilterApi = `https://free-to-play-games-database.p.rapidapi.com/api/games?platform=${platform}`;
 
     fetch(gamesFilterApi, {	
@@ -93,32 +66,6 @@ var getGamesByPlatform = function(platform) {
     
                      // fill up card data
                     fillUpCardData(data);
-
-                    // for(i=0; i<9; i++)
-                    // {
-                    //     var cardTitleEl = document.querySelector(`#card${i+1}-title`);
-                    //     cardTitleEl.textContent = data[i].title;
-                     
-                    //     var cardShortDescriptionEl = document.querySelector(`#card${i+1}-short-description`);
-                    //     cardShortDescriptionEl.textContent = data[i].short_description;
-                        
-                    //     var cardImageEl = document.querySelector(`#card${i+1}-img`);
-                    //     cardImageEl.src = data[i].thumbnail;                        
-
-                    //     var gameLinkEl = document.querySelector(`#cgame${i + 1}`);                       
-                    //     gameLinkEl.href = data[i].game_url;
-                
-                    //     // change card favorite button color
-                    //     var myFav = isMyFavorite(data[i].title);
-                    //     var t1 = document.querySelector(`#card${i+1}`);                    
-                    //     if (myFav === true) {                            
-                    //         t1.style.backgroundColor = "rgb(255, 72, 0)";
-                    //     } else {
-                    //         t1.style.backgroundColor = "rgb(119, 176, 250)";
-                    //     }
-                        
-                    // }
-                    
                    
                 });
             } else {
@@ -134,14 +81,16 @@ var getGamesByPlatform = function(platform) {
 }
 
 // heart button to change color and save in local storage
-$(".add-icon").click(function (cardId) {
-    $(this).each(function (i) {    
+$(".add-icon").click(function (cardId) {    
+    $(this).each(function (i) {   
       if (this.style.backgroundColor !== "rgb(255, 72, 0)") {          
         this.style.backgroundColor = "rgb(255, 72, 0)";       
+       
         //add title to local storage       
         saveFavoriteCard(cardId.target.id);       
       } else {        
         this.style.backgroundColor = "rgb(119, 176, 250)";
+        
         //remove title from local storage       
         removeFavoriteCard(cardId.target.id);        
       }
@@ -154,7 +103,8 @@ var saveFavoriteCard = function(cardId) {
     var c1 = document.querySelector(`#${cardId}-title`);
     var favorite = c1.textContent;
     
-    loadFavorites();
+    favoriteArr = JSON.parse(localStorage.getItem('myFavoriteGames'));
+    
     // prevent duplicate favorite from being saved and move it to end of array
     for (var i = 0; i < favoriteArr.length; i++) {
         if (favorite === favoriteArr[i]) {
@@ -164,19 +114,9 @@ var saveFavoriteCard = function(cardId) {
     favoriteArr.push(favorite);
     localStorage.setItem('myFavoriteGames', JSON.stringify(favoriteArr));
 
-    for (var i = 0; i < favoriteArr.length; i++) {
-        var g1 = document.querySelector(`#game${i+1}`);
-        g1.textContent = favoriteArr[i];                
-    }
+    // load favorites in modal
+    loadFavorites();
 
-    // hide empty list items in modal
-    if(favoriteArr.length<9){
-        for(j=favoriteArr.length; j<9; j++)
-        {
-            var g2 = document.querySelector(`#game${j+1}`);                   
-            g2.style.display = 'none';                
-        }
-    }   
 }
 
 // remove favorite game from local storage
@@ -195,25 +135,12 @@ var removeFavoriteCard = function(cardId) {
     // save favorite array in local storage
     localStorage.setItem('myFavoriteGames', JSON.stringify(favoriteArr));
 
-    // add favorite items in modal
-    for (var i = 0; i < favoriteArr.length; i++) {
-        var g1 = document.querySelector(`#game${i+1}`);
-        g1.textContent = favoriteArr[i]; 
-        var favurl = getFavUrl(favoriteArr[i]);             
-    }
-
-    // hide empty list items in modal
-    if(favoriteArr.length<9){
-        for(j=favoriteArr.length; j<9; j++)
-        {
-            var g2 = document.querySelector(`#game${j+1}`);         
-            g2.style.display = 'none';
-                     
-        }
-    }   
+    // load favorites in modal
+    loadFavorites();
+   
 }
 
-// load favorites from local storage
+// load favorites in modal 
 var loadFavorites = function() {
 
     favoriteArr = JSON.parse(localStorage.getItem('myFavoriteGames'));
@@ -227,21 +154,24 @@ var loadFavorites = function() {
         favoriteArr.shift();
     }
     
+    // add favorite items in modal list
     for (var i = 0; i < favoriteArr.length; i++) {
-        var g1 = document.querySelector(`#game${i+1}`);
-        g1.textContent = favoriteArr[i];         
+        var g1 = document.querySelector(`#game${i+1}`);      
+        g1.textContent = favoriteArr[i]; 
+        g1.style.display = 'block';        
         var favurl = getFavUrl(favoriteArr[i]);
         g1.href = favurl;
-
-        if(favoriteArr.length<9){
-            for(j=favoriteArr.length; j<9; j++)
-            {
-                var g2 = document.querySelector(`#game${j+1}`);                       
-                g2.style.display = 'none';                
-            }
-        }   
-
     }
+
+    // hide empty list items in modal
+    if(favoriteArr.length<9){      
+        for(j=favoriteArr.length+1; j<=9; j++)
+        {
+            var g2 = document.querySelector(`#game${j}`);  
+            g2.style.display = 'none';
+                     
+        }
+    }   
 }
 
 // get favorite card url from title
@@ -318,7 +248,7 @@ function checkPlatform (checkobject) {
 
     }
 
-    // call getGamesByPlatform function to query api
+    // call function to query api
     getGamesByPlatform(param);    
     
 }
