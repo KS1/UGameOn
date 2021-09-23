@@ -8,9 +8,9 @@ Source code: https://github.com/KS1/UGameOn/tree/dev
 
 Screenshots: https://github.com/KS1/UGameOn/blob/dev/TeamProject1-Screenshots.pdf
 
-Wireframes: https://docs.google.com/presentation/d/1vBgvJzZPhkXUwlxqPrkcK6V41Fr4qVrydo9i4qbCpsM/edit#slide=id.p 
+Wireframes: https://github.com/KS1/UGameOn/blob/dev/Focus%20Project%20Wireframes.pdf
 
-Demo Presentation: https://docs.google.com/presentation/d/1wJnhDcKumqbxAYP88blwZ6hJ4ZD2mFMx/edit#slide=id.p1
+Demo Presentation: https://github.com/KS1/UGameOn/blob/dev/Focus%20Project%20Team6%20Demo%20Presentation.pdf 
 
 JIRA User Stories: https://project1-ugameon.atlassian.net/jira/software/projects/UG/boards/1/backlog 
 
@@ -41,19 +41,18 @@ Implemented Features:
     7. Created Pokemon game using pokemon API
     8. Redirect to Pokemon game to new tab
     9. Pagination for 10 pages
+    10. Pokemon Game
 
+Technologies used: 
+    HTML, CSS , JavaScript, jQuery
+    Materialize CSS framework
+    APIs: 
+    Free-To-Play Games API
+    Pokémon API 
 
-
-    
-	Pagination, footer, Pokémon API
-Kartiki Saraf: 
-	Sourcing API, Free-To-Play Games API, Pokémon API, GitHub setup, JavaScript, my favorite list, merge branches, nav bar & pagination (responsive), sorting, and filter
-Rozz Garrido: 
-	Wireframe, filter functionality 
-Chiayi (Millie) Tsai:
-	User stories, acceptance criteria, game cards, favorite button, google font, css framework, nav bar, merge branches, Pokémon page, ppt
-Miles Beler:
-	Header
+Tools used:
+    VS Code, Git Bash, GitHub, GIT
+    JIRA, Google Doc, Zoom, Slack
 
 
 
