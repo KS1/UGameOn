@@ -32,11 +32,16 @@ As a user, I want to add my favorite game to the game collector box so that I ca
 
 As a user, I want to navigate to more pages to see more games tiles.
 
-Html Page Layout:  
+Html Page Layout:
+
     Navigation, Header, 
+    
     Main Section, Collapsible Pokemon card, Game Tiles, 
+    
     Left Section, Filter By, Sort By,
+    
     Pagination
+    
     Footer 
 
 Implemented Features:
@@ -63,14 +68,19 @@ Implemented Features:
     
 
 Technologies used: 
+
     HTML, CSS , JavaScript, jQuery
+    
     Materialize CSS framework
     
     APIs: 
+    
     Free-To-Play Games API
+    
     Pokémon API 
 
 Tools used:
+
     VS Code, Git Bash, GitHub, GIT
     
     JIRA, Google Doc, Zoom, Slack
