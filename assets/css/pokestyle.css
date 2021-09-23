@@ -20,6 +20,13 @@ a {
   color: white !important;
 }
 
+/* poke header */
+img.pokelogo {
+  width: 50%;
+  height: auto;
+  margin-top: 3em;
+}
+
 .pokedex {
   align-items: flex-end;
   display: flex;

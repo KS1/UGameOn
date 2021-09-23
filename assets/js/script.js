@@ -157,10 +157,7 @@ var getGamesList = function() {
                     gameLinkEl.href = data[i].game_url;
                     
 
-                    // var cardapEl = document.querySelector(`#ap11`);
-                    // cardapEl.href = data[i].game_url;
-                    // console.log("data[i].game_url: " + data[i].game_url); 
-
+                  
                     // check if the game is favorite
                     // console.log("Calling isMyFavorite function...");
                     // console.log(data[i].title);
@@ -175,20 +172,7 @@ var getGamesList = function() {
                     
                 }
 
-                // for(i = 0; i < data.length; i++)
-                // {
-                //     console.log("Id: " + data[i].id);
-                //     console.log("title: " + data[i].title);
-                //     console.log("thumbnail: " + data[i].thumbnail);                   
-                //     console.log("short_description: " + data[i].short_description);                    
-                //     console.log("game_url: " + data[i].game_url);
-                //     console.log("genre: " + data[i].genre);
-                //     console.log("platform: " + data[i].platform);
-                //     console.log("publisher: " + data[i].publisher);
-                //     console.log("developer: " + data[i].developer);
-                //     console.log("release_date: " + data[i].release_date);
-                //     console.log("freetogame_profile_url: " + data[i].freetogame_profile_url);
-                // }
+              
             });
         } else {
             alert(`Error: ${response.statusText}`)
@@ -285,70 +269,10 @@ var getGamesFilter = function() {
                     console.log(data[i].release_date);
                     console.log(data[i].freetogame_profile_url);
 
-                    // console.log(data[i].minimum_system_requirements);
-                    // console.log(data[i].minimum_system_requirements.os);
-                    // console.log(data[i].minimum_system_requirements.processor);
-                    // console.log(data[i].minimum_system_requirements.memory);
-                    // console.log(data[i].minimum_system_requirements.graphics);
-                    // console.log(data[i].minimum_system_requirements.storage);
-
-                    // console.log(data[i].screenshots);
-
-                    // console.log(data[i].screenshots[0]);
-                    // console.log(data[i].screenshots[0].id);
-                    // console.log(data[i].screenshots[0].image);
-
-                    // console.log(data[i].screenshots[1]);
-                    // console.log(data[i].screenshots[1].id);
-                    // console.log(data[i].screenshots[1].image);
-
-                    // console.log(data[i].screenshots[2]);
-                    // console.log(data[i].screenshots[2].id);
-                    // console.log(data[i].screenshots[2].image);
-
-                    // console.log(data[i].screenshots[3]);
-                    // console.log(data[i].screenshots[3].id);
-                    // console.log(data[i].screenshots[3].image);
+                   
                 }
 
-                // query returns 1 record 
-                // console.log(data.id);
-                // console.log(data.title);
-                // console.log(data.thumbnail);
-                // console.log(data.short_description);
-                // console.log(data.description);
-                // console.log(data.game_url);
-                // console.log(data.genre);
-                // console.log(data.platform);
-                // console.log(data.publisher);
-                // console.log(data.developer);
-                // console.log(data.release_date);
-                // console.log(data.freetogame_profile_url);
-
-                // console.log(data.minimum_system_requirements);
-                // console.log(data.minimum_system_requirements.os);
-                // console.log(data.minimum_system_requirements.processor);
-                // console.log(data.minimum_system_requirements.memory);
-                // console.log(data.minimum_system_requirements.graphics);
-                // console.log(data.minimum_system_requirements.storage);
-
-                // console.log(data.screenshots);
-
-                // console.log(data.screenshots[0]);
-                // console.log(data.screenshots[0].id);
-                // console.log(data.screenshots[0].image);
-
-                // console.log(data.screenshots[1]);
-                // console.log(data.screenshots[1].id);
-                // console.log(data.screenshots[1].image);
-
-                // console.log(data.screenshots[2]);
-                // console.log(data.screenshots[2].id);
-                // console.log(data.screenshots[2].image);
-
-                // console.log(data.screenshots[3]);
-                // console.log(data.screenshots[3].id);
-                // console.log(data.screenshots[3].image);
+                
                
             });
         } else {
@@ -434,86 +358,7 @@ var getGamesByPlatform = function(platform) {
                         }
                         
                     }
-
-                    // Games by platform & category & sorted
-                    // for(i = 0; i < data.length; i++)
-                    // {
-                        // console.log("Id: " + data[i].id);
-                        // console.log("title: " + data[i].title);
-                        // console.log(data[i].thumbnail);                   
-                        // console.log(data[i].short_description);                    
-                        // console.log(data[i].game_url);
-                        // console.log(data[i].genre);
-                        // console.log(data[i].platform);
-                        // console.log(data[i].publisher);
-                        // console.log(data[i].developer);
-                        // console.log(data[i].release_date);
-                        // console.log(data[i].freetogame_profile_url);
-    
-                        // console.log(data[i].minimum_system_requirements);
-                        // console.log(data[i].minimum_system_requirements.os);
-                        // console.log(data[i].minimum_system_requirements.processor);
-                        // console.log(data[i].minimum_system_requirements.memory);
-                        // console.log(data[i].minimum_system_requirements.graphics);
-                        // console.log(data[i].minimum_system_requirements.storage);
-    
-                        // console.log(data[i].screenshots);
-    
-                        // console.log(data[i].screenshots[0]);
-                        // console.log(data[i].screenshots[0].id);
-                        // console.log(data[i].screenshots[0].image);
-    
-                        // console.log(data[i].screenshots[1]);
-                        // console.log(data[i].screenshots[1].id);
-                        // console.log(data[i].screenshots[1].image);
-    
-                        // console.log(data[i].screenshots[2]);
-                        // console.log(data[i].screenshots[2].id);
-                        // console.log(data[i].screenshots[2].image);
-    
-                        // console.log(data[i].screenshots[3]);
-                        // console.log(data[i].screenshots[3].id);
-                        // console.log(data[i].screenshots[3].image);
-                    // }
-    
-                    // query returns 1 record 
-                    // console.log(data.id);
-                    // console.log(data.title);
-                    // console.log(data.thumbnail);
-                    // console.log(data.short_description);
-                    // console.log(data.description);
-                    // console.log(data.game_url);
-                    // console.log(data.genre);
-                    // console.log(data.platform);
-                    // console.log(data.publisher);
-                    // console.log(data.developer);
-                    // console.log(data.release_date);
-                    // console.log(data.freetogame_profile_url);
-    
-                    // console.log(data.minimum_system_requirements);
-                    // console.log(data.minimum_system_requirements.os);
-                    // console.log(data.minimum_system_requirements.processor);
-                    // console.log(data.minimum_system_requirements.memory);
-                    // console.log(data.minimum_system_requirements.graphics);
-                    // console.log(data.minimum_system_requirements.storage);
-    
-                    // console.log(data.screenshots);
-    
-                    // console.log(data.screenshots[0]);
-                    // console.log(data.screenshots[0].id);
-                    // console.log(data.screenshots[0].image);
-    
-                    // console.log(data.screenshots[1]);
-                    // console.log(data.screenshots[1].id);
-                    // console.log(data.screenshots[1].image);
-    
-                    // console.log(data.screenshots[2]);
-                    // console.log(data.screenshots[2].id);
-                    // console.log(data.screenshots[2].image);
-    
-                    // console.log(data.screenshots[3]);
-                    // console.log(data.screenshots[3].id);
-                    // console.log(data.screenshots[3].image);
+                    
                    
                 });
             } else {
@@ -866,7 +711,6 @@ function sortData(){
     // https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/
     // list.sort((a, b) => (a.color > b.color) ? 1 : -1)
     sortedArr.sort((a, b) => (a.title > b.title) ? 1 : -1);
-
  
     // sortedRDateArr.sort((a, b) => (a.title > b.title) ? 1 : -1);
 
@@ -917,9 +761,6 @@ function fillUpCardData(cardDataArr) {
             // console.log("#cgame1");
             gameLinkEl.href = cardDataArr[i].game_url;
     
-            // var cardapEl = document.querySelector(`#ap11`);
-            // cardapEl.href = data[i].game_url;
-            // console.log("data[i].game_url: " + data[i].game_url); 
 
             // check if the game is favorite
             // console.log("Calling isMyFavorite function...");

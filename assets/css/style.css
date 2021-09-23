@@ -78,6 +78,14 @@ i.material-icons.nav {
   align-items: center;
   text-align: center;
 }
+
+/* poke header */
+/* img.pokelogo {
+  width: 50%;
+  height: auto;
+  margin-top: 3em;
+} */
+
 .collapsible-header {
   text-align: center;
   background-color: var(--iron-grey);
