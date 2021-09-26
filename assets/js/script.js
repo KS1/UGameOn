@@ -33,6 +33,9 @@ var getGamesList = function() {
 
                 // fill up card data
                 fillUpCardData(data);
+
+                // load favorites in modal
+                loadFavorites();
               
             });
         } else {
@@ -104,13 +107,18 @@ var saveFavoriteCard = function(cardId) {
     var favorite = c1.textContent;
     
     favoriteArr = JSON.parse(localStorage.getItem('myFavoriteGames'));
-    
-    // prevent duplicate favorite from being saved and move it to end of array
-    for (var i = 0; i < favoriteArr.length; i++) {
-        if (favorite === favoriteArr[i]) {
-            favoriteArr.splice(i, 1);
+    if(favoriteArr == null)
+        favoriteArr = [];
+
+    if (!favoriteArr){
+        // prevent duplicate favorite from being saved and move it to end of array
+        for (var i = 0; i < favoriteArr.length; i++) {
+            if (favorite === favoriteArr[i]) {
+                favoriteArr.splice(i, 1);
+            }
         }
     }
+
     favoriteArr.push(favorite);
     localStorage.setItem('myFavoriteGames', JSON.stringify(favoriteArr));
 
@@ -124,6 +132,11 @@ var removeFavoriteCard = function(cardId) {
  
     var c1 = document.querySelector(`#${cardId}-title`);
     var favorite = c1.textContent;   
+
+    if (!favoriteArr) {
+        favoriteArr = [];
+        return false;
+    }
 
     // remove item from array
     for (var i = 0; i < favoriteArr.length; i++) {
@@ -153,6 +166,15 @@ var loadFavorites = function() {
         // save only the ten most recent favorites
         favoriteArr.shift();
     }
+
+    // hide list items in modal initially
+    if(favoriteArr.length<9){      
+        for(j=1; j<=9; j++)
+        {
+            var g2 = document.querySelector(`#game${j}`);  
+            g2.style.display = 'none';                     
+        }
+    }   
     
     // add favorite items in modal list
     for (var i = 0; i < favoriteArr.length; i++) {
@@ -162,16 +184,6 @@ var loadFavorites = function() {
         var favurl = getFavUrl(favoriteArr[i]);
         g1.href = favurl;
     }
-
-    // hide empty list items in modal
-    if(favoriteArr.length<9){      
-        for(j=favoriteArr.length+1; j<=9; j++)
-        {
-            var g2 = document.querySelector(`#game${j}`);  
-            g2.style.display = 'none';
-                     
-        }
-    }   
 }
 
 // get favorite card url from title
@@ -394,6 +406,8 @@ function fillUpCardData(cardDataArr) {
             
         }
 }
+
+
 
 // call getGamesList funtion on page load
 getGamesList();
