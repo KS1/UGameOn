@@ -18,8 +18,8 @@ var getGamesList = function() {
     })
     .then(response => {
         if (response.ok) {
-            response.json().then(function(data) {            
-
+            response.json().then(function(data) {    
+             
                 // get favorites from local storage
                 favoriteArr = JSON.parse(localStorage.getItem('myFavoriteGames'));
                 
@@ -74,7 +74,6 @@ var getGamesByPlatform = function(platform) {
             } else {
                 alert(`Error: ${response.statusText}`)
             }
-            console.log(response);
             
         })
         .catch(err => {
@@ -346,6 +345,19 @@ function pageGetData(pnum){
         var cardImageEl = document.querySelector(`#card${j+1}-img`);
         cardImageEl.src = dataArr[i].thumbnail;
 
+        var gameLinkEl = document.querySelector(`#cgame${j+1}`);
+        gameLinkEl.href = dataArr[i].game_url;
+
+        // check if the game is favorite
+        var myFav = isMyFavorite(dataArr[i].title);
+        // change favorite button color
+        var t1 = document.querySelector(`#card${j+1}`);   
+        if (myFav === true) {                            
+            t1.style.backgroundColor = "rgb(255, 72, 0)";
+        } else {
+            t1.style.backgroundColor = "rgb(119, 176, 250)";
+        }
+
         j++;        
     }
     
@@ -357,13 +369,13 @@ function sortData(){
     // get sorted array by title
     sortedArr.sort((a, b) => (a.title > b.title) ? 1 : -1);
 
-    // get sorted array by release date
+    // get sorted array by release date in descending order
     sortedRDateArr.sort((a, b) => {
         let da = new Date(a.release_date),
             db = new Date(b.release_date);
-        return da - db;
+        return db - da;
     });
-
+    
     // fill up card data based on sorting option
     var x = document.getElementById("sortselect").value;  
     if(x === 'opt0'){
@@ -384,6 +396,9 @@ function fillUpCardData(cardDataArr) {
         {
             var cardTitleEl = document.querySelector(`#card${i+1}-title`);
             cardTitleEl.textContent = cardDataArr[i].title;
+            
+            // var cardRDateEl = document.querySelector(`#card1-release-date`);
+            // cardRDateEl.textContent = cardDataArr[i].release_date;
 
             var cardShortDescriptionEl = document.querySelector(`#card${i+1}-short-description`);
             cardShortDescriptionEl.textContent = cardDataArr[i].short_description; 
