@@ -86,7 +86,3 @@ Tools used:
     JIRA, Google Doc, Zoom, Slack
 
 
-
-
-
-

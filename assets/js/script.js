@@ -1,4 +1,3 @@
-
 // initialize variables
 var favoriteArr = [];
 var dataArr = [];
