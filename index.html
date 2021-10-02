@@ -1,1 +1,355 @@
+    <!-- Favicon -->
+    <link rel="icon" href="./assets/images/gaming-icon-7.jpg" sizes="16x16" type="image/png">
 
+    <!-- Title -->
+    <title>Focus</title>
+
+    <!-- jquery ui -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Materialize CSS - Compiled and minified CSS -->
+    <!-- https://materializecss.com/ -->    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+
+  <!-- header -->
+    <header> 
+      <div id="top-page" class="navbar-fixed">
+        <nav>
+          <div class="nav-wrapper grey darken-4">
+            <a class="brand-logo nav"><i class="large material-icons">center_focus_weak</i>Focus</a>
+            <a href="#" class="sidenav-trigger" data-target="mobile-nav">
+              <i class="material-icons">menu</i>
+            </a>            
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><a href="#top-page" class="nav">Home</a></li>
+
+              <!-- Show modal when user clicks on My Favorite -->
+              <li><a href="#myFavoriteModal" class="nav modal-trigger" onclick="loadFavorites();">My Favorite</a></li>              
+              
+              <li><a href="#top-page" class="nav">About</a></li>
+              <li><a href="#top-page"><i class="material-icons nav">search</i></a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>  
+    </header>
+  
+   
+<main> 
+  <div class="container">
+
+    <!-- https://materializecss.com/collapsible.html -->
+    <ul class="collapsible popout center-align">
+      <li class="active">
+        <div class="collapsible-header"><img class="pokelogo" src="https://www.logosurfer.com/wp-content/uploads/2018/03/pokemon-logo_0.png"alt="Pokemon Logo" /></a></div>
+
+        <div class="collapsible-body">
+                <!-- Pokémon card start -->
+                <div class="row">
+                    <div class="col s12 poke">
+                        <a id="ap" target="_blank" href="pokemon.html">
+                        <div class=" pok-card">
+                            <div class="card-image">
+                              <img id="card0-img" src="https://www.gannett-cdn.com/presto/2021/08/09/USAT/86042c95-3bd3-49a7-8625-5e6a518644b2-Pokemon_UNITE_-_Team_Up._Take_Down._-_Hero_Image_With_Logo_-_1080p.png?auto=webp&crop=1911,1075,x0,y0&format=pjpg&width=1200"alt="pokemon image">
+                             </div>
+                            <a href="pokemon.html">
+                              <div class="card-content pokecard">
+                                <span id="card0-title" class="card-title" >Pokémon Go Pokedex</span>
+                                <p id="card0-short-description" class="poketext">Pokémon Go Pokedex has all the unique types that you’ve been searching for. </p>
+                              </div>
+                            </a>
+                        </div>
+                        </a>
+                    </div>
+              </div>
+            <!-- Pokémon card end -->
+          </div>
+        </li>      
+      </ul>
+
+    <div class="row">
+
+        <div class="col s12 m9 l3">
+
+          <div class="sorting-container1">  
+          <!-- Grey navigation panel -->
+                                
+            <!-- Filter By -->           
+            <h3> Filter By Platform </h3>     
+            <br/>            
+            <p><label>             
+                <input id="pc" type="checkbox" checked="checked" onclick="checkPlatform(this)"/>
+                <span class="sorting-items">PC</span>
+              </label></p>
+            <br/>
+            <p><label>
+                <input id="browser" type="checkbox" checked="checked" onclick="checkPlatform(this)"/>
+                <span class="sorting-items">Browser</span>
+              </label></p>        
+            <br/>
+            <br/>
+            <br/>
+            
+            <!-- Sort By Options  -->
+            <!-- https://materializecss.com/select.html -->
+            <p> 
+              <h3> Sort By </h3>        
+              <br/>     
+              <select id="sortselect" class="browser-default" onchange="sortData()">
+                <option value="opt0" selected> select.. </option>
+                <option value="opt1">Alphabetical</option>
+                <option value="opt2">Release Date</option>                
+              </select>
+            </p>     
+            
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+       
+          </div> <!--sorting-container1 -->
+        </div>
+
+         
+        <div class="col s12 m9 l9 card-container"> 
+        <!-- Teal page content  -->
+
+            <div class="row">
+
+                  <!-- Card 1 --> 
+                    <div class="col s12 m6 l6 xl4">
+                      <div class="card">
+                        <div class="card-image">
+                          <a id="cgame1" target="_blank">
+                            <img id="card1-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                            <a class="btn-floating halfway-fab waves-effect" ><i id="card1" class="material-icons add-icon" >favorite</i></a>
+                          </a>    
+                          </div>                          
+                          <div class="card-content">                            
+                              <span id="card1-title" class="card-title" >Card Title</span>                             
+                              <p id="card1-short-description">I am a very simple card. I am good at containing small bits of information..</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Card 2 -->
+                      <div class="col s12 m6 l6 xl4">
+                        <div class="card">
+                          <div class="card-image">
+                            <a id="cgame2" target="_blank">
+                              <img id="card2-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                              <a class="btn-floating halfway-fab waves-effect" ><i id="card2" class="material-icons add-icon">favorite</i></a>                          
+                            </a>
+                          </div>
+                          <div class="card-content">
+                            <span id="card2-title" class="card-title">Card Title</span>
+                            <p id="card2-short-description">I am a very simple card. I am good at containing small bits of information..</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Card 3 -->
+                      <div class="col s12 m6 l6 xl4">
+                        <div class="card">
+                          <div class="card-image">
+                            <a id="cgame3"  target="_blank">
+                              <img id="card3-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                              <a class="btn-floating halfway-fab waves-effect" ><i id="card3" class="material-icons add-icon">favorite</i></a>                         
+                            </a>
+                          </div>
+                          <div class="card-content">
+                            <span id="card3-title" class="card-title">Card Title</span>
+                            <p id="card3-short-description">I am a very simple card. I am good at containing small bits of information..</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Card 4 -->
+                      <div class="col s12 m6 l6 xl4">
+                        <div class="card">
+                          <div class="card-image">
+                            <a id="cgame4"  target="_blank">
+                              <img id="card4-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                              <a class="btn-floating halfway-fab waves-effect" ><i id="card4" class="material-icons add-icon">favorite</i></a> 
+                            </a>
+                          </div>
+                          <div class="card-content">
+                            <span id="card4-title" class="card-title">Card Title</span>
+                            <p id="card4-short-description">I am a very simple card. I am good at containing small bits of information..</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!-- Card 5 -->
+                      <div class="col s12 m6 l6 xl4">
+                        <div class="card">
+                          <div class="card-image">
+                            <a id="cgame5"  target="_blank">
+                              <img id="card5-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                              <a class="btn-floating halfway-fab waves-effect" ><i id="card5" class="material-icons add-icon">favorite</i></a>
+                            </a>
+                          </div>
+                          <div class="card-content">
+                            <span id="card5-title" class="card-title">Card Title</span>
+                            <p id="card5-short-description">I am a very simple card. I am good at containing small bits of information..</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!-- Card 6 -->
+                      <div class="col s12 m6 l6 xl4">
+                        <div class="card">
+                          <div class="card-image">
+                            <a id="cgame6"  target="_blank">
+                              <img id="card6-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                              <a class="btn-floating halfway-fab waves-effect" ><i id="card6" class="material-icons add-icon">favorite</i></a>
+                            </a>
+                          </div>
+                          <div class="card-content">
+                            <span id="card6-title" class="card-title">Card Title</span>
+                            <p id="card6-short-description">I am a very simple card. I am good at containing small bits of information..</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!-- Card 7 -->
+                      <div class="col s12 m6 l6 xl4">
+                        <div class="card">
+                          <div class="card-image">
+                            <a id="cgame7" target="_blank">
+                              <img id="card7-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                              <a class="btn-floating halfway-fab waves-effect" ><i id="card7" class="material-icons add-icon">favorite</i></a>
+                            </a>
+                            </div>
+                          <div class="card-content">
+                            <span id="card7-title" class="card-title">Card Title</span>
+                            <p id="card7-short-description">I am a very simple card. I am good at containing small bits of information..</p>
+                          </div>
+                        </div>
+                      </div>
+
+                       <!-- Card 8 -->
+                       <div class="col s12 m6 l6 xl4">
+                        <div class="card">
+                            <div class="card-image">
+                              <a id="cgame8"  target="_blank">
+                                <img id="card8-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                                <a class="btn-floating halfway-fab waves-effect" ><i id="card8" class="material-icons add-icon">favorite</i></a>
+                              </a>
+                              </div>  
+                            <div class="card-content">
+                              <span id="card8-title" class="card-title">Card Title</span>
+                              <p id="card8-short-description">I am a very simple card. I am good at containing small bits of information..</p>
+                            </div>
+                        </div>
+                      </div>
+
+                       <!-- Card 9 -->
+                       <div class="col s12 m6 l6 xl4">
+                        <div class="card">
+                          <div class="card-image">
+                            <a id="cgame9" target="_blank">
+                              <img id="card9-img" src="https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/06/Clash-royale.jpeg?fit=640%2C400&ssl=1" alt="Card Image">
+                              <a class="btn-floating halfway-fab waves-effect" ><i id="card9" class="material-icons add-icon">favorite</i></a>
+                            </a>
+                            </div>
+                          <div class="card-content">
+                            <span id="card9-title" class="card-title">Card Title</span>
+                            <p id="card9-short-description">I am a very simple card. I am good at containing small bits of information..</p>
+                          </div>
+                        </div>
+                      </div>          
+ 
+                  <!-- Modal form to list favorite games -->
+                  <div id="myFavoriteModal" class="modal modal-fixed-footer">
+                    <div class="modal-content">
+                      <h4>My Favorite Games</h4>
+                         <!-- https://materializecss.com/collections.html#! -->
+                        <div id="favoriteList" class="collection with-header">
+                          <a id="game1" style="display: none;" target="_blank" href="#!" class="collection-item"></a>                          
+                          <a id="game2" style="display: none;" target="_blank" href="#!" class="collection-item"></a>
+                          <a id="game3" style="display: none;" target="_blank" href="#!" class="collection-item"></a>
+                          <a id="game4" style="display: none;" target="_blank" href="#!" class="collection-item"></a>
+                          <a id="game5" style="display: none;" target="_blank" href="#!" class="collection-item"></a>                          
+                          <a id="game6" style="display: none;" target="_blank" href="#!" class="collection-item"></a>
+                          <a id="game7" style="display: none;" target="_blank" href="#!" class="collection-item"></a>
+                          <a id="game8" style="display: none;" target="_blank" href="#!" class="collection-item"></a>
+                          <a id="game9" style="display: none;" target="_blank" href="#!" class="collection-item"></a>     
+                        </div>           
+                    </div>
+                    <div class="modal-footer">
+                      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                    </div>
+                  </div>
+             
+            </div> <!--"row" -->
+          
+        </div>
+
+        <!--Pagination-->
+        <div>
+          <div class="center-align ">
+            <ul class="pagination">
+              <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+              <li id="li1" class="active blue lighten-2"><a id="page1" href="#!" onclick="populatePageData('1')">1</a></li>
+              <li id="li2" class="waves-effect"><a id="page2" href="#!" onclick="populatePageData('2')">2</a></li>
+              <li id="li3" class="waves-effect"><a id="page3" href="#!" onclick="populatePageData('3')">3</a></li>
+              <li id="li4" class="waves-effect"><a id="page4" href="#!" onclick="populatePageData('4')">4</a></li>
+              <li id="li5" class="waves-effect"><a id="page5" href="#!" onclick="populatePageData('5')">5</a></li>
+              <li id="li6" class="waves-effect"><a id="page6" href="#!" onclick="populatePageData('6')">6</a></li>
+              <li id="li7" class="waves-effect"><a id="page7" href="#!" onclick="populatePageData('7')">7</a></li>
+              <li id="li8" class="waves-effect"><a id="page8" href="#!" onclick="populatePageData('8')">8</a></li>
+              <li id="li9" class="waves-effect"><a id="page9" href="#!" onclick="populatePageData('9')">9</a></li>
+              <li id="li10" class="waves-effect"><a id="page10" href="#!" onclick="populatePageData('10')">10</a></li>
+              <li class="waves-effect"><a href="#!" ><i class="material-icons">chevron_right</i></a></li>
+
+            </ul>
+          </div>
+        </div>
+        <!--Pagination-->
+
+
+    </div> 
+    
+  </main>
+    <!-- footer  -->
+    <!-- https://materializecss.com/footer.html -->
+    <footer class="page-footer grey darken-4">
+      
+      <div class="footer-copyright">
+        <div class="container">
+            © 2021 Focus Games, all rights reserved. All trademarks are property of their respective owners.
+        </div>
+      </div>
+      
+    </footer>
+
+    <!--  0919 jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    
+    <!-- JQuery Import -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Materialize CSS JavaScript - Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- JavaScript Import  -->
+    <script src='./assets/js/script.js'></script>
+    <script src='./assets/js/test.js'></script>
+</body>
+</html>

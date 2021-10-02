@@ -1,1 +1,282 @@
+:root {
+  --blue: #77b0fa;
+  --white: white;
+  --dark-blue: #1e2e44;
+  --iron-grey: #272727;
+  --mid-grey: #3b3b3b;
+  --font-size: 1.2em;
+}
 
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: var(--dark-blue); 
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.large.material-icons {
+  margin-left: 1em;
+  color: var(--blue);
+}
+
+.brand-logo.nav {
+  color: var(--blue);
+  letter-spacing: 0.12em;
+  font-size: 2em;
+  margin-left: 2em;
+}
+
+.nav {
+  color: var(--blue);
+  margin-right: 10em;
+  letter-spacing: 0.09em;
+}
+.nav:hover {
+  text-shadow: 0 0 10px #aabeff;
+}
+
+a.nav {
+  margin-right: 8em;
+}
+i.material-icons.nav {
+  margin-right: 5em;
+}
+
+/* pokemon card */
+.pokelogo {
+  width: 100px;
+  align-items: center;
+  text-align: center;
+}
+
+.collapsible-header {
+  text-align: center;
+  background-color: var(--iron-grey);
+  box-shadow: 0 0 10px #aabeff;
+  border-radius: 5px 5px 0 0;
+  border: 0px solid transparent;
+  margin-top: 20px;
+}
+
+.collapsible-header:hover {
+  box-shadow: 0 0 10px #aabeff;
+}
+
+.collapsible-body {
+  background-color: var(--iron-grey);
+  border: 0px;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 0 10px #aabeff;
+  padding: 0px 0 10px 0px;
+  margin: 0px;
+}
+
+.row .col.poke {
+  padding: 0px;
+}
+
+div .card-content.pokecard {
+  line-height: 2em;
+  margin-top: 10px;
+}
+
+#card0-title.card-title {
+  font-size: 1.4em;
+  margin-top: 10px;
+}
+
+.poketext {
+  line-height: 2em;
+  font-size: 1.1em;
+}
+
+/* sorting + cards*/
+div.row {
+  margin-top: 0;
+}
+
+/* sorting */
+h3 {
+  font-size: 1.2em;
+  font-weight: 400;
+  margin: 0px;
+  margin-bottom: 10px;
+  color: var(--blue);
+  text-shadow: 0 0 10px #aabeff;
+}
+span {
+  font-size: 0.8em;
+}
+.sorting-container1 {
+  margin-top: 3%;
+  margin-right: 2%;
+  margin-bottom: 20px;
+  background-color: var(--iron-grey);
+  border-radius: 5px;
+  width: 100%;
+  padding: 20px;
+  text-align: left;
+}
+
+select.browser-default {
+  display: block;
+  font-size: 0.85em;
+  background-color: var(--mid-grey);
+  color: var(--white);
+  border-radius: 5px;
+  border: 0px solid transparent;
+}
+
+.sorting-items {
+  color: var(--white);
+}
+
+[type="checkbox"]:checked + span:not(.lever):before {
+  border-right: 2px solid var(--blue);
+  border-bottom: 2px solid var(--blue);
+}
+
+/* card  */
+#card0-img {
+  width: 100%;
+  height: auto;
+}
+
+.card .card-content .card-title {
+  font-size: 1.3em;
+}
+div.card {
+  width: 100%;
+  cursor: pointer;  
+}
+.card:hover {
+  box-shadow: 0 0 10px #aabeff;
+}
+
+p {
+  font-size: 0.85em;
+}
+div.card-content {
+  line-height: 1em;
+  background-color: var(--iron-grey);
+  color: var(--white);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.card .card-content {
+  padding: 15px;
+}
+
+/* Favorite icon */
+.add-icon {
+  background-color: var(--blue);
+  font-size: 1em !important;
+}
+
+.add-icon:hover {
+  color: var(--white);
+  background-color: rgb(255, 72, 0) !important;
+}
+
+.blue {
+  color: var(--white);
+  background-color: var(--blue);
+}
+
+.red {
+  color: rgb(255, 72, 0);
+  background-color: var(--white);
+}
+
+.footer-copyright {
+  background-color: var(--iron-grey);
+  color: var(--white);
+  text-align: center;
+}
+
+.page-footer {
+  width: 100%;
+}
+
+/* my favorite list */
+
+.modal .modal-content {
+  background-color: var(--iron-grey);
+  padding: 30px;
+  width: 100%;
+  height: 20%;
+}
+
+h4 {
+  font-size: 1.5em;
+  color: var(--blue);
+  font-weight: normal;
+  text-align: center;
+  text-shadow: 0 0 10px #aabeff;
+  padding-top: 20px;
+}
+.collection a.collection-item {
+  color: var(--blue);
+  font-weight: bold;
+  text-align: center;
+  background-color: var(--iron-grey);
+  width: 100%;
+}
+.modal.modal-fixed-footer .modal-footer {
+  background-color: var(--mid-grey);
+  color: var(--white);
+}
+.btn-flat {
+  color: var(--white);
+  font-size: 0.85em;
+  letter-spacing: 0.08em;
+  border-radius: 5px;
+  background-color: var(--blue);
+}
+.btn-flat:hover {
+  background-color: #4c97f8;
+  box-shadow: 0 0 10px #aabeff;
+}
+.btn-flat:focus {
+  background-color: #4c97f8 !important;
+  box-shadow: 0 0 10px #aabeff;
+}
+.btn-flat:active {
+  background-color: #4c97f8 !important;
+  box-shadow: 0 0 10px #aabeff;
+}
+
+
+/* added media query here */
+@media screen and (max-width: 320px) {
+  .brand-logo.nav {margin-left: 0px !important}  
+}
+
+@media screen and (max-width: 320px) {
+  .nav {width: 50% !important}  
+}
+
+@media screen and (max-width: 320px) {
+  .large.material-icons {
+    width: 50% !important;
+    /* margin-left: 1em; */
+  }  
+}
+
+@media only screen and (max-width: 992px){
+.pagination {    
+    max-width: 80% !important;
+  }    
+}
